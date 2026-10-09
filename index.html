@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <title>Fly Anytime | Incredible India Trip Organizer & Bespoke Flight Experiences</title>
+  <meta name="description" content="India's bespoke luxury travel atelier. Private flight charters, handpicked royal palace stays, luxury trains and 24/7 dedicated concierge orchestration.">
+  
+  <!-- Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN for Utility Classes -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-low": "#f5f3f0",
+            "primary-fixed": "#ffdbc8",
+            "on-tertiary-fixed": "#051b39",
+            "surface-bright": "#fbf9f6",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#243756",
+            "secondary-fixed": "#ffdbcd",
+            "surface-container": "#efeeeb",
+            "secondary-fixed-dim": "#ffb595",
+            "inverse-primary": "#ffb68b",
+            "primary-fixed-dim": "#ffb68b",
+            "inverse-on-surface": "#f2f0ed",
+            "on-secondary-container": "#5c2000",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#e4e2df",
+            "on-background": "#1b1c1a",
+            "on-primary-fixed": "#321200",
+            "surface-variant": "#e4e2df",
+            "surface": "#fbf9f6",
+            "secondary": "#a23f00",
+            "on-primary-container": "#5c2800",
+            "primary": "#994700",
+            "surface-dim": "#dbdad7",
+            "tertiary-fixed-dim": "#b4c7ed",
+            "on-secondary-fixed": "#351000",
+            "inverse-surface": "#30312f",
+            "on-primary-fixed-variant": "#753400",
+            "tertiary-fixed": "#d6e3ff",
+            "on-tertiary-fixed-variant": "#344767",
+            "on-secondary": "#ffffff",
+            "on-surface": "#1b1c1a",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "outline": "#8c7263",
+            "surface-container-high": "#eae8e5",
+            "secondary-container": "#fc7127",
+            "primary-container": "#ff7a00",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#584235",
+            "tertiary-container": "#8ea1c6",
+            "surface-tint": "#994700",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#7c2e00",
+            "outline-variant": "#e0c0af",
+            "background": "#fbf9f6",
+            "tertiary": "#4c5f80"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 glass-nav shadow-sm">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a class="flex items-center gap-3 group" href="index.html">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary shadow-md shadow-primary/20 transform transition-transform group-hover:scale-105">
+          <span class="material-symbols-outlined text-2xl rotate-45">flight</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-extrabold text-primary tracking-tight flex items-center gap-1.5">
+            Fly Anytime
+            <span class="w-2 h-2 rounded-full bg-secondary-container animate-ping inline-block"></span>
+          </span>
+          <span class="text-[11px] text-tertiary tracking-wider font-semibold uppercase">Bespoke India Journeys</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7">
+        <a class="text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Curated Packages</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="flights.html">Flights & Charters</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="stays.html">Heritage Stays</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="trains.html">Luxury Trains</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="destinations.html">Destinations</a>
+      </nav>
+
+      <!-- Trailing Action Cluster -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface-variant text-xs font-semibold">
+          <span class="material-symbols-outlined text-sm text-primary">currency_rupee</span>
+          <span>INR</span>
+          <span class="text-outline-variant">|</span>
+          <span class="font-bold text-on-surface">EN</span>
+        </div>
+        
+        <button class="open-plan-modal primary-btn-3d text-on-primary text-xs sm:text-sm px-5 py-2.5 rounded-full flex items-center gap-2 font-bold cursor-pointer transition-transform active:scale-95 duration-150" data-package="Bespoke India Consultation">
+          <span class="material-symbols-outlined text-base">travel_explore</span>
+          <span>Plan My Trip</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" aria-label="Open mobile navigation">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobileNavOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  <aside id="mobileNavDrawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-surface-bright z-50 shadow-2xl p-6 flex flex-col gap-6 translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-lg rotate-45">flight</span>
+        </div>
+        <span class="font-bold text-base text-primary">Fly Anytime</span>
+      </div>
+      <button id="mobileCloseBtn" class="p-1 rounded-lg text-on-surface hover:bg-surface-container" aria-label="Close menu">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-3">
+      <a class="px-4 py-3 rounded-xl bg-primary-fixed text-on-primary-fixed-variant font-bold flex items-center gap-3" href="index.html">
+        <span class="material-symbols-outlined text-lg">explore</span> Curated Packages
+      </a>
+      <a class="px-4 py-3 rounded-xl hover:bg-surface-container text-on-surface font-semibold flex items-center gap-3 transition-colors" href="flights.html">
+        <span class="material-symbols-outlined text-lg">flight_takeoff</span> Flights & Charters
+      </a>
+      <a class="px-4 py-3 rounded-xl hover:bg-surface-container text-on-surface font-semibold flex items-center gap-3 transition-colors" href="stays.html">
+        <span class="material-symbols-outlined text-lg">fort</span> Heritage Palaces & Stays
+      </a>
+      <a class="px-4 py-3 rounded-xl hover:bg-surface-container text-on-surface font-semibold flex items-center gap-3 transition-colors" href="trains.html">
+        <span class="material-symbols-outlined text-lg">train</span> Luxury Trains
+      </a>
+      <a class="px-4 py-3 rounded-xl hover:bg-surface-container text-on-surface font-semibold flex items-center gap-3 transition-colors" href="destinations.html">
+        <span class="material-symbols-outlined text-lg">map</span> Destinations
+      </a>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t border-outline-variant/20 flex flex-col gap-3">
+      <div class="text-xs text-tertiary font-semibold flex items-center justify-between">
+        <span>Concierge Hotline:</span>
+        <span class="text-primary font-bold">1800-419-FLYNOW</span>
+      </div>
+      <button class="open-plan-modal primary-btn-3d w-full py-3 rounded-xl font-bold text-sm text-on-primary" data-package="Mobile Concierge Request">
+        Start Customized Plan
+      </button>
+    </div>
+  </aside>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-10 sm:pt-16 pb-20 overflow-hidden">
+    <!-- Atmospheric Background Ambient & Mandala -->
+    <div class="pattern-mandala absolute inset-0 pointer-events-none"></div>
+    <div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary-fixed/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-20 right-10 w-80 h-80 bg-secondary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 left-10 w-96 h-96 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Hero Text & Value Props -->
+        <div class="lg:col-span-7 flex flex-col gap-5 sm:gap-6">
+          <div class="inline-flex items-center gap-2 self-start px-3.5 py-1 rounded-full bg-surface-container border border-outline-variant/30">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+            <span class="text-xs text-primary font-bold uppercase tracking-widest">India's Bespoke Luxury Atelier</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-on-background tracking-tight leading-[1.15]">
+            Handcrafted Journeys Across <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">Incredible India</span>.
+          </h1>
+          
+          <p class="text-base sm:text-lg text-on-surface-variant max-w-xl leading-relaxed">
+            Bespoke private flight charters, handpicked royal palace residences, and dedicated round-the-clock concierge orchestration tailored exclusively to your rhythm.
+          </p>
+          
+          <div class="flex items-center gap-6 sm:gap-8 pt-4 border-t border-outline-variant/20 max-w-lg">
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-on-surface">4.98★</p>
+              <p class="text-xs text-tertiary font-medium">Exceptional Guest Rating</p>
+            </div>
+            <div class="h-8 w-px bg-outline-variant/30"></div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-on-surface">100%</p>
+              <p class="text-xs text-tertiary font-medium">Tailored Private Itineraries</p>
+            </div>
+            <div class="h-8 w-px bg-outline-variant/30"></div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-on-surface">24 / 7</p>
+              <p class="text-xs text-tertiary font-medium">Dedicated Royal Concierge</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero 3D Asymmetric Imagery Composition -->
+        <div class="lg:col-span-5 relative">
+          <div class="clay-card rounded-3xl p-3 bg-surface-container-lowest relative z-10 transition-transform duration-500">
+            <div class="hero-media-wrap">
+              <img class="responsive-img-cover" 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIkJrk4X-eNBj-GrmYsnkKvy09z9zNMQKPEEQUglm7xfKk48a68NMHkYw46cEx0QiZD7PHcnOvTpasVBdZ6P0BC4EvNWTu9nm741MTXOAj5rCQaeQ_yizL8CAb5ctTP11fvXXoTcxTtSDWyfcsollDuNCqTjTG-mvAcwIcwK6qtjn6ID0SYGowJ9HNqfQPhyVSCpcR6cx9yTEmJV13jLzmsBo0Txm8n3LYMYy_6Drxg4wwi-JftZVgow" 
+                   alt="Taj Lake Palace, Udaipur at golden hour overlooking serene Lake Pichola">
+              <div class="absolute inset-0 bg-gradient-to-t from-on-background/85 via-transparent to-transparent"></div>
+              <div class="absolute bottom-5 left-5 right-5 text-on-primary flex items-end justify-between">
+                <div>
+                  <span class="bg-primary-container text-on-primary text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-extrabold inline-block mb-1 shadow-sm">Signature Retreat</span>
+                  <p class="text-lg font-bold">Taj Lake Palace, Udaipur</p>
+                  <p class="text-xs text-surface-container flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">location_on</span>
+                    Rajasthan • Private Lake Sanctuary
+                  </p>
+                </div>
+                <span class="text-xs bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white font-semibold">Private Charter Synced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE 3D TRIP BOOKING & SEARCH CONSOLE -->
+  <section class="relative z-20 -mt-6 sm:-mt-10 px-4 sm:px-6" id="planner">
+    <div class="max-w-7xl mx-auto">
+      <div class="clay-card rounded-3xl p-5 sm:p-8 bg-surface-container-lowest border border-outline-variant/30">
+        
+        <!-- Tab Switcher -->
+        <div class="flex items-center gap-2 pb-5 border-b border-outline-variant/20 overflow-x-auto no-scrollbar">
+          <button class="booking-tab-btn px-5 py-2.5 rounded-full primary-btn-3d text-on-primary text-xs sm:text-sm flex items-center gap-2 font-bold whitespace-nowrap cursor-pointer" data-tab="tours">
+            <span class="material-symbols-outlined text-lg">explore</span>
+            Curated Tours
+          </button>
+          <button class="booking-tab-btn px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-xs sm:text-sm flex items-center gap-2 font-semibold whitespace-nowrap transition-colors cursor-pointer" data-tab="flights">
+            <span class="material-symbols-outlined text-lg">flight_takeoff</span>
+            Flights + Hotel
+          </button>
+          <button class="booking-tab-btn px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-xs sm:text-sm flex items-center gap-2 font-semibold whitespace-nowrap transition-colors cursor-pointer" data-tab="heritage">
+            <span class="material-symbols-outlined text-lg">fort</span>
+            Heritage Expeditions
+          </button>
+          <button class="booking-tab-btn px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-xs sm:text-sm flex items-center gap-2 font-semibold whitespace-nowrap transition-colors cursor-pointer" data-tab="weekend">
+            <span class="material-symbols-outlined text-lg">nature_people</span>
+            Weekend Escapes
+          </button>
+        </div>
+
+        <!-- Input Fields Matrix -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
+          
+          <!-- From Field -->
+          <div class="inset-clay-input p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined">flight_takeoff</span>
+            </div>
+            <div class="flex flex-col flex-grow">
+              <label class="text-[11px] text-tertiary font-bold uppercase tracking-wider">From (City / Airport)</label>
+              <input id="searchOrigin" class="bg-transparent border-0 p-0 text-sm font-bold text-on-surface focus:ring-0 w-full outline-hidden" type="text" value="New Delhi (DEL)">
+              <span class="text-[11px] text-on-surface-variant truncate">Indira Gandhi Intl Airport</span>
+            </div>
+          </div>
+
+          <!-- To Field -->
+          <div class="inset-clay-input p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container shrink-0">
+              <span class="material-symbols-outlined">location_on</span>
+            </div>
+            <div class="flex flex-col flex-grow">
+              <label class="text-[11px] text-tertiary font-bold uppercase tracking-wider">To (Destination)</label>
+              <input id="searchDest" class="bg-transparent border-0 p-0 text-sm font-bold text-on-surface focus:ring-0 w-full outline-hidden" type="text" value="Jaipur, Rajasthan">
+              <span class="text-[11px] text-on-surface-variant truncate">Pink City & Amber Fort circuits</span>
+            </div>
+          </div>
+
+          <!-- Dates & Duration -->
+          <div class="inset-clay-input p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined">calendar_month</span>
+            </div>
+            <div class="flex flex-col flex-grow">
+              <label class="text-[11px] text-tertiary font-bold uppercase tracking-wider">Dates & Duration</label>
+              <input class="bg-transparent border-0 p-0 text-sm font-bold text-on-surface focus:ring-0 w-full outline-hidden" type="text" value="18 Nov - 25 Nov">
+              <span class="text-[11px] text-on-surface-variant">7 Days / 6 Nights</span>
+            </div>
+          </div>
+
+          <!-- Travelers & Theme -->
+          <div class="inset-clay-input p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary shrink-0">
+              <span class="material-symbols-outlined">group</span>
+            </div>
+            <div class="flex flex-col flex-grow">
+              <label class="text-[11px] text-tertiary font-bold uppercase tracking-wider">Travelers & Theme</label>
+              <input class="bg-transparent border-0 p-0 text-sm font-bold text-on-surface focus:ring-0 w-full outline-hidden" type="text" value="2 Adults • Royal Luxury">
+              <span class="text-[11px] text-on-surface-variant">Heritage Palaces & Dining</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Filters & Primary Search CTA -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mt-6 border-t border-outline-variant/20">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs text-tertiary font-bold">Trending Preferences:</span>
+            <span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs cursor-pointer hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors">Private Chauffeur</span>
+            <span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs cursor-pointer hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors">Direct Chartered Flight</span>
+            <span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs cursor-pointer hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors">Pure Veg / Jain Dining</span>
+          </div>
+          
+          <button class="open-plan-modal w-full sm:w-auto primary-btn-3d text-on-primary text-sm px-8 py-3 rounded-2xl flex items-center justify-center gap-2 font-extrabold cursor-pointer" data-package="Custom Trip Search Query">
+            <span class="material-symbols-outlined text-xl">search</span>
+            <span>Search Handcrafted Trips</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING CURATED ITINERARIES SECTION -->
+  <section class="py-20 px-4 sm:px-6 bg-surface-bright relative" id="packages">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/60 text-on-primary-fixed-variant text-xs uppercase font-bold tracking-wider mb-2">
+            <span class="material-symbols-outlined text-sm">auto_awesome</span>
+            Curated Royal Circuits
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-on-background tracking-tight">
+            Trending Curated Itineraries
+          </h2>
+          <p class="text-sm sm:text-base text-on-surface-variant mt-2 max-w-xl">
+            Each experience includes direct boutique flights, vetted 5-star palace or villa stays, private air-conditioned transit, and VIP monument access.
+          </p>
+        </div>
+
+        <!-- Filter Pill Carousel -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+          <button class="category-filter-chip px-4 py-2 rounded-full primary-btn-3d text-on-primary text-xs font-bold whitespace-nowrap cursor-pointer" data-filter="all">All India (42)</button>
+          <button class="category-filter-chip px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer" data-filter="rajasthan">Rajasthan</button>
+          <button class="category-filter-chip px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer" data-filter="kerala">Kerala</button>
+          <button class="category-filter-chip px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer" data-filter="himalayas">Himalayas</button>
+          <button class="category-filter-chip px-4 py-2 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer" data-filter="spiritual">Spiritual</button>
+        </div>
+      </div>
+
+      <!-- 3D Dimensional Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- CARD 1: Royal Rajputana Odyssey -->
+        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="rajasthan">
+          <div class="card-media-wrap">
+            <img class="responsive-img-cover" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlFq5P4zo_qdISRDmlMuIOWiPcKhe_zJAHU-UTu38etbR935nD1tEbAjVBl_S5Fhq_3UfC0-FXmarQfKBRmKmKbR26BrZhCv4SoHug3NCwoMs-uAblm7BLAZvSwOUaPPLA6OxNwWeQ9Fn2Jne-wBCSEYuSRWVJaXQuU6VXJOwnKBckKdZu6q7Oj90ZU9-Xz_iZxOtY6621fsyihlKJHTcFpj4TSYYA3KR5rwx5o3eQji2IiFT_dIus-g" 
+                 alt="Royal amber fortress and palace in Jaipur Rajasthan at sunset">
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-bold text-primary flex items-center gap-1 shadow-xs">
+              <span class="material-symbols-outlined text-sm text-primary">star</span>
+              4.96 (1,240)
+            </div>
+            <div class="absolute top-3 right-3 bg-on-background/85 backdrop-blur-md text-on-primary px-3 py-1 rounded-full text-xs font-extrabold shadow-xs">
+              ₹48,999 <span class="font-normal text-[10px]">/ person</span>
+            </div>
+            <div class="absolute bottom-3 left-3 flex gap-1.5">
+              <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Palace Stays</span>
+              <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Glamping</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between">
+            <div>
+              <div class="flex items-center justify-between text-tertiary text-xs mb-1">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">schedule</span>
+                  7 Days / 6 Nights
+                </span>
+                <span class="flex items-center gap-1 font-semibold text-secondary">
+                  <span class="material-symbols-outlined text-sm">flight</span>
+                  Flights Incl.
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+                Royal Rajputana Odyssey
+              </h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Jaipur, Udaipur, Jodhpur with private Mehrangarh sundowner and Thar desert glamping.
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-base" title="Flights Included">flight_class</span>
+                <span class="material-symbols-outlined text-base" title="5-Star Palace Stay">apartment</span>
+                <span class="material-symbols-outlined text-base" title="Private Concierge">support_agent</span>
+                <span class="material-symbols-outlined text-base" title="Royal Dining">restaurant</span>
+              </div>
+              <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Royal Rajputana Odyssey">
+                Customize
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Kerala Backwaters & Mist -->
+        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="kerala">
+          <div class="card-media-wrap">
+            <img class="responsive-img-cover" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhQmbjpA9UQ6F1lMZMTg2GuxwINHGiApo4MFw4GwMYG5dN1RZageoIK3Uye9_ShKwx_59uuNpRaizLrmAQUcXys0yYn6yzLJsia5plKdupVt2rWByixoWDKpYPcBurht-Mhhsdp2ucuSmNbSUZdycsp1AZGZS02Gr3WHU3ZkIn-4aWIjLlK3wQz7tHHthfGVoI-uQr6xqtLTlXPE32d0ubHb1Xn8Im0gHUap0TCnUSaRKVZZDo9t3tmw" 
+                 alt="Traditional luxury wooden houseboat on serene Kerala emerald backwaters">
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-bold text-primary flex items-center gap-1 shadow-xs">
+              <span class="material-symbols-outlined text-sm text-primary">star</span>
+              4.92 (980)
+            </div>
+            <div class="absolute top-3 right-3 bg-on-background/85 backdrop-blur-md text-on-primary px-3 py-1 rounded-full text-xs font-extrabold shadow-xs">
+              ₹32,500 <span class="font-normal text-[10px]">/ person</span>
+            </div>
+            <div class="absolute bottom-3 left-3 flex gap-1.5">
+              <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Houseboat</span>
+              <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Tea Estates</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between">
+            <div>
+              <div class="flex items-center justify-between text-tertiary text-xs mb-1">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">schedule</span>
+                  5 Days / 4 Nights
+                </span>
+                <span class="flex items-center gap-1 font-semibold text-secondary">
+                  <span class="material-symbols-outlined text-sm">flight</span>
+                  Flights Incl.
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+                Kerala Backwaters & Mist
+              </h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Kochi, misty Munnar tea hills, and overnight private luxury houseboat cruise in Alleppey.
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-base">flight_class</span>
+                <span class="material-symbols-outlined text-base">sailing</span>
+                <span class="material-symbols-outlined text-base">spa</span>
+                <span class="material-symbols-outlined text-base">restaurant</span>
+              </div>
+              <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Kerala Backwaters & Mist">
+                Customize
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: Spiritual Varanasi & Prayagraj -->
+        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="spiritual">
+          <div class="card-media-wrap">
+            <img class="responsive-img-cover" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAziqfiyy1THfuBNY89GGJWtTKp2mzAjRoREIN7LKX98Du8HYrAd6PLlMPR_1E7Rc2XOs_aFQ7xRH7h_uA3tgdvB45EuJ5df2qfo1bqDNXGHBRhREyOXZh6uCtj9li74yhpnvsyx5RPUxONV1IzwqPMFFoVPO0XXRliobY0e0aF0NPPoPW64UzfxF5MCVuVOiL2-hEZsalWsz4IU276dr1CGIrDsurLpoX3K1LAJcliPVcL1EOlxXCnrQ" 
+                 alt="Evening Ganga Aarti ceremony at the illuminated ghats of Varanasi">
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-bold text-primary flex items-center gap-1 shadow-xs">
+              <span class="material-symbols-outlined text-sm text-primary">star</span>
+              4.98 (850)
+            </div>
+            <div class="absolute top-3 right-3 bg-on-background/85 backdrop-blur-md text-on-primary px-3 py-1 rounded-full text-xs font-extrabold shadow-xs">
+              ₹21,999 <span class="font-normal text-[10px]">/ person</span>
+            </div>
+            <div class="absolute bottom-3 left-3 flex gap-1.5">
+              <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Private Aarti Boat</span>
+              <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Spiritual</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between">
+            <div>
+              <div class="flex items-center justify-between text-tertiary text-xs mb-1">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">schedule</span>
+                  4 Days / 3 Nights
+                </span>
+                <span class="flex items-center gap-1 font-semibold text-secondary">
+                  <span class="material-symbols-outlined text-sm">flight</span>
+                  Flights Incl.
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+                Spiritual Varanasi & Prayagraj
+              </h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Front-row VIP Ganga Aarti on private Bajra boat, dawn rituals, and Sarnath monastic tour.
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-base">flight_class</span>
+                <span class="material-symbols-outlined text-base">temple_hindu</span>
+                <span class="material-symbols-outlined text-base">directions_boat</span>
+                <span class="material-symbols-outlined text-base">restaurant</span>
+              </div>
+              <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Spiritual Varanasi & Prayagraj">
+                Customize
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: Himalayan Serenity in Ladakh -->
+        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="himalayas">
+          <div class="card-media-wrap">
+            <img class="responsive-img-cover" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2A2w7bsXHeJXTDxvJNspV02fM-FtuXIMZ_TIHHgQgcCaCwdSKEMxTZhOeCScg0s0gVwStDcNDN5BvK0ztpoz_GitHvmo59Sc5IYnFnGgg4vbIU86a5wkFKeiwfVXBCCijVWZwnyFQeGUAPxCWUKM--TJsDZEO0KEjCoHQfHs6yAOQSX1bUHmAQ6dTIwtDE2cXxX4nL-s4qj1rp7PFe6WvMLhOvRYWzsALIHYwrC_loWNeaw73Pv8azg" 
+                 alt="Crystal blue waters of Pangong Tso lake in Ladakh against snow-capped peaks">
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-bold text-primary flex items-center gap-1 shadow-xs">
+              <span class="material-symbols-outlined text-sm text-primary">star</span>
+              4.95 (620)
+            </div>
+            <div class="absolute top-3 right-3 bg-on-background/85 backdrop-blur-md text-on-primary px-3 py-1 rounded-full text-xs font-extrabold shadow-xs">
+              ₹44,000 <span class="font-normal text-[10px]">/ person</span>
+            </div>
+            <div class="absolute bottom-3 left-3 flex gap-1.5">
+              <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Oxygen Camps</span>
+              <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">4x4 Luxury</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between">
+            <div>
+              <div class="flex items-center justify-between text-tertiary text-xs mb-1">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">schedule</span>
+                  6 Days / 5 Nights
+                </span>
+                <span class="flex items-center gap-1 font-semibold text-secondary">
+                  <span class="material-symbols-outlined text-sm">flight</span>
+                  Flights Incl.
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+                Himalayan Serenity Ladakh
+              </h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Leh, Nubra Valley sand dunes with double-humped camels, and sunrise at Pangong Lake.
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-tertiary">
+                <span class="material-symbols-outlined text-base">flight_class</span>
+                <span class="material-symbols-outlined text-base">cabin</span>
+                <span class="material-symbols-outlined text-base">minor_crash</span>
+                <span class="material-symbols-outlined text-base">medical_services</span>
+              </div>
+              <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Himalayan Serenity Ladakh">
+                Customize
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- View All Action -->
+      <div class="text-center mt-12">
+        <a class="px-8 py-3 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface text-sm font-bold hover:bg-surface-container-high transition-colors inline-flex items-center gap-2 shadow-xs" href="destinations.html">
+          <span>Explore All 84+ Bespoke Destinations</span>
+          <span class="material-symbols-outlined text-base">north_east</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE FLY ANYTIME DIFFERENCE (4 PILLARS) -->
+  <section class="py-20 px-4 sm:px-6 relative bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs text-primary font-bold uppercase tracking-wider bg-primary-fixed/50 px-3 py-1 rounded-full inline-block mb-3">
+          The Fly Anytime Difference
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-on-background tracking-tight">
+          Uncompromising Luxury, Authentic Indian Warmth
+        </h2>
+        <p class="text-sm sm:text-base text-on-surface-variant mt-3">
+          We don’t just book tickets; we choreograph journeys that linger in your memory for a lifetime.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Feature 1 -->
+        <div class="clay-card p-7 rounded-3xl flex flex-col gap-4 border border-outline-variant/20 relative overflow-hidden group">
+          <div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-primary-fixed to-primary text-on-primary flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-2xl">design_services</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface">Zero-Hassle Itineraries</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Every minute calibrated to perfection. Crafted by destination specialists who live and breathe regional culture and secret viewpoints.
+          </p>
+          <div class="mt-auto pt-4 flex items-center text-primary text-xs font-bold gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Learn how we curate</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="clay-card p-7 rounded-3xl flex flex-col gap-4 border border-outline-variant/20 relative overflow-hidden group">
+          <div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-secondary-fixed to-secondary text-on-secondary flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-2xl">flight_takeoff</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface">Seamless Flight & Transfers</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Direct airline integrations with luggage expedited check-in, luxury private Mercedes/Innova Crysta coaches, and private airport VIP meet & greet.
+          </p>
+          <div class="mt-auto pt-4 flex items-center text-secondary text-xs font-bold gap-1 group-hover:translate-x-1 transition-transform">
+            <a href="flights.html">View fleet & flight tiers</a>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="clay-card p-7 rounded-3xl flex flex-col gap-4 border border-outline-variant/20 relative overflow-hidden group">
+          <div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-tertiary-fixed to-tertiary text-on-tertiary flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-2xl">castle</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface">Verified Heritage Palaces</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Hand-vetted royal suites, Taj/Oberoi partnership perks, complementary high teas in royal courtyards, and guaranteed premium room upgrades.
+          </p>
+          <div class="mt-auto pt-4 flex items-center text-tertiary text-xs font-bold gap-1 group-hover:translate-x-1 transition-transform">
+            <a href="stays.html">Explore palace partners</a>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="clay-card p-7 rounded-3xl flex flex-col gap-4 border border-outline-variant/20 relative overflow-hidden group">
+          <div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-primary-container to-on-primary-container text-on-primary flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-2xl">support_agent</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface">24/7 Guardian Concierge</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            A dedicated on-trip trip director is one WhatsApp tap away. From last-minute dinner bookings to dietary requirements, you're always cared for.
+          </p>
+          <div class="mt-auto pt-4 flex items-center text-primary-container text-xs font-bold gap-1 group-hover:translate-x-1 transition-transform">
+            <span>Meet our concierge team</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-STEP TRIP DESIGN CONSOLE -->
+  <section class="py-20 px-4 sm:px-6 relative bg-surface-bright">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs text-secondary font-bold uppercase tracking-wider bg-secondary-fixed/50 px-3 py-1 rounded-full inline-block mb-3">
+          Effortless 3-Step Journey
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-on-background tracking-tight">
+          Design Your Custom Trip in Minutes
+        </h2>
+        <p class="text-sm sm:text-base text-on-surface-variant mt-3">
+          Our dynamic trip builder marries intelligent logistics with human concierge artistry.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div class="clay-card rounded-3xl p-8 relative z-10 flex flex-col items-center text-center border border-outline-variant/30">
+          <div class="w-14 h-14 rounded-2xl bg-surface-container text-primary flex items-center justify-center text-2xl font-extrabold mb-5 shadow-inner relative">
+            <span>1</span>
+            <span class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary-container text-on-primary text-[10px] flex items-center justify-center font-bold">✓</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface mb-2">Choose Destination & Vibe</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Select your preferred region—from misty Western Ghats to sun-baked Rajasthani fortresses. Define your pace, dining taste, and accommodation style.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-1.5">
+            <span class="text-[11px] font-bold bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">Royal Luxury</span>
+            <span class="text-[11px] font-bold bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">Wellness / Spa</span>
+            <span class="text-[11px] font-bold bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">Wildlife Safari</span>
+          </div>
+        </div>
+
+        <div class="clay-card rounded-3xl p-8 relative z-10 flex flex-col items-center text-center border border-outline-variant/30 ring-2 ring-primary/20">
+          <div class="w-14 h-14 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center text-2xl font-extrabold mb-5 shadow-lg">
+            <span>2</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface mb-2">Concierge & AI Build Plan</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Within 2 hours, receive an interactive 3D digital itinerary with optimized flight timings, selected heritage suites, and transparent all-inclusive quotes.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-1.5">
+            <span class="text-[11px] font-bold bg-primary-fixed text-on-primary-fixed px-2.5 py-1 rounded-full">Flight Matcher</span>
+            <span class="text-[11px] font-bold bg-primary-fixed text-on-primary-fixed px-2.5 py-1 rounded-full">Suite Guarantee</span>
+          </div>
+        </div>
+
+        <div class="clay-card rounded-3xl p-8 relative z-10 flex flex-col items-center text-center border border-outline-variant/30">
+          <div class="w-14 h-14 rounded-2xl bg-surface-container text-primary flex items-center justify-center text-2xl font-extrabold mb-5 shadow-inner">
+            <span>3</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface mb-2">Pack Bags & Fly Anytime!</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            One-tap WhatsApp group launch with your dedicated tour director. Seamless digital boarding passes, VIP luggage tags, and true peace of mind.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-1.5">
+            <span class="text-[11px] font-bold bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">Live Tracking</span>
+            <span class="text-[11px] font-bold bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">Instant Boarding</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <button class="open-plan-modal primary-btn-3d text-on-primary text-sm px-8 py-3.5 rounded-full inline-flex items-center gap-2 font-bold cursor-pointer" data-package="Custom 3-Step Itinerary">
+          <span>Start Building Your Itinerary Now</span>
+          <span class="material-symbols-outlined text-base">auto_awesome</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS & TRUSTED REPUTATION -->
+  <section class="py-20 px-4 sm:px-6 bg-surface-container-low relative">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-14">
+        <div>
+          <span class="text-xs text-primary font-bold uppercase tracking-wider bg-primary-fixed/50 px-3 py-1 rounded-full inline-block mb-3">
+            Real Traveler Stories
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-on-background tracking-tight">
+            Loved by Connoisseurs of Luxury Travel
+          </h2>
+          <p class="text-sm sm:text-base text-on-surface-variant mt-2 max-w-xl">
+            See how our travelers experienced royal hospitality with zero logistical headaches.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center text-primary">
+            <span class="material-symbols-outlined text-xl">star</span>
+            <span class="material-symbols-outlined text-xl">star</span>
+            <span class="material-symbols-outlined text-xl">star</span>
+            <span class="material-symbols-outlined text-xl">star</span>
+            <span class="material-symbols-outlined text-xl">star</span>
+          </div>
+          <span class="text-sm font-extrabold text-on-surface">4.9 / 5.0 (Google & Trustpilot)</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Review 1 -->
+        <div class="clay-card rounded-3xl p-7 bg-surface-container-lowest border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center text-primary mb-3">
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+            </div>
+            <p class="text-xs sm:text-sm text-on-surface italic leading-relaxed">
+              "The chartered transfers in Udaipur and the private sunset boat on Lake Pichola felt like living in a royal chronicle. When our flight from Jaipur got delayed, Fly Anytime had an alternate luxury lounge and rerouted car waiting before we landed!"
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full overflow-hidden bg-surface-container shrink-0">
+              <img class="w-full h-full object-cover" 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGqWNhOYhnXDXlaiCsQE5sDvEb1TOu-_fXU-ierg3uJDypQvfVYusrjZTsuWkdwJ74Adw-jDSx_YO3t072nqxI9nEENwpEXey1Tck6pP_5-dL4FI3XiqrqL_wWtC_3h6VnnvAKIMyroUHPOlsi_qIIQBRSAhiY7OSiD8KdknjBzEWC1jHKCBlzG6Vtm1QIJOCkCmS7fuebAmR7p-VtbbnjdKo9g67oYxVPbxUzk-cbGSX_Ty9OnuMx_w" 
+                   alt="Ananya and Raghav Singhania portrait">
+            </div>
+            <div>
+              <p class="text-sm font-bold text-on-surface">Ananya & Raghav Singhania</p>
+              <p class="text-[11px] text-tertiary">Royal Rajputana Odyssey • Mumbai</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="clay-card rounded-3xl p-7 bg-surface-container-lowest border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center text-primary mb-3">
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+            </div>
+            <p class="text-xs sm:text-sm text-on-surface italic leading-relaxed">
+              "Alleppey houseboat curated by them was 10 leagues ahead of typical bookings. Dedicated chef who cooked fresh Karimeen fish, pristine bedroom with panoramic glass, and our 24/7 concierge was checking in at every point. Remarkable service."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full overflow-hidden bg-surface-container shrink-0">
+              <img class="w-full h-full object-cover" 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu59-NEHyGL3eJuhH6iNuM_HxTZ9LW87FWzqk9X4qEkrj0hpblByIcTOOxpJcaz5gHZ15DIQNM-6qRsMIoT0AQMJGZTxtoN27DrzwO9_8J-3gWU8Z_Mq7wck4afgVUJ15SajIfgPQacUR2dyOkkDOduyruN9N5VrfJxpnaLZ3hLIU5lOQ9urIsgW714BmBgcZyGBDz3GJ5uVVyEvvwY_QacimK0-HvjoT9Y_reu5_1_jCaNJu9vDVlzw" 
+                   alt="Dr. Vikramaditya Rao portrait">
+            </div>
+            <div>
+              <p class="text-sm font-bold text-on-surface">Dr. Vikramaditya Rao</p>
+              <p class="text-[11px] text-tertiary">Kerala Backwaters & Mist • Bengaluru</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="clay-card rounded-3xl p-7 bg-surface-container-lowest border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center text-primary mb-3">
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+              <span class="material-symbols-outlined text-base">star</span>
+            </div>
+            <p class="text-xs sm:text-sm text-on-surface italic leading-relaxed">
+              "We took our elderly parents to Varanasi. Fly Anytime provided an electric buggy through tight ghat lanes, a private wooden boat for morning Aarti, and seamless temple darshan without queues. Unmatched care and deep cultural respect."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center gap-3">
+            <div class="w-11 h-11 rounded-full overflow-hidden bg-surface-container shrink-0">
+              <img class="w-full h-full object-cover" 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIEMe50JHznkserPnP7yAZMBXIcvgseFxZ5hymKrJLJtAB0SyQMvpyYxVFAAC2trPT1qbWQoGWcX4gHGbVJTE1Jmeh_qOcLFHZNtaEcTomzPMHJqiBi0jhDQjlwUp-SQ3-CZXsWaz7qvRuzNd_2EIXl21WwOIgtKL3hPBg7MPrm16G-YRwzMngtOltF9SW2V5-2Nw9MSH8zAmoDXypxYLUDVjrww-0vakne38RB8rVeDQTVOByMfGazw" 
+                   alt="Meera and S. Narayanan portrait">
+            </div>
+            <div>
+              <p class="text-sm font-bold text-on-surface">Meera & S. Narayanan</p>
+              <p class="text-[11px] text-tertiary">Spiritual Varanasi Circuit • Chennai</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDEBOOK DOWNLOAD BANNER -->
+  <section class="py-16 px-4 sm:px-6 bg-surface-bright relative">
+    <div class="max-w-7xl mx-auto">
+      <div class="clay-card rounded-3xl p-6 sm:p-10 bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-primary-fixed/20 border border-outline-variant/40 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-7 flex flex-col gap-4">
+            <span class="bg-primary-container text-on-primary text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider self-start shadow-xs">
+              Complimentary Edition
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-on-background tracking-tight">
+              Get the "Secret Palaces & Boutique Retreats of India" Guidebook
+            </h2>
+            <p class="text-xs sm:text-sm text-on-surface-variant max-w-lg leading-relaxed">
+              120+ pages of unlisted royal residences, seasonal weather calendars, private flight charter tariffs, and gourmet regional insider guides.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-3 pt-2 max-w-md" onsubmit="event.preventDefault(); alert('Thank you! Your complimentary guidebook has been sent to your inbox.');">
+              <div class="inset-clay-input flex-grow px-4 py-2.5 rounded-2xl bg-surface border border-outline-variant/30 flex items-center gap-2">
+                <span class="material-symbols-outlined text-tertiary text-lg">mail</span>
+                <input class="bg-transparent border-0 p-0 text-xs sm:text-sm text-on-surface focus:ring-0 w-full outline-hidden" placeholder="Enter your email address" required type="email">
+              </div>
+              <button class="primary-btn-3d text-on-primary text-xs sm:text-sm px-6 py-2.5 rounded-2xl font-bold whitespace-nowrap cursor-pointer" type="submit">
+                Download Free Guide
+              </button>
+            </form>
+            <p class="text-[11px] text-tertiary">Zero spam. Only handpicked seasonal travel inspiration.</p>
+          </div>
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-56 h-72 sm:w-64 sm:h-80 rounded-2xl bg-surface-container p-3 clay-card rotate-2 hover:rotate-0 transition-transform duration-300">
+              <div class="w-full h-full rounded-xl overflow-hidden relative">
+                <img class="responsive-img-cover" 
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrXAK5Ti7ibK2fsHp6ERCRyqu1rHUtX0pinmekwYldZmuKqmFrgXHEPTGpLknE-NO8XuiCEWRzBX3WKOv9ctuYAQ4UDKnaYDQB3mW2Yir4ewlyj9_yqDYT_wnUHjhKoUArmi5GVBEU7W11HR1HnlpyKl0elmJfNWycmegIH--ecHqGe8nNpo1JjO2OForyXchvd6w-EFdf_fxLi1AfGiP0bzin2SNkPcjIW_y35FIdnnza2X_Hp7ZSlQ" 
+                     alt="Cover of Secret Palaces of India guidebook">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex flex-col justify-end p-4 text-white">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed">The Definitive Guide</span>
+                  <span class="text-base font-extrabold leading-tight">Royal & Hidden India 2025</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TRIP PLANNING MODAL -->
+  <div id="planTripModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="clay-card bg-surface-bright rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-outline-variant/40 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-full">Concierge Consultation</span>
+          <h3 id="modalPackageTitle" class="text-xl font-bold text-on-surface mt-1">Bespoke India Journey</h3>
+        </div>
+        <button id="closePlanModal" class="p-1 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+
+      <div id="modalSuccessAlert" class="hidden my-4 p-4 rounded-2xl bg-green-100 border border-green-300 text-green-900 text-sm font-semibold flex items-center gap-2">
+        <span class="material-symbols-outlined text-green-600">check_circle</span>
+        Consultation confirmed! Our royal travel orchestrator will connect via WhatsApp/Call within 15 minutes.
+      </div>
+
+      <form id="planTripForm" class="flex flex-col gap-4 pt-4">
+        <div>
+          <label class="text-[11px] font-bold text-tertiary uppercase">Full Name</label>
+          <div class="inset-clay-input p-3 rounded-xl mt-1">
+            <input required class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="e.g. Maharaja Vikramaditya">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-[11px] font-bold text-tertiary uppercase">Phone (with WhatsApp)</label>
+            <div class="inset-clay-input p-3 rounded-xl mt-1">
+              <input required type="tel" class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="+91 98765 43210">
+            </div>
+          </div>
+          <div>
+            <label class="text-[11px] font-bold text-tertiary uppercase">Preferred Travel Month</label>
+            <div class="inset-clay-input p-3 rounded-xl mt-1">
+              <input class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="November 2025">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-[11px] font-bold text-tertiary uppercase">Preferences & Requests</label>
+          <div class="inset-clay-input p-3 rounded-xl mt-1">
+            <textarea rows="2" class="bg-transparent border-0 p-0 text-xs font-medium text-on-surface focus:ring-0 w-full outline-hidden" placeholder="e.g. Private jet charter required, heritage palace suite with lake view, pure vegetarian cuisine"></textarea>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <button type="submit" class="primary-btn-3d flex-1 py-3.5 rounded-2xl text-on-primary font-bold text-sm shadow-md cursor-pointer flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-sm">send</span>
+            Submit Request
+          </button>
+          <button type="button" id="modalWhatsAppBtn" class="flex-1 py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm shadow-md cursor-pointer flex items-center justify-center gap-2 transition-transform active:scale-95 duration-150">
+            <span class="material-symbols-outlined text-sm">chat</span>
+            WhatsApp Concierge
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- COMPREHENSIVE FOOTER -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 pt-16 pb-24 lg:pb-16">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 flex flex-col gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <!-- Brand Summary Column -->
+        <div class="lg:col-span-2 flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl rotate-45">flight</span>
+            </div>
+            <span class="text-xl font-extrabold text-primary tracking-tight">
+              Fly Anytime
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-on-surface-variant max-w-sm leading-relaxed">
+            India's foremost bespoke trip organizer and luxury flight orchestrator. Crafting unforgettable memories across palatial fortresses, serene backwaters, and pristine peaks.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <span class="text-xs text-tertiary">Follow Our Expeditions:</span>
+            <div class="flex items-center gap-2 text-primary">
+              <a class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-fixed transition-colors" href="#" title="Instagram">
+                <span class="material-symbols-outlined text-base">photo_camera</span>
+              </a>
+              <a class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-fixed transition-colors" href="#" title="YouTube">
+                <span class="material-symbols-outlined text-base">smart_display</span>
+              </a>
+              <a class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-fixed transition-colors" href="#" title="LinkedIn">
+                <span class="material-symbols-outlined text-base">corporate_fare</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curated Journeys Links -->
+        <div class="flex flex-col gap-2.5">
+          <span class="text-sm font-bold text-on-surface">Curated Journeys</span>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="index.html">Curated Itineraries</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="destinations.html">Golden Triangle Tours</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="destinations.html">Kerala Backwaters</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="trains.html">Luxury Rail Journeys</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="stays.html">Heritage Palaces</a>
+        </div>
+
+        <!-- Experiences & Support -->
+        <div class="flex flex-col gap-2.5">
+          <span class="text-sm font-bold text-on-surface">Concierge & Care</span>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="flights.html">Private Aviation Charter</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="#planner">24/7 Concierge Support</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">Cancellation Policy</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">Terms & Conditions</a>
+          <a class="text-xs text-on-surface-variant hover:text-primary transition-colors" href="#">DGCA & IATA Accreditations</a>
+        </div>
+
+        <!-- Direct Contact Pod -->
+        <div class="flex flex-col gap-3">
+          <span class="text-sm font-bold text-on-surface">Royal Concierge Desk</span>
+          <div class="p-4 rounded-2xl bg-surface-container border border-outline-variant/30 flex flex-col gap-2">
+            <span class="text-[11px] text-tertiary">Toll Free 24/7 Helpline:</span>
+            <span class="text-base font-extrabold text-primary">1800-419-FLYNOW</span>
+            <span class="text-xs text-on-surface-variant">concierge@flyanytime.in</span>
+            <div class="pt-1">
+              <span class="inline-flex items-center gap-1.5 text-[10px] font-bold text-secondary bg-secondary-fixed/50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Average response: 4 mins
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p class="text-xs text-on-surface-variant">
+          © 2025 Fly Anytime India Private Limited. All rights reserved. Crafted with passion for royal heritage & luxury journeys.
+        </p>
+        <div class="flex items-center gap-5 text-xs text-on-surface-variant">
+          <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+          <a class="hover:text-primary transition-colors" href="#">Security</a>
+          <a class="hover:text-primary transition-colors" href="#">DGCA Compliance</a>
+          <a class="hover:text-primary transition-colors" href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM DOCKED NAVIGATION BAR (For Phone Users) -->
+  <div class="mobile-nav-bar py-2.5 px-4 flex items-center justify-around">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-primary">
+      <span class="material-symbols-outlined text-xl">explore</span>
+      <span class="text-[10px] font-bold">Explore</span>
+    </a>
+    <a href="flights.html" class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+      <span class="material-symbols-outlined text-xl">flight_takeoff</span>
+      <span class="text-[10px] font-semibold">Flights</span>
+    </a>
+    <a href="stays.html" class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+      <span class="material-symbols-outlined text-xl">fort</span>
+      <span class="text-[10px] font-semibold">Stays</span>
+    </a>
+    <a href="trains.html" class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+      <span class="material-symbols-outlined text-xl">train</span>
+      <span class="text-[10px] font-semibold">Trains</span>
+    </a>
+    <button class="open-plan-modal flex flex-col items-center gap-1 text-primary-container" data-package="Instant Mobile Request">
+      <span class="material-symbols-outlined text-xl">support_agent</span>
+      <span class="text-[10px] font-bold">Concierge</span>
+    </button>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

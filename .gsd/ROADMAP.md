@@ -1,14 +1,15 @@
 # ROADMAP.md
 
-> **Current Phase**: Phase 1
+> **Current Phase**: Phase 2
 > **Milestone**: v1.0 — Core Atelier Platform & Booking Experience
 
 ## Must-Haves (from SPEC)
 - [x] 5 responsive presentation pages with Stitch MCP design system tokens
 - [x] GPU-accelerated View Transitions and luxury top progress bar
 - [x] Responsive fluid aspect-ratio image containers with zero distortion
-- [ ] Interactive live quotation & flight distance calculator
-- [ ] Digital itinerary PDF export & WhatsApp concierge deep link
+- [x] Interactive live quotation & flight distance calculator
+- [x] WhatsApp concierge deep link generator
+- [ ] Digital itinerary PDF export & brochure download
 - [ ] Inquiry persistence & review portal
 
 ---
@@ -24,7 +25,7 @@
 - Mobile drawer menu & thumb navigation dock
 
 ### Phase 2: Live Charter Calculator & Route Visualizer
-**Status**: 🟦 In Planning
+**Status**: 🟩 Completed
 **Objective**: Add live interactive flight charter estimation (hours, hourly tariffs, total INR quote), city distance calculator, and dynamic WhatsApp concierge inquiry generator.
 **Deliverables**:
 - Charter quotation calculator widget

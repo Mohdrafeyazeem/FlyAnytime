@@ -1,0 +1,283 @@
+/* ==========================================================================
+   Fly Anytime - Bespoke India Journeys
+   Design System & Responsive Stylesheet
+   ========================================================================== */
+
+:root {
+  --color-primary: #994700;
+  --color-primary-container: #ff7a00;
+  --color-primary-fixed: #ffdbc8;
+  --color-primary-glow: rgba(255, 122, 0, 0.35);
+  
+  --color-secondary: #a23f00;
+  --color-secondary-container: #fc7127;
+  --color-tertiary: #4c5f80;
+  --color-navy: #0d2240;
+  
+  --color-bg: #fbf9f6;
+  --color-surface: #fbf9f6;
+  --color-surface-low: #f5f3f0;
+  --color-surface-container: #efeeeb;
+  --color-surface-high: #eae8e5;
+  --color-surface-highest: #e4e2df;
+  --color-surface-white: #ffffff;
+  
+  --color-text-main: #1b1c1a;
+  --color-text-muted: #584235;
+  --color-outline: #8c7263;
+  --color-outline-variant: #e0c0af;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+  
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Global Reset & Typography */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Page Transition States */
+body.page-entering {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+body.page-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.page-exiting {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+/* Modern Browser View Transition API */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: 250ms cubic-bezier(0.2, 0.8, 0.2, 1) both fade-scale-out;
+}
+
+::view-transition-new(root) {
+  animation: 320ms cubic-bezier(0.16, 1, 0.3, 1) both fade-slide-in;
+}
+
+@keyframes fade-scale-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.99); }
+}
+
+@keyframes fade-slide-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Top Progress Bar for Seamless Airline Atelier Page Transitions */
+#pageTransitionBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #FF7A00 0%, #FC7127 50%, #FFB68B 100%);
+  z-index: 999999;
+  pointer-events: none;
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.65), 0 0 4px rgba(255, 122, 0, 0.9);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+/* Responsive Image Rules - Ensures images never cut awkwardly or distort */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.responsive-img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-container);
+}
+
+.hero-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-surface-container);
+}
+
+@media (max-width: 640px) {
+  .hero-media-wrap {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* 3D Tactile Claymorphic Cards */
+.clay-card {
+  background: var(--color-surface-white);
+  box-shadow: 
+    0 16px 32px -8px rgba(13, 34, 64, 0.08), 
+    0 6px 12px -4px rgba(255, 122, 0, 0.06), 
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.95), 
+    inset 0 -3px 6px 0 rgba(211, 84, 0, 0.04);
+  border: 1px solid rgba(224, 192, 175, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 24px 44px -10px rgba(13, 34, 64, 0.12), 
+    0 10px 22px -4px rgba(255, 122, 0, 0.14), 
+    inset 0 2px 4px 0 rgba(255, 255, 255, 1);
+}
+
+.clay-card:hover .responsive-img-cover {
+  transform: scale(1.04);
+}
+
+/* Frosted Glass Elements */
+.glass-nav {
+  background: rgba(251, 249, 246, 0.88);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(224, 192, 175, 0.4);
+}
+
+.glass-floating-badge {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 100%);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px -4px rgba(13, 34, 64, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* 3D Primary Button */
+.primary-btn-3d {
+  background: linear-gradient(135deg, #FF8D1A 0%, #FF7A00 100%);
+  color: #ffffff;
+  box-shadow: 
+    0 8px 18px -2px rgba(255, 122, 0, 0.35), 
+    inset 0 2px 3px rgba(255, 255, 255, 0.4), 
+    inset 0 -2px 4px rgba(153, 71, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+}
+
+.primary-btn-3d:hover {
+  box-shadow: 
+    0 12px 24px -2px rgba(255, 122, 0, 0.45), 
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.primary-btn-3d:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(255, 122, 0, 0.3);
+}
+
+/* Inset Clay Inputs */
+.inset-clay-input {
+  box-shadow: inset 0 2px 5px rgba(13, 34, 64, 0.05), 0 1px 2px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(224, 192, 175, 0.4);
+  background-color: var(--color-surface);
+  transition: all 0.2s ease;
+}
+
+.inset-clay-input:focus-within {
+  border-color: var(--color-primary-container);
+  box-shadow: inset 0 2px 4px rgba(13, 34, 64, 0.04), 0 0 0 3px rgba(255, 122, 0, 0.2);
+}
+
+/* Background Mandala Pattern */
+.pattern-mandala {
+  background-image: 
+    radial-gradient(#ff7a00 0.75px, transparent 0.75px), 
+    radial-gradient(#4c5f80 0.75px, #fbf9f6 0.75px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  opacity: 0.12;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-container);
+}
+
+/* Hide scrollbar for tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile Navigation Bottom Dock & Modal */
+.mobile-nav-bar {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .mobile-nav-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(224, 192, 175, 0.4);
+    box-shadow: 0 -4px 16px rgba(13, 34, 64, 0.08);
+  }
+}
