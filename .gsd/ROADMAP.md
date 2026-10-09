@@ -1,7 +1,7 @@
 # ROADMAP.md
 
-> **Milestone**: v1.0 — Core Atelier Platform & Booking Experience
-> **Status**: 🟩 Complete (All 4 Phases Finished & Verified)
+> **Milestone**: v1.1 — Bespoke Expedition Customizer & Fleet Orchestration
+> **Status**: 🟡 In Progress (Phase 5 Planned)
 
 ## Must-Haves (from SPEC)
 - [x] 5 responsive presentation pages with Stitch MCP design system tokens
@@ -11,6 +11,7 @@
 - [x] WhatsApp concierge deep link generator
 - [x] Digital itinerary PDF export & brochure download
 - [x] Inquiry persistence & review portal (Royal Portfolio Dashboard)
+- [ ] Interactive Multi-City Flight Circuit Builder with animated stepper nodes
 
 ---
 
@@ -19,31 +20,23 @@
 ### Phase 1: Foundation, Design System & View Transitions
 **Status**: 🟩 Completed
 **Objective**: Build core multi-page web platform with Claymorphism 3D cards, Frosted Glassmorphism, fluid responsive images, and GPU view transitions.
-**Deliverables**:
-- `index.html`, `flights.html`, `stays.html`, `trains.html`, `destinations.html`
-- `css/styles.css`, `js/main.js`
-- Mobile drawer menu & thumb navigation dock
 
 ### Phase 2: Live Charter Calculator & Route Visualizer
 **Status**: 🟩 Completed
 **Objective**: Add live interactive flight charter estimation (hours, hourly tariffs, total INR quote), city distance calculator, and dynamic WhatsApp concierge inquiry generator.
-**Deliverables**:
-- Charter quotation calculator widget
-- Route preview indicator
-- WhatsApp deep-link message generator with formatted booking payload
 
 ### Phase 3: Digital Itinerary Export & Brochure Generation
 **Status**: 🟩 Completed
 **Objective**: Allow travelers to export their customized royal itinerary as a clean printable/PDF summary and add PWA manifest for offline reading.
-**Deliverables**:
-- Printable itinerary summary view
-- Client-side PDF generator / print stylesheet
-- PWA manifest & offline service worker
 
 ### Phase 4: Concierge Inquiry Persistence & Review Dashboard
 **Status**: 🟩 Completed
 **Objective**: Client-side storage of submitted inquiries, local itinerary saving, and simulated royal concierge review dashboard.
+
+### Phase 5: Interactive Multi-City Flight Circuit Builder
+**Status**: 📋 Planned (Awaiting user "start")
+**Objective**: Build multi-stop charter route builder (Delhi ➔ Udaipur ➔ Jaipur ➔ Varanasi) with animated stepper path, layover day selector, cumulative distance & rate engine, and export to Voucher/WhatsApp.
 **Deliverables**:
-- LocalStorage inquiry queue (`fly_anytime_inquiries` & `fly_anytime_saved_trips`)
-- Royal Portfolio slide-over drawer with dual tabs and dynamic badge counters
-- WhatsApp Concierge follow-up deep-linking with reference codes
+- Multi-city distance and duration calculation matrix in `js/main.js`
+- Interactive route stepper with pulse nodes and flight progress lines in `flights.html` & `css/styles.css`
+- Modal Circuit Customizer accessible across all 5 portals
