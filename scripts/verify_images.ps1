@@ -14,8 +14,8 @@ foreach ($p in $pages) {
     $fileOk = $true
     foreach ($m in $matches) {
         $tag = $m.Value
-        $hasObjectCover = ($tag -match 'object-cover') -or ($tag -match 'object-center')
-        $hasWFull = ($tag -match 'w-full') -or ($tag -match 'w-')
+        $hasObjectCover = ($tag -match 'object-cover') -or ($tag -match 'object-center') -or ($tag -match 'responsive-img-cover')
+        $hasWFull = ($tag -match 'w-full') -or ($tag -match 'w-') -or ($tag -match 'responsive-img-cover')
         
         if (-not $hasObjectCover) {
             Write-Host "  [WARN] Image tag missing explicit object-cover: $tag" -ForegroundColor DarkYellow

@@ -1,7 +1,7 @@
 # ROADMAP.md
 
 > **Milestone**: v1.1 — Bespoke Expedition Customizer & Fleet Orchestration
-> **Status**: 🟡 In Progress (Phase 5 Planned)
+> **Status**: 🟩 Phase 5 Complete & Verified
 
 ## Must-Haves (from SPEC)
 - [x] 5 responsive presentation pages with Stitch MCP design system tokens
@@ -11,7 +11,7 @@
 - [x] WhatsApp concierge deep link generator
 - [x] Digital itinerary PDF export & brochure download
 - [x] Inquiry persistence & review portal (Royal Portfolio Dashboard)
-- [ ] Interactive Multi-City Flight Circuit Builder with animated stepper nodes
+- [x] Interactive Multi-City Flight Circuit Builder with animated stepper nodes
 
 ---
 
@@ -34,9 +34,9 @@
 **Objective**: Client-side storage of submitted inquiries, local itinerary saving, and simulated royal concierge review dashboard.
 
 ### Phase 5: Interactive Multi-City Flight Circuit Builder
-**Status**: 📋 Planned (Awaiting user "start")
+**Status**: 🟩 Completed
 **Objective**: Build multi-stop charter route builder (Delhi ➔ Udaipur ➔ Jaipur ➔ Varanasi) with animated stepper path, layover day selector, cumulative distance & rate engine, and export to Voucher/WhatsApp.
 **Deliverables**:
 - Multi-city distance and duration calculation matrix in `js/main.js`
 - Interactive route stepper with pulse nodes and flight progress lines in `flights.html` & `css/styles.css`
-- Modal Circuit Customizer accessible across all 5 portals
+- Global navigation links across all 5 portals

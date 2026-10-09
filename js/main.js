@@ -248,13 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
     'DEL-IXL': 620,  'IXL-DEL': 620,
     'DEL-BLR': 1740, 'BLR-DEL': 1740,
     'DEL-COK': 2080, 'COK-DEL': 2080,
+    'DEL-VNS': 680,  'VNS-DEL': 680,
+    'DEL-JDH': 480,  'JDH-DEL': 480,
     'BOM-GOX': 430,  'GOX-BOM': 430,
     'BOM-UDR': 620,  'UDR-BOM': 620,
     'BOM-BLR': 840,  'BLR-BOM': 840,
     'BOM-COK': 1060, 'COK-BOM': 1060,
+    'BOM-JAI': 950,  'JAI-BOM': 950,
+    'BOM-VNS': 1250, 'VNS-BOM': 1250,
     'BLR-COK': 360,  'COK-BLR': 360,
     'JAI-UDR': 330,  'UDR-JAI': 330,
-    'BOM-JAI': 950,  'JAI-BOM': 950
+    'JAI-VNS': 720,  'VNS-JAI': 720,
+    'UDR-VNS': 980,  'VNS-UDR': 980,
+    'UDR-IXL': 1180, 'IXL-UDR': 1180,
+    'IXL-BOM': 1750, 'BOM-IXL': 1750
   };
 
   const AIRCRAFT_DATA = {
@@ -690,4 +697,202 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial render of badges
   renderPortfolio();
+
+  // 10. Multi-City Flight Circuit Engine
+  const AIRPORT_METADATA = {
+    'DEL': { city: 'New Delhi', code: 'DEL', state: 'National Capital', img: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=600&q=80' },
+    'UDR': { city: 'Udaipur', code: 'UDR', state: 'Rajasthan', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCIkJrk4X-eNBj-GrmYsnkKvy09z9zNMQKPEEQUglm7xfKk48a68NMHkYw46cEx0QiZD7PHcnOvTpasVBdZ6P0BC4EvNWTu9nm741MTXOAj5rCQaeQ_yizL8CAb5ctTP11fvXXoTcxTtSDWyfcsollDuNCqTjTG-mvAcwIcwK6qtjn6ID0SYGowJ9HNqfQPhyVSCpcR6cx9yTEmJV13jLzmsBo0Txm8n3LYMYy_6Drxg4wwi-JftZVgow' },
+    'JAI': { city: 'Jaipur', code: 'JAI', state: 'Rajasthan', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlFq5P4zo_qdISRDmlMuIOWiPcKhe_zJAHU-UTu38etbR935nD1tEbAjVBl_S5Fhq_3UfC0-FXmarQfKBRmKmKbR26BrZhCv4SoHug3NCwoMs-uAblm7BLAZvSwOUaPPLA6OxNwWeQ9Fn2Jne-wBCSEYuSRWVJaXQuU6VXJOwnKBckKdZu6q7Oj90ZU9-Xz_iZxOtY6621fsyihlKJHTcFpj4TSYYA3KR5rwx5o3eQji2IiFT_dIus-g' },
+    'VNS': { city: 'Varanasi', code: 'VNS', state: 'Uttar Pradesh', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAziqfiyy1THfuBNY89GGJWtTKp2mzAjRoREIN7LKX98Du8HYrAd6PLlMPR_1E7Rc2XOs_aFQ7xRH7h_uA3tgdvB45EuJ5df2qfo1bqDNXGHBRhREyOXZh6uCtj9li74yhpnvsyx5RPUxONV1IzwqPMFFoVPO0XXRliobY0e0aF0NPPoPW64UzfxF5MCVuVOiL2-hEZsalWsz4IU276dr1CGIrDsurLpoX3K1LAJcliPVcL1EOlxXCnrQ' },
+    'IXL': { city: 'Leh Ladakh', code: 'IXL', state: 'Ladakh', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2A2w7bsXHeJXTDxvJNspV02fM-FtuXIMZ_TIHHgQgcCaCwdSKEMxTZhOeCScg0s0gVwStDcNDN5BvK0ztpoz_GitHvmo59Sc5IYnFnGgg4vbIU86a5wkFKeiwfVXBCCijVWZwnyFQeGUAPxCWUKM--TJsDZEO0KEjCoHQfHs6yAOQSX1bUHmAQ6dTIwtDE2cXxX4nL-s4qj1rp7PFe6WvMLhOvRYWzsALIHYwrC_loWNeaw73Pv8azg' },
+    'BOM': { city: 'Mumbai', code: 'BOM', state: 'Maharashtra', img: 'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=600&q=80' },
+    'GOX': { city: 'Goa (Mopa)', code: 'GOX', state: 'Goa', img: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=600&q=80' },
+    'BLR': { city: 'Bengaluru', code: 'BLR', state: 'Karnataka', img: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=600&q=80' },
+    'COK': { city: 'Kochi', code: 'COK', state: 'Kerala', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAhQmbjpA9UQ6F1lMZMTg2GuxwINHGiApo4MFw4GwMYG5dN1RZageoIK3Uye9_ShKwx_59uuNpRaizLrmAQUcXys0yYn6yzLJsia5plKdupVt2rWByixoWDKpYPcBurht-Mhhsdp2ucuSmNbSUZdycsp1AZGZS02Gr3WHU3ZkIn-4aWIjLlK3wQz7tHHthfGVoI-uQr6xqtLTlXPE32d0ubHb1Xn8Im0gHUap0TCnUSaRKVZZDo9t3tmw' }
+  };
+
+  const MULTI_CITY_CIRCUITS = [
+    {
+      id: 'circuit-rajputana',
+      name: 'Royal Rajputana Grand Triangle',
+      stops: ['DEL', 'UDR', 'JAI', 'DEL'],
+      nights: [0, 3, 2, 0],
+      aircraft: 'light_jet',
+      description: 'Private PC-24 charter connecting the imperial capital, Lake Pichola palace suites, and the Amber citadel in Pink City.'
+    },
+    {
+      id: 'circuit-ghats-spirit',
+      name: 'Heritage & Sacred Ghats Odyssey',
+      stops: ['DEL', 'VNS', 'JAI', 'DEL'],
+      nights: [0, 2, 3, 0],
+      aircraft: 'midsize_jet',
+      description: 'Sovereign Challenger 350 circuit from ancient Varanasi spiritual river rituals to royal Rajputana fortresses.'
+    },
+    {
+      id: 'circuit-himalayan-desert',
+      name: 'Himalayan Peaks & Thar Dunes Grand Circuit',
+      stops: ['DEL', 'IXL', 'UDR', 'BOM'],
+      nights: [0, 3, 3, 0],
+      aircraft: 'midsize_jet',
+      description: 'High-altitude Himalayan landings at 10,682 ft followed by desert palace waters and Arabian Sea arrival.'
+    }
+  ];
+
+  let currentActiveCircuit = {
+    stops: ['DEL', 'UDR', 'JAI', 'DEL'],
+    nights: [0, 3, 2, 0],
+    aircraft: 'light_jet'
+  };
+
+  function calculateMultiCityCircuit(stops, aircraftKey, nightsArr) {
+    const ac = AIRCRAFT_DATA[aircraftKey] || AIRCRAFT_DATA['light_jet'];
+    let totalKm = 0;
+    let totalHours = 0;
+    let hops = [];
+
+    for (let i = 0; i < stops.length - 1; i++) {
+      const from = stops[i];
+      const to = stops[i + 1];
+      const pair = `${from}-${to}`;
+      const dist = AIRPORT_DISTANCES[pair] || 650;
+      let legHours = (dist / ac.speed) + 0.25;
+      if (legHours < 0.8) legHours = 0.8;
+      totalKm += dist;
+      totalHours += legHours;
+      hops.push({ from, to, dist, legHours });
+    }
+
+    const totalNights = nightsArr ? nightsArr.reduce((a, b) => a + b, 0) : 5;
+    const flightTariff = Math.round(totalHours * ac.rate);
+    const layoverTariff = totalNights * 35000;
+    const totalTariff = flightTariff + layoverTariff;
+
+    const totalDays = totalNights + 1;
+    const h = Math.floor(totalHours);
+    const m = Math.round((totalHours - h) * 60);
+
+    return {
+      totalDistanceKm: totalKm,
+      totalHours,
+      formattedFlightTime: `${h} hrs ${m} mins aloft`,
+      totalNights,
+      totalDays: `${totalDays} Days / ${totalNights} Nights`,
+      totalTariff,
+      totalQuoteFormatted: '₹' + totalTariff.toLocaleString('en-IN'),
+      aircraftName: ac.name,
+      routeString: stops.map(s => AIRPORT_METADATA[s]?.city || s).join(' ➔ '),
+      hops
+    };
+  }
+
+  window.calculateMultiCityCircuit = calculateMultiCityCircuit;
+  window.MULTI_CITY_CIRCUITS = MULTI_CITY_CIRCUITS;
+  window.AIRPORT_METADATA = AIRPORT_METADATA;
+
+  // Render Multi-City Stepper in flights.html
+  const circuitStepperContainer = document.getElementById('circuitStepperContainer');
+  const circuitDistanceEl = document.getElementById('circuitDistance');
+  const circuitTimeEl = document.getElementById('circuitTime');
+  const circuitDaysEl = document.getElementById('circuitDays');
+  const circuitTariffEl = document.getElementById('circuitTariff');
+  const circuitAircraftNameEl = document.getElementById('circuitAircraftName');
+  const circuitPresetBtns = document.querySelectorAll('.circuit-preset-btn');
+  const circuitAircraftSelect = document.getElementById('circuitAircraftSelect');
+  const circuitWhatsAppBtn = document.getElementById('circuitWhatsAppBtn');
+  const circuitVoucherBtn = document.getElementById('circuitVoucherBtn');
+
+  function renderCircuitBuilder() {
+    if (!circuitStepperContainer) return;
+    const stats = calculateMultiCityCircuit(currentActiveCircuit.stops, currentActiveCircuit.aircraft, currentActiveCircuit.nights);
+
+    if (circuitDistanceEl) circuitDistanceEl.textContent = `${stats.totalDistanceKm} km`;
+    if (circuitTimeEl) circuitTimeEl.textContent = stats.formattedFlightTime;
+    if (circuitDaysEl) circuitDaysEl.textContent = stats.totalDays;
+    if (circuitTariffEl) circuitTariffEl.textContent = stats.totalQuoteFormatted;
+    if (circuitAircraftNameEl) circuitAircraftNameEl.textContent = stats.aircraftName;
+
+    // Render Nodes
+    circuitStepperContainer.innerHTML = currentActiveCircuit.stops.map((code, idx) => {
+      const meta = AIRPORT_METADATA[code] || { city: code, state: 'India', img: '' };
+      const nights = currentActiveCircuit.nights[idx] || 0;
+      const isLast = idx === currentActiveCircuit.stops.length - 1;
+      return `
+        <div class="flex-1 flex flex-col items-center relative z-10 group">
+          <div class="circuit-stepper-node w-12 h-12 rounded-2xl bg-surface-bright border-2 border-primary flex items-center justify-center text-primary font-bold shadow-md cursor-pointer transition-transform">
+            <span class="circuit-pulse-ring"></span>
+            <span class="text-xs font-mono font-extrabold">${code}</span>
+          </div>
+          <div class="text-center mt-3">
+            <p class="text-xs font-bold text-on-surface">${meta.city}</p>
+            <p class="text-[10px] text-tertiary">${meta.state}</p>
+            ${!isLast ? `
+              <span class="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full bg-secondary-fixed/60 text-on-secondary-fixed text-[10px] font-extrabold">
+                ${nights > 0 ? `${nights} Nights` : 'Direct Hop'}
+              </span>
+            ` : `
+              <span class="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-extrabold border border-emerald-200">
+                Return Base
+              </span>
+            `}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Wire Export buttons
+    if (circuitWhatsAppBtn) {
+      circuitWhatsAppBtn.onclick = () => {
+        const text = `*Fly Anytime — Bespoke Multi-City Circuit Request* ✈️👑\n\n` +
+          `• *Expedition Route:* ${stats.routeString}\n` +
+          `• *Total Distance:* ${stats.totalDistanceKm} km (${stats.formattedFlightTime})\n` +
+          `• *Duration:* ${stats.totalDays}\n` +
+          `• *Aviation Class:* ${stats.aircraftName}\n` +
+          `• *Tariff Guidance:* ${stats.totalQuoteFormatted}\n\n` +
+          `Please connect me with our Royal Flight Director to reserve airport slots and private aircraft availability.`;
+        window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, '_blank');
+      };
+    }
+
+    if (circuitVoucherBtn) {
+      circuitVoucherBtn.onclick = () => {
+        openVoucher({
+          title: 'Custom Multi-City Royal Circuit',
+          route: stats.routeString,
+          aviation: stats.aircraftName,
+          duration: stats.totalDays,
+          price: stats.totalQuoteFormatted
+        });
+      };
+    }
+  }
+
+  // Preset Selection
+  circuitPresetBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      circuitPresetBtns.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        b.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+      const presetId = btn.getAttribute('data-preset');
+      const preset = MULTI_CITY_CIRCUITS.find(p => p.id === presetId);
+      if (preset) {
+        currentActiveCircuit.stops = [...preset.stops];
+        currentActiveCircuit.nights = [...preset.nights];
+        currentActiveCircuit.aircraft = preset.aircraft;
+        if (circuitAircraftSelect) circuitAircraftSelect.value = preset.aircraft;
+        renderCircuitBuilder();
+      }
+    });
+  });
+
+  circuitAircraftSelect?.addEventListener('change', (e) => {
+    currentActiveCircuit.aircraft = e.target.value;
+    renderCircuitBuilder();
+  });
+
+  // Initial render of circuit builder
+  renderCircuitBuilder();
 });
