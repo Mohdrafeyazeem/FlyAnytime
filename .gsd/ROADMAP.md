@@ -1,7 +1,7 @@
 # ROADMAP.md
 
-> **Current Phase**: Phase 2
 > **Milestone**: v1.0 — Core Atelier Platform & Booking Experience
+> **Status**: 🟩 Complete (All 4 Phases Finished & Verified)
 
 ## Must-Haves (from SPEC)
 - [x] 5 responsive presentation pages with Stitch MCP design system tokens
@@ -10,7 +10,7 @@
 - [x] Interactive live quotation & flight distance calculator
 - [x] WhatsApp concierge deep link generator
 - [x] Digital itinerary PDF export & brochure download
-- [ ] Inquiry persistence & review portal
+- [x] Inquiry persistence & review portal (Royal Portfolio Dashboard)
 
 ---
 
@@ -41,9 +41,9 @@
 - PWA manifest & offline service worker
 
 ### Phase 4: Concierge Inquiry Persistence & Review Dashboard
-**Status**: ⬜ Not Started
+**Status**: 🟩 Completed
 **Objective**: Client-side storage of submitted inquiries, local itinerary saving, and simulated royal concierge review dashboard.
 **Deliverables**:
-- LocalStorage inquiry queue
-- Saved trips drawer / badge counter
-- Concierge simulated confirmation responses
+- LocalStorage inquiry queue (`fly_anytime_inquiries` & `fly_anytime_saved_trips`)
+- Royal Portfolio slide-over drawer with dual tabs and dynamic badge counters
+- WhatsApp Concierge follow-up deep-linking with reference codes

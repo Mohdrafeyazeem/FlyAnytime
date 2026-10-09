@@ -205,6 +205,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   planForm?.addEventListener('submit', (e) => {
     e.preventDefault();
+    const inputs = planForm.querySelectorAll('input, textarea');
+    const nameVal = inputs[0] ? inputs[0].value.trim() : 'Guest';
+    const phoneVal = inputs[1] ? inputs[1].value.trim() : '';
+    const monthVal = inputs[2] ? inputs[2].value.trim() : 'Upcoming Season';
+    const prefVal = inputs[3] ? inputs[3].value.trim() : '';
+
+    const newInquiry = {
+      id: 'FA-' + Math.floor(10000 + Math.random() * 90000),
+      package: currentInquiryTitle || 'Bespoke India Journey',
+      name: nameVal,
+      phone: phoneVal,
+      month: monthVal,
+      preferences: prefVal,
+      status: 'Royal Concierge Assigned',
+      date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+    };
+
+    const currentInquiries = getStoredInquiries();
+    currentInquiries.unshift(newInquiry);
+    saveInquiriesToStorage(currentInquiries);
+
     const alertBox = document.getElementById('modalSuccessAlert');
     if (alertBox) {
       alertBox.classList.remove('hidden');
@@ -213,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
         planModal?.classList.add('hidden');
         document.body.style.overflow = '';
         planForm.reset();
-      }, 2500);
+      }, 2000);
     }
   });
 
@@ -430,4 +451,243 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(err => console.log('Service Worker registration skipped:', err));
     });
   }
+
+  // 9. Royal Portfolio & Concierge Inquiry Persistence Engine
+  const portfolioDrawer = document.getElementById('portfolioDrawer');
+  const portfolioDrawerBackdrop = document.getElementById('portfolioDrawerBackdrop');
+  const closePortfolioBtn = document.getElementById('closePortfolioBtn');
+  const openPortfolioBtns = document.querySelectorAll('.open-portfolio-drawer');
+  const tabInquiriesBtn = document.getElementById('tabInquiriesBtn');
+  const tabSavedBtn = document.getElementById('tabSavedBtn');
+  const inquiriesView = document.getElementById('inquiriesView');
+  const savedView = document.getElementById('savedView');
+  const inquiriesListContainer = document.getElementById('inquiriesListContainer');
+  const savedTripsContainer = document.getElementById('savedTripsContainer');
+  const clearAllInquiriesBtn = document.getElementById('clearAllInquiriesBtn');
+  const portfolioBadgeElements = document.querySelectorAll('.portfolio-badge-count');
+
+  function getStoredInquiries() {
+    try {
+      return JSON.parse(localStorage.getItem('fly_anytime_inquiries') || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function saveInquiriesToStorage(list) {
+    localStorage.setItem('fly_anytime_inquiries', JSON.stringify(list));
+    renderPortfolio();
+  }
+
+  function getSavedTrips() {
+    try {
+      return JSON.parse(localStorage.getItem('fly_anytime_saved_trips') || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function saveTripsToStorage(list) {
+    localStorage.setItem('fly_anytime_saved_trips', JSON.stringify(list));
+    renderPortfolio();
+  }
+
+  function updateBadgeCounters() {
+    const inquiries = getStoredInquiries();
+    const saved = getSavedTrips();
+    const totalCount = inquiries.length + saved.length;
+    portfolioBadgeElements.forEach(badge => {
+      badge.textContent = totalCount;
+      if (totalCount > 0) {
+        badge.classList.remove('hidden');
+        badge.classList.add('inline-flex');
+      } else {
+        badge.classList.add('hidden');
+        badge.classList.remove('inline-flex');
+      }
+    });
+  }
+
+  function renderPortfolio() {
+    updateBadgeCounters();
+    const inquiries = getStoredInquiries();
+    const saved = getSavedTrips();
+
+    // Render Inquiries
+    if (inquiriesListContainer) {
+      if (inquiries.length === 0) {
+        inquiriesListContainer.innerHTML = `
+          <div class="p-8 text-center flex flex-col items-center justify-center gap-3 bg-surface-container rounded-2xl border border-outline-variant/30 text-on-surface-variant">
+            <span class="material-symbols-outlined text-4xl text-primary/60">support_agent</span>
+            <p class="text-xs font-semibold">No royal inquiries placed yet.</p>
+            <p class="text-[11px] text-tertiary">Select any flight charter, palace suite, or rail journey and request a consultation to track here.</p>
+          </div>
+        `;
+      } else {
+        inquiriesListContainer.innerHTML = inquiries.map((item, idx) => `
+          <div class="clay-card p-4 rounded-2xl bg-surface-bright border border-outline-variant/40 flex flex-col gap-2 relative shadow-xs">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-primary bg-primary-fixed/50 px-2 py-0.5 rounded-md">${item.id}</span>
+                <h4 class="text-sm font-bold text-on-surface mt-1">${item.package}</h4>
+              </div>
+              <button onclick="window.removeInquiryByIndex(${idx})" class="text-tertiary hover:text-red-600 transition-colors cursor-pointer p-1" title="Remove Inquiry">
+                <span class="material-symbols-outlined text-lg">delete</span>
+              </button>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-on-surface-variant">
+              <span class="inline-flex items-center gap-1 font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full text-[10px]">
+                <span class="material-symbols-outlined text-xs">verified</span> ${item.status || 'Concierge Assigned'}
+              </span>
+              <span>•</span>
+              <span class="text-tertiary font-mono">${item.date}</span>
+            </div>
+            ${item.preferences ? `<p class="text-[11px] text-tertiary line-clamp-2 italic bg-surface-container/60 p-2 rounded-lg">"${item.preferences}"</p>` : ''}
+            <div class="flex items-center gap-2 pt-2 border-t border-outline-variant/20 mt-1">
+              <button onclick="window.followUpWhatsApp('${item.id}', '${item.package}')" class="flex-1 py-2 px-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-transform active:scale-95 duration-150 cursor-pointer">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                Concierge Chat
+              </button>
+              <button onclick="window.reopenVoucherForPackage('${item.package}')" class="py-2 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 border border-outline-variant/40 cursor-pointer">
+                <span class="material-symbols-outlined text-sm">receipt_long</span>
+                Voucher
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Render Saved Trips
+    if (savedTripsContainer) {
+      if (saved.length === 0) {
+        savedTripsContainer.innerHTML = `
+          <div class="p-8 text-center flex flex-col items-center justify-center gap-3 bg-surface-container rounded-2xl border border-outline-variant/30 text-on-surface-variant">
+            <span class="material-symbols-outlined text-4xl text-primary/60">bookmark_border</span>
+            <p class="text-xs font-semibold">No saved journeys bookmarked.</p>
+            <p class="text-[11px] text-tertiary">Bookmark experiences across the platform to quickly compare and review here.</p>
+          </div>
+        `;
+      } else {
+        savedTripsContainer.innerHTML = saved.map((trip, idx) => `
+          <div class="clay-card p-3 rounded-2xl bg-surface-bright border border-outline-variant/40 flex items-center justify-between gap-3 shadow-xs">
+            <div>
+              <h4 class="text-xs font-bold text-on-surface">${trip.title}</h4>
+              <p class="text-[10px] text-tertiary">${trip.route || 'Curated Itinerary'}</p>
+            </div>
+            <div class="flex items-center gap-1">
+              <button onclick="window.reopenVoucherForPackage('${trip.title}')" class="p-1.5 rounded-lg bg-surface-container text-primary hover:bg-primary hover:text-white transition-colors cursor-pointer" title="View Voucher">
+                <span class="material-symbols-outlined text-base">receipt_long</span>
+              </button>
+              <button onclick="window.removeSavedTripByIndex(${idx})" class="p-1.5 rounded-lg text-tertiary hover:text-red-600 transition-colors cursor-pointer" title="Remove">
+                <span class="material-symbols-outlined text-base">close</span>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+  }
+
+  // Global helper functions attached to window for inline onclick handlers
+  window.removeInquiryByIndex = function(index) {
+    const list = getStoredInquiries();
+    list.splice(index, 1);
+    saveInquiriesToStorage(list);
+  };
+
+  window.removeSavedTripByIndex = function(index) {
+    const list = getSavedTrips();
+    list.splice(index, 1);
+    saveTripsToStorage(list);
+  };
+
+  window.followUpWhatsApp = function(inquiryId, pkg) {
+    const text = `*Fly Anytime — Follow Up: Inquiry ${inquiryId}* ✈️👑\n\n` +
+      `Hello Royal Concierge, I am following up on my private inquiry for *${pkg}* (Ref: ${inquiryId}). Could you please share the latest flight slot clearance and briefing?`;
+    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  window.reopenVoucherForPackage = function(pkgTitle) {
+    portfolioDrawer?.classList.remove('drawer-open');
+    portfolioDrawer?.classList.add('drawer-closed');
+    document.body.style.overflow = '';
+    openVoucher({
+      title: pkgTitle,
+      route: 'Curated Royal Circuit',
+      aviation: 'Private Aircraft Saloon',
+      duration: '7 Days / 6 Nights',
+      price: 'Tariff Guidance ₹4,85,000'
+    });
+  };
+
+  // Open & Close Portfolio Drawer
+  openPortfolioBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      renderPortfolio();
+      portfolioDrawer?.classList.remove('drawer-closed');
+      portfolioDrawer?.classList.add('drawer-open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closePortfolioBtn?.addEventListener('click', () => {
+    portfolioDrawer?.classList.remove('drawer-open');
+    portfolioDrawer?.classList.add('drawer-closed');
+    document.body.style.overflow = '';
+  });
+
+  portfolioDrawerBackdrop?.addEventListener('click', () => {
+    portfolioDrawer?.classList.remove('drawer-open');
+    portfolioDrawer?.classList.add('drawer-closed');
+    document.body.style.overflow = '';
+  });
+
+  // Drawer Tabs Switching
+  tabInquiriesBtn?.addEventListener('click', () => {
+    tabInquiriesBtn.classList.add('bg-primary', 'text-on-primary');
+    tabInquiriesBtn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+    tabSavedBtn?.classList.remove('bg-primary', 'text-on-primary');
+    tabSavedBtn?.classList.add('bg-surface-container', 'text-on-surface-variant');
+    inquiriesView?.classList.remove('hidden');
+    savedView?.classList.add('hidden');
+  });
+
+  tabSavedBtn?.addEventListener('click', () => {
+    tabSavedBtn.classList.add('bg-primary', 'text-on-primary');
+    tabSavedBtn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+    tabInquiriesBtn?.classList.remove('bg-primary', 'text-on-primary');
+    tabInquiriesBtn?.classList.add('bg-surface-container', 'text-on-surface-variant');
+    savedView?.classList.remove('hidden');
+    inquiriesView?.classList.add('hidden');
+  });
+
+  clearAllInquiriesBtn?.addEventListener('click', () => {
+    if (confirm('Clear all stored inquiries from this browser?')) {
+      localStorage.removeItem('fly_anytime_inquiries');
+      renderPortfolio();
+    }
+  });
+
+  // Seed demo inquiry if empty so traveler immediately sees the experience
+  if (!localStorage.getItem('fly_anytime_inquiries_seeded')) {
+    const sample = [
+      {
+        id: 'FA-98241',
+        package: 'Royal Rajputana Odyssey',
+        name: 'Maharaja Vikramaditya',
+        phone: '+91 98765 43210',
+        month: 'November 2025',
+        preferences: 'Pilatus PC-24 Light Jet arrival into Udaipur, lake-facing Grand Suite.',
+        status: 'Royal Concierge Assigned',
+        date: '09 Oct 2025'
+      }
+    ];
+    localStorage.setItem('fly_anytime_inquiries', JSON.stringify(sample));
+    localStorage.setItem('fly_anytime_inquiries_seeded', 'true');
+  }
+
+  // Initial render of badges
+  renderPortfolio();
 });
