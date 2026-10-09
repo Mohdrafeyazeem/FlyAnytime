@@ -6,6 +6,8 @@
   <meta name="view-transition" content="same-origin">
   <title>Fly Anytime | Enchanting Destinations & Royal Enclaves of India</title>
   <meta name="description" content="Discover India's most extraordinary enclaves. From sun-drenched Thar deserts and royal Rajput fortresses to emerald Kerala backwaters and turquoise Himalayan lakes.">
+  <meta name="theme-color" content="#8f1d1d">
+  <link rel="manifest" href="manifest.json">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,9 +162,14 @@
           <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
             Relive tales of bravery, timeless royalty, and vibrant folk celebrations amidst grand sandstone forts, private desert camps, and mirror-work palaces.
           </p>
-          <button class="open-plan-modal mt-6 primary-btn-3d w-full py-2.5 rounded-xl text-xs font-bold text-on-primary cursor-pointer" data-package="Explore Rajasthan Enclave">
-            Explore Rajasthan Journeys
-          </button>
+          <div class="flex items-center gap-2 mt-6">
+            <button class="open-voucher-modal flex-1 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 cursor-pointer transition-colors border border-outline-variant/30" data-title="Rajasthan Royal Fortresses Circuit" data-route="Jaipur • Udaipur • Jodhpur • Jaisalmer" data-aviation="Pilatus PC-24 Light Jet" data-duration="7 Days / 6 Nights" data-price="₹3,95,000 / couple">
+              <span class="material-symbols-outlined text-sm">receipt_long</span> Brochure
+            </button>
+            <button class="open-plan-modal flex-1 primary-btn-3d py-2.5 rounded-xl text-xs font-bold text-on-primary cursor-pointer" data-package="Explore Rajasthan Enclave">
+              Explore Enclave
+            </button>
+          </div>
         </div>
       </div>
 
@@ -184,9 +191,14 @@
           <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
             Glide serenely through emerald palm-fringed lagoons, sip artisanal single-estate tea in misty Munnar hills, and rejuvenate with classical Panchakarma ayurveda.
           </p>
-          <button class="open-plan-modal mt-6 primary-btn-3d w-full py-2.5 rounded-xl text-xs font-bold text-on-primary cursor-pointer" data-package="Explore Kerala Enclave">
-            Explore Kerala Journeys
-          </button>
+          <div class="flex items-center gap-2 mt-6">
+            <button class="open-voucher-modal flex-1 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 cursor-pointer transition-colors border border-outline-variant/30" data-title="Kerala & Malabar Coast Tropical Odyssey" data-route="Alleppey • Munnar • Kochi • Kumarakom" data-aviation="Airbus VIP Saloon" data-duration="5 Days / 4 Nights" data-price="₹2,10,000 / couple">
+              <span class="material-symbols-outlined text-sm">receipt_long</span> Brochure
+            </button>
+            <button class="open-plan-modal flex-1 primary-btn-3d py-2.5 rounded-xl text-xs font-bold text-on-primary cursor-pointer" data-package="Explore Kerala Enclave">
+              Explore Enclave
+            </button>
+          </div>
         </div>
       </div>
 
@@ -208,9 +220,14 @@
           <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
             Crisp alpine skies, oxygen-enriched heated luxury domes, ancient Buddhist gompas, and private chartered landings into the roof of the world.
           </p>
-          <button class="open-plan-modal mt-6 primary-btn-3d w-full py-2.5 rounded-xl text-xs font-bold text-on-primary cursor-pointer" data-package="Explore Ladakh Enclave">
-            Explore Ladakh Journeys
-          </button>
+          <div class="flex items-center gap-2 mt-6">
+            <button class="open-voucher-modal flex-1 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 cursor-pointer transition-colors border border-outline-variant/30" data-title="Ladakh & Kashmir High Altitude Expedition" data-route="Leh • Nubra • Pangong • Srinagar" data-aviation="High-Altitude PC-24 Jet" data-duration="6 Days / 5 Nights" data-price="₹2,75,000 / couple">
+              <span class="material-symbols-outlined text-sm">receipt_long</span> Brochure
+            </button>
+            <button class="open-plan-modal flex-1 primary-btn-3d py-2.5 rounded-xl text-xs font-bold text-on-primary cursor-pointer" data-package="Explore Ladakh Enclave">
+              Explore Enclave
+            </button>
+          </div>
         </div>
       </div>
 
@@ -276,6 +293,100 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- LUXURY DIGITAL ITINERARY & BROCHURE MODAL -->
+  <div id="itineraryVoucherModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 hidden overflow-y-auto">
+    <div class="itinerary-printable-voucher clay-card bg-surface-bright rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-outline-variant/40 shadow-2xl relative my-auto">
+      
+      <!-- Voucher Top Bar (Action Controls) -->
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30 print-header">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-black">
+            <span class="material-symbols-outlined text-2xl rotate-45">flight</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-extrabold uppercase tracking-widest text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-full print-badge">Official Royal Itinerary</span>
+              <span id="voucherRef" class="text-[10px] font-mono text-tertiary">REF: FA-ROYAL-8821</span>
+            </div>
+            <h3 id="voucherTitle" class="text-xl sm:text-2xl font-black text-on-surface mt-0.5">Enclave Expedition Itinerary</h3>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 no-print">
+          <button id="printVoucherBtn" class="primary-btn-3d text-xs font-bold px-4 py-2 rounded-xl text-on-primary flex items-center gap-1.5 cursor-pointer shadow-sm">
+            <span class="material-symbols-outlined text-base">print</span>
+            <span>Print / PDF</span>
+          </button>
+          <button id="closeVoucherModal" class="p-1.5 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Voucher Metadata Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-4 border-b border-outline-variant/20 text-xs print-section">
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Destination Region</span>
+          <span id="voucherRoute" class="font-bold text-on-surface">Rajasthan Fortresses</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Aviation Class</span>
+          <span id="voucherAviation" class="font-bold text-on-surface">Pilatus PC-24 Super Jet</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Duration</span>
+          <span id="voucherDuration" class="font-bold text-on-surface">7 Days / 6 Nights</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Tariff Guidance</span>
+          <span id="voucherPrice" class="font-bold text-primary font-mono">₹3,95,000 / couple</span>
+        </div>
+      </div>
+
+      <!-- Day-by-Day Timeline Breakdown -->
+      <div class="py-4 border-b border-outline-variant/20 print-section">
+        <h4 class="text-xs font-extrabold uppercase tracking-wider text-tertiary mb-3">Enclave Expeditions & Highlights</h4>
+        <div id="voucherTimeline" class="flex flex-col gap-3 text-xs">
+          <div class="flex gap-3 items-start">
+            <span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-bold text-[10px] shrink-0">EXPEDITION 1</span>
+            <div>
+              <p class="font-bold text-on-surface">Private Jet Touchdown & Palace Heritage Tour</p>
+              <p class="text-on-surface-variant text-[11px]">Direct airfield transfer to curated heritage citadel with dedicated historian and private access.</p>
+            </div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-bold text-[10px] shrink-0">EXPEDITION 2</span>
+            <div>
+              <p class="font-bold text-on-surface">Curated Cultural Immersion & Artisanal Workshop</p>
+              <p class="text-on-surface-variant text-[11px]">Private meetings with generational jewelers, royal equestrian encounters, and sunset cocktails.</p>
+            </div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-bold text-[10px] shrink-0">EXPEDITION 3</span>
+            <div>
+              <p class="font-bold text-on-surface">Exclusive Starlit Dining & Sovereign Departure</p>
+              <p class="text-on-surface-variant text-[11px]">Private candlelit banquet in secluded courtyard followed by VIP charter departure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Royal Guarantee & Concierge Footer -->
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-2 text-on-surface-variant text-[11px]">
+          <span class="material-symbols-outlined text-primary text-base">verified</span>
+          <span>Orchestrated with DGCA-accredited pilots & verified heritage lineages.</span>
+        </div>
+        <div class="flex items-center gap-2 no-print w-full sm:w-auto">
+          <button type="button" id="voucherWhatsAppBtn" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs shadow-sm cursor-pointer flex items-center justify-center gap-1.5 transition-transform active:scale-95 duration-150">
+            <span class="material-symbols-outlined text-sm">chat</span>
+            <span>WhatsApp Royal Desk</span>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 

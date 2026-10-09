@@ -6,6 +6,8 @@
   <meta name="view-transition" content="same-origin">
   <title>Fly Anytime | Luxury Heritage Trains of India</title>
   <meta name="description" content="Traverse India like royalty on sovereign rail expeditions. Maharajas' Express, Palace on Wheels, and private saloon carriages.">
+  <meta name="theme-color" content="#8f1d1d">
+  <link rel="manifest" href="manifest.json">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -186,9 +188,14 @@
               Champagne breakfast overlooking the Taj Mahal, private safari in Ranthambore Tiger Reserve, sundowner cocktails amidst the sand dunes of Bikaner.
             </p>
           </div>
-          <button class="open-plan-modal mt-6 primary-btn-3d w-full py-3 rounded-2xl text-xs sm:text-sm font-bold text-on-primary cursor-pointer" data-package="Maharajas Express Heritage of India">
-            Request Saloon Cabin
-          </button>
+          <div class="flex items-center gap-3 mt-6">
+            <button class="open-voucher-modal flex-1 py-3 rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-colors border border-outline-variant/30" data-title="Maharajas Express Heritage of India" data-route="Mumbai • Rajasthan • Agra • Delhi" data-aviation="Private Presidential Suite Cabin" data-duration="7 Days / 6 Nights" data-price="₹5,60,000 / cabin">
+              <span class="material-symbols-outlined text-base">receipt_long</span> View Itinerary
+            </button>
+            <button class="open-plan-modal flex-1 primary-btn-3d py-3 rounded-2xl text-xs sm:text-sm font-bold text-on-primary cursor-pointer" data-package="Maharajas Express Heritage of India">
+              Request Cabin
+            </button>
+          </div>
         </div>
       </div>
 
@@ -213,9 +220,14 @@
               India's first and most iconic royal train. 14 lavish salons named after historic princely states, featuring rich teak paneling, silk upholstery, and personal 'Khidmatgar' attendants.
             </p>
           </div>
-          <button class="open-plan-modal mt-6 primary-btn-3d w-full py-3 rounded-2xl text-xs sm:text-sm font-bold text-on-primary cursor-pointer" data-package="Palace on Wheels Classic Rajputana">
-            Request Saloon Cabin
-          </button>
+          <div class="flex items-center gap-3 mt-6">
+            <button class="open-voucher-modal flex-1 py-3 rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-colors border border-outline-variant/30" data-title="Palace on Wheels Classic Rajputana" data-route="Delhi • Jaipur • Udaipur • Agra" data-aviation="Historic Princely Saloon" data-duration="8 Days / 7 Nights" data-price="₹4,85,000 / cabin">
+              <span class="material-symbols-outlined text-base">receipt_long</span> View Itinerary
+            </button>
+            <button class="open-plan-modal flex-1 primary-btn-3d py-3 rounded-2xl text-xs sm:text-sm font-bold text-on-primary cursor-pointer" data-package="Palace on Wheels Classic Rajputana">
+              Request Cabin
+            </button>
+          </div>
         </div>
       </div>
 
@@ -281,6 +293,100 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- LUXURY DIGITAL ITINERARY & BROCHURE MODAL -->
+  <div id="itineraryVoucherModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 hidden overflow-y-auto">
+    <div class="itinerary-printable-voucher clay-card bg-surface-bright rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-outline-variant/40 shadow-2xl relative my-auto">
+      
+      <!-- Voucher Top Bar (Action Controls) -->
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30 print-header">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-black">
+            <span class="material-symbols-outlined text-2xl rotate-45">flight</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-extrabold uppercase tracking-widest text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-full print-badge">Official Royal Itinerary</span>
+              <span id="voucherRef" class="text-[10px] font-mono text-tertiary">REF: FA-ROYAL-8821</span>
+            </div>
+            <h3 id="voucherTitle" class="text-xl sm:text-2xl font-black text-on-surface mt-0.5">Heritage Rail Itinerary</h3>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 no-print">
+          <button id="printVoucherBtn" class="primary-btn-3d text-xs font-bold px-4 py-2 rounded-xl text-on-primary flex items-center gap-1.5 cursor-pointer shadow-sm">
+            <span class="material-symbols-outlined text-base">print</span>
+            <span>Print / PDF</span>
+          </button>
+          <button id="closeVoucherModal" class="p-1.5 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Voucher Metadata Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-4 border-b border-outline-variant/20 text-xs print-section">
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Rail Circuit</span>
+          <span id="voucherRoute" class="font-bold text-on-surface">Mumbai ➔ Delhi</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Salon Class</span>
+          <span id="voucherAviation" class="font-bold text-on-surface">Presidential Suite</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Duration</span>
+          <span id="voucherDuration" class="font-bold text-on-surface">7 Days / 6 Nights</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Tariff Guidance</span>
+          <span id="voucherPrice" class="font-bold text-primary font-mono">₹5,60,000 / cabin</span>
+        </div>
+      </div>
+
+      <!-- Day-by-Day Timeline Breakdown -->
+      <div class="py-4 border-b border-outline-variant/20 print-section">
+        <h4 class="text-xs font-extrabold uppercase tracking-wider text-tertiary mb-3">Royal Rail Excursions</h4>
+        <div id="voucherTimeline" class="flex flex-col gap-3 text-xs">
+          <div class="flex gap-3 items-start">
+            <span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-bold text-[10px] shrink-0">DEPARTURE</span>
+            <div>
+              <p class="font-bold text-on-surface">Red Carpet Boarding & Regal Welcome</p>
+              <p class="text-on-surface-variant text-[11px]">Garlanding and royal brass fanfare at platform, welcome drink in the Mayur Mahal dining car.</p>
+            </div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-bold text-[10px] shrink-0">RAJASTHAN</span>
+            <div>
+              <p class="font-bold text-on-surface">Private Fortress Dinners & Tiger Safaris</p>
+              <p class="text-on-surface-variant text-[11px]">Private Jeep safari inside Ranthambore sanctuary and evening royal banquet inside Mehrangarh Fort.</p>
+            </div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-bold text-[10px] shrink-0">AGRA / DELHI</span>
+            <div>
+              <p class="font-bold text-on-surface">Dawn Taj Mahal Champagne Breakfast</p>
+              <p class="text-on-surface-variant text-[11px]">Private viewing of the Taj Mahal at dawn followed by return luxury flight transfer connection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Royal Guarantee & Concierge Footer -->
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-2 text-on-surface-variant text-[11px]">
+          <span class="material-symbols-outlined text-primary text-base">verified</span>
+          <span>Official accredited partner of IRCTC & Palace on Wheels.</span>
+        </div>
+        <div class="flex items-center gap-2 no-print w-full sm:w-auto">
+          <button type="button" id="voucherWhatsAppBtn" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs shadow-sm cursor-pointer flex items-center justify-center gap-1.5 transition-transform active:scale-95 duration-150">
+            <span class="material-symbols-outlined text-sm">chat</span>
+            <span>WhatsApp Royal Desk</span>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 

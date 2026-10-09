@@ -1,0 +1,21 @@
+{
+  "name": "Fly Anytime | Luxury Charters & Stays",
+  "short_name": "Fly Anytime",
+  "description": "India's foremost bespoke royal travel orchestrator and private aviation atelier.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#8f1d1d",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=192&h=192&q=80",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=512&h=512&q=80",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

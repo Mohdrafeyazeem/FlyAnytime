@@ -9,7 +9,7 @@
 - [x] Responsive fluid aspect-ratio image containers with zero distortion
 - [x] Interactive live quotation & flight distance calculator
 - [x] WhatsApp concierge deep link generator
-- [ ] Digital itinerary PDF export & brochure download
+- [x] Digital itinerary PDF export & brochure download
 - [ ] Inquiry persistence & review portal
 
 ---
@@ -33,7 +33,7 @@
 - WhatsApp deep-link message generator with formatted booking payload
 
 ### Phase 3: Digital Itinerary Export & Brochure Generation
-**Status**: ⬜ Not Started
+**Status**: 🟩 Completed
 **Objective**: Allow travelers to export their customized royal itinerary as a clean printable/PDF summary and add PWA manifest for offline reading.
 **Deliverables**:
 - Printable itinerary summary view

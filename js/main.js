@@ -338,4 +338,96 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 7. Luxury Digital Itinerary Voucher Modal & Print Engine
+  const voucherModal = document.getElementById('itineraryVoucherModal');
+  const closeVoucherModalBtn = document.getElementById('closeVoucherModal');
+  const printVoucherBtn = document.getElementById('printVoucherBtn');
+  const voucherTitle = document.getElementById('voucherTitle');
+  const voucherRoute = document.getElementById('voucherRoute');
+  const voucherAviation = document.getElementById('voucherAviation');
+  const voucherDuration = document.getElementById('voucherDuration');
+  const voucherPrice = document.getElementById('voucherPrice');
+  const voucherRef = document.getElementById('voucherRef');
+  const voucherWhatsAppBtn = document.getElementById('voucherWhatsAppBtn');
+  const openVoucherBtns = document.querySelectorAll('.open-voucher-modal');
+  const exportFlightVoucher = document.getElementById('exportFlightVoucher');
+
+  function openVoucher(data) {
+    if (!voucherModal) return;
+    const randomRef = 'FA-ROYAL-' + Math.floor(1000 + Math.random() * 9000);
+    if (voucherRef) voucherRef.textContent = `REF: ${randomRef}`;
+    if (voucherTitle) voucherTitle.textContent = data.title || 'Bespoke Royal Itinerary';
+    if (voucherRoute) voucherRoute.textContent = data.route || 'Delhi • Heritage Enclaves';
+    if (voucherAviation) voucherAviation.textContent = data.aviation || 'Pilatus PC-24 / Executive Jet';
+    if (voucherDuration) voucherDuration.textContent = data.duration || 'Curated Circuit';
+    if (voucherPrice) voucherPrice.textContent = data.price || 'Tariff on Request';
+
+    if (voucherWhatsAppBtn) {
+      voucherWhatsAppBtn.onclick = () => {
+        const url = generateWhatsAppInquiryUrl({
+          package: data.title,
+          origin: data.route,
+          passengers: 'VIP Royal Delegation',
+          price: data.price
+        });
+        window.open(url, '_blank');
+      };
+    }
+
+    voucherModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  openVoucherBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openVoucher({
+        title: btn.getAttribute('data-title') || 'Curated Royal Odyssey',
+        route: btn.getAttribute('data-route') || 'Pan-India Royal Circuit',
+        aviation: btn.getAttribute('data-aviation') || 'Private Aircraft Saloon',
+        duration: btn.getAttribute('data-duration') || '7 Days / 6 Nights',
+        price: btn.getAttribute('data-price') || '₹4,85,000 / couple'
+      });
+    });
+  });
+
+  exportFlightVoucher?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const origin = originSelect ? originSelect.options[originSelect.selectedIndex]?.text : 'Delhi';
+    const dest = destSelect ? destSelect.options[destSelect.selectedIndex]?.text : 'Udaipur';
+    const quote = calculateCharterQuote(originSelect?.value || 'DEL', destSelect?.value || 'UDR', aircraftSelect?.value || 'light_jet');
+    openVoucher({
+      title: `Private Charter: ${origin} to ${dest}`,
+      route: `${origin} ➔ ${dest} (${quote.distanceKm} km non-stop)`,
+      aviation: quote.aircraftName,
+      duration: quote.formattedTime,
+      price: quote.priceFormatted
+    });
+  });
+
+  closeVoucherModalBtn?.addEventListener('click', () => {
+    voucherModal?.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+
+  voucherModal?.addEventListener('click', (e) => {
+    if (e.target === voucherModal) {
+      voucherModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
+
+  printVoucherBtn?.addEventListener('click', () => {
+    window.print();
+  });
+
+  // 8. Service Worker Registration for PWA Offline Resilience
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Fly Anytime Service Worker active:', reg.scope))
+        .catch(err => console.log('Service Worker registration skipped:', err));
+    });
+  }
 });

@@ -281,3 +281,70 @@ img {
     box-shadow: 0 -4px 16px rgba(13, 34, 64, 0.08);
   }
 }
+
+/* ==========================================================================
+   PRINT STYLESHEET (Digital Itinerary & Brochure Export)
+   ========================================================================== */
+@media print {
+  nav,
+  footer,
+  .mobile-nav-bar,
+  #pageTransitionBar,
+  #planTripModal,
+  .no-print,
+  .open-plan-modal,
+  .open-voucher-modal,
+  .pattern-mandala {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    font-size: 11pt !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #itineraryVoucherModal {
+    position: static !important;
+    display: block !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    inset: auto !important;
+  }
+
+  .itinerary-printable-voucher {
+    box-shadow: none !important;
+    border: 2px solid #8f1d1d !important;
+    border-radius: 8px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 24px !important;
+    background: #ffffff !important;
+    page-break-inside: avoid;
+  }
+
+  .print-header {
+    border-bottom: 2px solid #8f1d1d !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .print-badge {
+    border: 1px solid #8f1d1d !important;
+    color: #8f1d1d !important;
+    background: transparent !important;
+  }
+
+  .print-section {
+    page-break-inside: avoid;
+    margin-bottom: 18px;
+  }
+
+  a[href]:after {
+    content: none !important;
+  }
+}
