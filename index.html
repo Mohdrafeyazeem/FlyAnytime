@@ -90,52 +90,44 @@
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
-      <a class="flex items-center gap-3 group" href="index.html">
-        <img src="favicon.svg" alt="Fly Anytime Royal Emblem" class="w-11 h-11 rounded-xl shadow-md shadow-primary/20 transform transition-transform group-hover:scale-105 object-cover">
-        <div class="flex flex-col">
-          <span class="text-lg font-extrabold text-primary tracking-tight flex items-center gap-1.5">
-            Fly Anytime
+      <a class="flex items-center gap-3.5 group select-none transition-transform active:scale-95 duration-150" href="index.html">
+        <div class="relative shrink-0 flex items-center justify-center">
+          <img src="favicon.svg" alt="Fly Anytime Royal Emblem" class="w-11 h-11 rounded-2xl shadow-md shadow-primary/20 transform transition-transform group-hover:scale-105 object-cover">
+        </div>
+        <div class="flex flex-col justify-center">
+          <div class="flex items-center gap-1.5 leading-none">
+            <span class="text-xl font-extrabold text-primary tracking-tight">Fly Anytime</span>
             <span class="w-2 h-2 rounded-full bg-secondary-container animate-ping inline-block"></span>
-          </span>
-          <span class="text-[11px] text-tertiary tracking-wider font-semibold uppercase">Bespoke India Journeys</span>
+          </div>
+          <span class="text-[10px] text-tertiary tracking-widest font-bold uppercase mt-1">Bespoke India Journeys</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-6">
-        <a class="text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Curated Packages</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="flights.html">Flights & Charters</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="flights.html#multiCityCircuitSection">Multi-City Circuits</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="stays.html">Heritage Stays</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="trains.html">Luxury Trains</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="destinations.html">Destinations</a>
-      </nav>
-
       <!-- Trailing Action Cluster -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-2.5 sm:gap-3.5">
         <!-- Royal Portfolio Trigger -->
-        <button class="open-portfolio-drawer relative flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-xs font-bold transition-all cursor-pointer" title="Royal Portfolio & Active Inquiries">
+        <button class="open-portfolio-drawer relative flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-xs font-bold transition-all cursor-pointer shadow-xs" title="Royal Portfolio & Active Inquiries">
           <span class="material-symbols-outlined text-base text-primary">folder_special</span>
-          <span class="hidden md:inline">Portfolio</span>
+          <span class="hidden sm:inline">Portfolio</span>
           <span class="portfolio-badge-count hidden items-center justify-center min-w-5 h-5 px-1 rounded-full bg-primary text-[10px] font-extrabold text-white">0</span>
         </button>
 
-        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface-variant text-xs font-semibold">
+        <div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface-variant text-xs font-semibold">
           <span class="material-symbols-outlined text-sm text-primary">currency_rupee</span>
           <span>INR</span>
           <span class="text-outline-variant">|</span>
           <span class="font-bold text-on-surface">EN</span>
         </div>
         
-        <button class="open-plan-modal primary-btn-3d text-on-primary text-xs sm:text-sm px-5 py-2.5 rounded-full flex items-center gap-2 font-bold cursor-pointer transition-transform active:scale-95 duration-150" data-package="Bespoke India Consultation">
+        <button class="open-plan-modal primary-btn-3d text-on-primary text-xs sm:text-sm px-5 py-2.5 rounded-full flex items-center gap-2 font-bold cursor-pointer transition-transform active:scale-95 duration-150 shadow-md" data-package="Bespoke India Consultation">
           <span class="material-symbols-outlined text-base">travel_explore</span>
           <span>Plan My Trip</span>
         </button>
 
         <!-- Desktop & Mobile Unified Mega Menu Toggle Button -->
-        <button id="megaMenuToggle" class="p-2 sm:px-3 sm:py-2 rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 border border-outline-variant/30 cursor-pointer transition-all active:scale-95 group shadow-xs" aria-label="Open directory menu">
+        <button id="megaMenuToggle" class="p-2 sm:px-3.5 sm:py-2 rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 border border-outline-variant/30 cursor-pointer transition-all active:scale-95 group shadow-xs" aria-label="Open directory menu">
           <span class="material-symbols-outlined text-2xl group-hover:text-primary transition-colors">menu</span>
-          <span class="hidden md:inline text-xs font-extrabold uppercase tracking-wider group-hover:text-primary transition-colors">Menu</span>
+          <span class="hidden sm:inline text-xs font-extrabold uppercase tracking-wider group-hover:text-primary transition-colors">Menu</span>
         </button>
       </div>
     </div>
@@ -424,6 +416,73 @@
           </button>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- BESPOKE DESTINATION PLANNER SECTION (Where Would You Like To Go?) -->
+  <section class="py-14 px-4 sm:px-6 bg-gradient-to-b from-surface to-surface-container-low/60 relative overflow-hidden border-y border-outline-variant/20" id="suggestTripSection">
+    <div class="max-w-7xl mx-auto">
+      <div class="clay-card rounded-3xl p-6 sm:p-10 lg:p-12 relative overflow-hidden border border-outline-variant/30">
+        <!-- Ambient accents -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-4 relative z-10">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-primary text-xs font-black uppercase tracking-wider shadow-xs">
+            <span class="material-symbols-outlined text-base">explore</span>
+            <span>Where Would You Like To Go?</span>
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-on-background tracking-tight">
+            Suggest Your Dream Destination & We’ll Plan the Rest
+          </h2>
+          
+          <p class="text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed">
+            Have a specific royal palace, secluded beach, or remote Himalayan valley in mind? Enter any destination across India, and our Royal Atelier will custom-choreograph every chartered flight, heritage stay, and private concierge detail.
+          </p>
+
+          <!-- Interactive Destination Planning Input Bar -->
+          <div class="w-full mt-4 flex flex-col sm:flex-row items-center gap-3 p-2 rounded-2xl bg-surface-bright border border-outline-variant/30 shadow-lg">
+            <div class="flex items-center gap-3 px-4 py-2 flex-grow w-full">
+              <span class="material-symbols-outlined text-primary text-2xl shrink-0">pin_drop</span>
+              <input id="suggestDestinationInput" 
+                     type="text" 
+                     placeholder="e.g. Udaipur Lake Palace, Kashmir Valley, Jim Corbett, Coorg..." 
+                     class="bg-transparent border-0 p-0 text-sm sm:text-base font-bold text-on-surface placeholder:text-outline-variant focus:ring-0 w-full outline-hidden">
+            </div>
+            <button id="planSuggestedTripBtn" 
+                    type="button" 
+                    class="primary-btn-3d w-full sm:w-auto px-7 py-3.5 rounded-xl text-on-primary text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-md cursor-pointer whitespace-nowrap active:scale-95 transition-transform duration-150">
+              <span class="material-symbols-outlined text-base">auto_awesome</span>
+              <span>Plan This Trip</span>
+            </button>
+          </div>
+
+          <!-- Quick Suggestion Inspiration Tags -->
+          <div class="w-full flex flex-wrap items-center justify-center gap-2 pt-3">
+            <span class="text-xs font-bold text-tertiary">Quick Ideas:</span>
+            <button type="button" class="suggest-dest-chip px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-fixed hover:text-primary text-on-surface-variant text-xs font-bold transition-all cursor-pointer border border-outline-variant/20" data-destination="Royal Udaipur Lake Palace & Forts">
+              🕌 Udaipur Palaces
+            </button>
+            <button type="button" class="suggest-dest-chip px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-fixed hover:text-primary text-on-surface-variant text-xs font-bold transition-all cursor-pointer border border-outline-variant/20" data-destination="Kashmir Valley & Gulmarg Luxury">
+              ❄️ Kashmir & Gulmarg
+            </button>
+            <button type="button" class="suggest-dest-chip px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-fixed hover:text-primary text-on-surface-variant text-xs font-bold transition-all cursor-pointer border border-outline-variant/20" data-destination="Ranthambore Royal Tiger Safari">
+              🐅 Ranthambore Safari
+            </button>
+            <button type="button" class="suggest-dest-chip px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-fixed hover:text-primary text-on-surface-variant text-xs font-bold transition-all cursor-pointer border border-outline-variant/20" data-destination="Alleppey Emerald Backwaters Cruise">
+              🌴 Kerala Backwaters
+            </button>
+            <button type="button" class="suggest-dest-chip px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-fixed hover:text-primary text-on-surface-variant text-xs font-bold transition-all cursor-pointer border border-outline-variant/20" data-destination="Varanasi Ganga Sacred Rituals">
+              🛕 Varanasi Ghats
+            </button>
+            <button type="button" class="suggest-dest-chip px-3 py-1.5 rounded-full bg-surface-container hover:bg-primary-fixed hover:text-primary text-on-surface-variant text-xs font-bold transition-all cursor-pointer border border-outline-variant/20" data-destination="Ladakh High Passes & Pangong Lake">
+              🏔️ Ladakh & Pangong
+            </button>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -1064,7 +1123,7 @@
                      alt="Cover of Secret Palaces of India guidebook">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex flex-col justify-end p-4 text-white">
                   <span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed">The Definitive Guide</span>
-                  <span class="text-base font-extrabold leading-tight">Royal & Hidden India 2025</span>
+                  <span class="text-base font-extrabold leading-tight">Royal & Hidden India 2026</span>
                 </div>
               </div>
             </div>
@@ -1110,7 +1169,7 @@
           <div>
             <label class="text-[11px] font-bold text-tertiary uppercase">Preferred Travel Month</label>
             <div class="inset-clay-input p-3 rounded-xl mt-1">
-              <input class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="November 2025">
+              <input class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="November 2026">
             </div>
           </div>
         </div>
@@ -1303,7 +1362,7 @@
       <!-- Bottom Row -->
       <div class="pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
         <p class="text-xs text-on-surface-variant">
-          © 2025 Fly Anytime India Private Limited. All rights reserved. Crafted with passion for royal heritage & luxury journeys.
+          © 2026 Fly Anytime India Private Limited. All rights reserved. Crafted with passion for royal heritage & luxury journeys.
         </p>
         <div class="flex items-center gap-5 text-xs text-on-surface-variant">
           <a class="hover:text-primary transition-colors" href="#">Privacy</a>

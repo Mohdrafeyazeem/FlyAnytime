@@ -206,6 +206,51 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(waUrl, '_blank');
   });
 
+  // 4b. Bespoke Destination Planner Section Handlers
+  const suggestDestinationInput = document.getElementById('suggestDestinationInput');
+  const planSuggestedTripBtn = document.getElementById('planSuggestedTripBtn');
+  const suggestDestChips = document.querySelectorAll('.suggest-dest-chip');
+
+  suggestDestChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const dest = chip.getAttribute('data-destination');
+      if (dest && suggestDestinationInput) {
+        suggestDestinationInput.value = dest;
+        suggestDestinationInput.focus();
+        chip.classList.add('bg-primary-fixed', 'text-primary');
+        setTimeout(() => {
+          chip.classList.remove('bg-primary-fixed', 'text-primary');
+        }, 800);
+      }
+    });
+  });
+
+  planSuggestedTripBtn?.addEventListener('click', () => {
+    const enteredDest = suggestDestinationInput ? suggestDestinationInput.value.trim() : '';
+    const tripTitle = enteredDest ? `Bespoke Journey: ${enteredDest}` : 'Custom India Journey';
+    currentInquiryTitle = tripTitle;
+    if (modalPackageTitle) modalPackageTitle.textContent = currentInquiryTitle;
+
+    // Pre-fill preferences input in consultation modal
+    const inputs = planForm?.querySelectorAll('input, textarea');
+    if (inputs && inputs[3] && enteredDest) {
+      inputs[3].value = `Preferred Destination: ${enteredDest}`;
+    }
+
+    if (planModal) {
+      planModal.scrollTop = 0;
+      planModal.classList.remove('hidden');
+    }
+    document.body.style.overflow = 'hidden';
+  });
+
+  suggestDestinationInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      planSuggestedTripBtn?.click();
+    }
+  });
+
   planForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const inputs = planForm.querySelectorAll('input, textarea');
@@ -691,10 +736,10 @@ document.addEventListener('DOMContentLoaded', () => {
         package: 'Royal Rajputana Odyssey',
         name: 'Maharaja Vikramaditya',
         phone: '+91 98765 43210',
-        month: 'November 2025',
+        month: 'November 2026',
         preferences: 'Pilatus PC-24 Light Jet arrival into Udaipur, lake-facing Grand Suite.',
         status: 'Royal Concierge Assigned',
-        date: '09 Oct 2025'
+        date: '09 Oct 2026'
       }
     ];
     localStorage.setItem('fly_anytime_inquiries', JSON.stringify(sample));
