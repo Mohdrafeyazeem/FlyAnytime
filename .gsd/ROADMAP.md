@@ -50,4 +50,18 @@
 - Bottom dock safe margin clearance (`pb-24 lg:pb-16`)
 - Automated verification suite `scripts/verify_responsiveness_suite.ps1`
 
+---
+
+### Phase 7: Interactive Expedition Map & Geographic Circuit Visualizer
+**Status**: ⬜ Not Started
+**Objective**: Implement an interactive geographic map visualizer displaying private charter flight arcs, sovereign rail paths, luxury waypoints (Delhi, Leh, Udaipur, Jaipur, Varanasi, Kerala), and interactive waypoint cards with animated routes.
+**Depends on**: Phase 6
+
+**Tasks**:
+- [ ] TBD (run /plan 7 to create)
+
+**Verification**:
+- TBD
+
+
 
