@@ -249,11 +249,18 @@ img {
   background-color: var(--color-surface-container);
 }
 
+@media (min-width: 1024px) {
+  .hero-media-wrap {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 .card-media-wrap {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
+  border-radius: var(--radius-lg);
   background-color: var(--color-surface-container);
 }
 
@@ -270,6 +277,24 @@ img {
 .clay-card:hover .responsive-img-cover {
   transform: scale(1.04);
 }
+
+/* Modal Pan-Device Adaptive Sizing & Smooth Touch Scrolling */
+.modal-dialog-responsive {
+  width: 100%;
+  max-width: min(92vw, 32rem);
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-dialog-responsive-lg {
+  width: 100%;
+  max-width: min(95vw, 42rem);
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

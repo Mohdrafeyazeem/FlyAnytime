@@ -8,11 +8,12 @@ Write-Host "==========================================================" -Foregro
 foreach ($p in $pages) {
     $content = Get-Content $p -Raw
     $pattern = '<img[^>]+>'
-    $matches = [regex]::Matches($content, $pattern)
-    Write-Host "`nChecking $p (Total images found: $($matches.Count))..." -ForegroundColor Yellow
+    $imgMatches = [regex]::Matches($content, $pattern)
+    $imgCount = $imgMatches.Count
+    Write-Host "`nChecking $p (Total images found: $imgCount)..." -ForegroundColor Yellow
     
     $fileOk = $true
-    foreach ($m in $matches) {
+    foreach ($m in $imgMatches) {
         $tag = $m.Value
         $hasObjectCover = ($tag -match 'object-cover') -or ($tag -match 'object-center') -or ($tag -match 'responsive-img-cover')
         $hasWFull = ($tag -match 'w-full') -or ($tag -match 'w-') -or ($tag -match 'responsive-img-cover')
@@ -23,7 +24,7 @@ foreach ($p in $pages) {
         }
     }
     if ($fileOk) {
-        Write-Host "  [PASS] All $($matches.Count) images in $p have responsive 'object-cover' styling!" -ForegroundColor Green
+        Write-Host "  [PASS] All $imgCount images in $p have responsive 'object-cover' styling!" -ForegroundColor Green
     }
 }
 
