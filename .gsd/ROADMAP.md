@@ -53,15 +53,16 @@
 ---
 
 ### Phase 7: Interactive Expedition Map & Geographic Circuit Visualizer
-**Status**: ⬜ Not Started
+**Status**: 🟩 Completed
 **Objective**: Implement an interactive geographic map visualizer displaying private charter flight arcs, sovereign rail paths, luxury waypoints (Delhi, Leh, Udaipur, Jaipur, Varanasi, Kerala), and interactive waypoint cards with animated routes.
 **Depends on**: Phase 6
 
-**Tasks**:
-- [ ] TBD (run /plan 7 to create)
+**Deliverables**:
+- Native SVG Vector Map with India terrain silhouette in `index.html`
+- Trajectory flow keyframe animations and glowing pulse beacons in `css/styles.css`
+- Corridors metadata and interactive inspector controller in `js/main.js`
+- Automated verification test suite `scripts/verify_phase_7.ps1`
 
-**Verification**:
-- TBD
 
 
 

@@ -1201,4 +1201,211 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial render of circuit builder
   renderCircuitBuilder();
+
+  // 15. Interactive Expedition Map & Geographic Circuit Visualizer Engine
+  const MAP_CORRIDORS = {
+    'del-leh': {
+      id: 'del-leh',
+      name: 'Himalayan High Passes Corridor',
+      subtitle: 'Delhi ➔ Leh Ladakh Expedition',
+      badge: 'High Altitude Wilderness',
+      from: 'DEL',
+      to: 'LEH',
+      distance: '610 km',
+      duration: '1h 15m',
+      aircraft: 'Pilatus PC-24 Light Jet',
+      stay: 'The Grand Dragon & Luxury Chamba Camp Thiksey',
+      tariff: '₹1,95,000 / hr',
+      highlights: 'High-altitude descent through snow-capped Zanskar peaks, Buddhist cliff monasteries, and heated luxury glamping under the starry Milky Way.'
+    },
+    'del-udr': {
+      id: 'del-udr',
+      name: 'Royal Mewar & Lake Palaces Arc',
+      subtitle: 'Delhi ➔ Udaipur Royal Route',
+      badge: 'Heritage & Living Palaces',
+      from: 'DEL',
+      to: 'UDR',
+      distance: '570 km',
+      duration: '1h 05m',
+      aircraft: 'Challenger 350 Super Midsize Jet',
+      stay: 'Taj Lake Palace Udaipur Grand Suite',
+      tariff: '₹2,60,000 / hr',
+      highlights: 'Arrival over the Aravali hills into Lake Pichola basin followed by sunset wooden royal bajra transfer to the 275-year-old marble island palace.'
+    },
+    'del-jai': {
+      id: 'del-jai',
+      name: 'Rajputana Citadel Express',
+      subtitle: 'Delhi ➔ Jaipur Helipad Shuttle',
+      badge: 'Royal Fortress Corridor',
+      from: 'DEL',
+      to: 'JAI',
+      distance: '240 km',
+      duration: '0h 40m',
+      aircraft: 'AgustaWestland AW109 Helicopter',
+      stay: 'Rambagh Palace Former Maharaja Residence',
+      tariff: '₹1,80,000 / hr',
+      highlights: 'Low-altitude scenic helicopter flyby across the Amber Fort and Aravalli crest directly landing on private palace manicured lawns.'
+    },
+    'del-vns': {
+      id: 'del-vns',
+      name: 'Sacred Ganges Celestial Route',
+      subtitle: 'Delhi ➔ Varanasi Ghats Flight',
+      badge: 'Spiritual Living Antiquity',
+      from: 'DEL',
+      to: 'VNS',
+      distance: '680 km',
+      duration: '1h 10m',
+      aircraft: 'Pilatus PC-24 Swiss Executive Jet',
+      stay: 'BrijRama Palace on Darbhanga Ghat',
+      tariff: '₹1,95,000 / hr',
+      highlights: 'Direct airfield landing followed by private VIP two-deck bajra boat moored front-row at Dashashwamedh Ghat for the sublime twilight Ganga Aarti.'
+    },
+    'del-cok': {
+      id: 'del-cok',
+      name: 'Malabar Spice & Backwaters Arc',
+      subtitle: 'Delhi ➔ Kochi & Alleppey Express',
+      badge: 'Tropical Emerald Sanctuary',
+      from: 'DEL',
+      to: 'COK',
+      distance: '2,080 km',
+      duration: '2h 45m',
+      aircraft: 'Challenger 350 Trans-India Jet',
+      stay: 'Kumarakom Lake Resort Presidential Villa',
+      tariff: '₹2,60,000 / hr',
+      highlights: 'Coast-to-coast executive flight landing in solar-powered Kochi VIP terminal, followed by private air-conditioned kettuvallam cruise through emerald lagoons.'
+    }
+  };
+
+  function initExpeditionMap() {
+    const mapSection = document.getElementById('expeditionMapSection');
+    if (!mapSection) return;
+
+    let activeCorridorId = 'del-udr';
+
+    function updateCorridorDisplay(corridorId) {
+      const data = MAP_CORRIDORS[corridorId];
+      if (!data) return;
+
+      activeCorridorId = corridorId;
+
+      // Update Arc Classes in SVG
+      document.querySelectorAll('.map-flight-arc').forEach(arc => {
+        if (arc.getAttribute('data-corridor') === corridorId) {
+          arc.classList.add('active');
+        } else {
+          arc.classList.remove('active');
+        }
+      });
+
+      // Update Corridor Tabs
+      document.querySelectorAll('.map-corridor-tab').forEach(tab => {
+        if (tab.getAttribute('data-corridor') === corridorId) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      // Update Waypoint Markers in SVG
+      document.querySelectorAll('.map-waypoint-node').forEach(node => {
+        const wp = node.getAttribute('data-waypoint');
+        const isActive = (wp === data.from || wp === data.to);
+        const circle = node.querySelector('.wp-circle');
+        const pulse = node.querySelector('.map-beacon-pulse');
+        if (isActive) {
+          circle?.setAttribute('fill', '#ff7a00');
+          circle?.setAttribute('r', '7');
+          pulse?.setAttribute('stroke', '#ff7a00');
+          pulse?.classList.remove('hidden');
+        } else {
+          circle?.setAttribute('fill', '#8c7263');
+          circle?.setAttribute('r', '5');
+          pulse?.classList.add('hidden');
+        }
+      });
+
+      // Update Inspector Card Fields
+      const titleEl = document.getElementById('inspectorCorridorTitle');
+      const subEl = document.getElementById('inspectorCorridorSubtitle');
+      const badgeEl = document.getElementById('inspectorCorridorBadge');
+      const timeEl = document.getElementById('inspectorCorridorTime');
+      const distEl = document.getElementById('inspectorCorridorDistance');
+      const aircraftEl = document.getElementById('inspectorCorridorAircraft');
+      const stayEl = document.getElementById('inspectorCorridorStay');
+      const tariffEl = document.getElementById('inspectorCorridorTariff');
+      const highlightEl = document.getElementById('inspectorCorridorHighlight');
+      const bookBtn = document.getElementById('inspectorBookCorridorBtn');
+
+      if (titleEl) titleEl.textContent = data.name;
+      if (subEl) subEl.textContent = data.subtitle;
+      if (badgeEl) badgeEl.textContent = data.badge;
+      if (timeEl) timeEl.textContent = data.duration;
+      if (distEl) distEl.textContent = data.distance;
+      if (aircraftEl) aircraftEl.textContent = data.aircraft;
+      if (stayEl) stayEl.textContent = data.stay;
+      if (tariffEl) tariffEl.textContent = data.tariff;
+      if (highlightEl) highlightEl.textContent = data.highlights;
+
+      if (bookBtn) {
+        bookBtn.setAttribute('data-package', `Bespoke Corridor: ${data.name}`);
+      }
+    }
+
+    // Bind tab clicks
+    document.querySelectorAll('.map-corridor-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const cid = tab.getAttribute('data-corridor');
+        if (cid) updateCorridorDisplay(cid);
+      });
+    });
+
+    // Bind SVG Arc clicks
+    document.querySelectorAll('.map-flight-arc').forEach(arc => {
+      arc.addEventListener('click', () => {
+        const cid = arc.getAttribute('data-corridor');
+        if (cid) updateCorridorDisplay(cid);
+      });
+    });
+
+    // Bind Waypoint clicks
+    document.querySelectorAll('.map-waypoint-node').forEach(node => {
+      node.addEventListener('click', () => {
+        const wp = node.getAttribute('data-waypoint');
+        for (const [cid, corr] of Object.entries(MAP_CORRIDORS)) {
+          if (corr.to === wp || corr.from === wp) {
+            updateCorridorDisplay(cid);
+            break;
+          }
+        }
+      });
+    });
+
+    // Bind Book Corridor Button
+    const bookBtn = document.getElementById('inspectorBookCorridorBtn');
+    if (bookBtn) {
+      bookBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pkgName = bookBtn.getAttribute('data-package') || 'Bespoke India Corridor';
+        currentInquiryTitle = pkgName;
+        if (modalPackageTitle) modalPackageTitle.textContent = currentInquiryTitle;
+
+        // Pre-fill preferences input in consultation modal
+        const inputs = planForm?.querySelectorAll('input, textarea');
+        if (inputs && inputs[3]) {
+          inputs[3].value = `Expedition Corridor: ${MAP_CORRIDORS[activeCorridorId]?.name || activeCorridorId} (${MAP_CORRIDORS[activeCorridorId]?.aircraft || 'Private Jet'})`;
+        }
+
+        if (planModal) {
+          planModal.scrollTop = 0;
+          planModal.classList.remove('hidden');
+        }
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    // Initial render with default corridor
+    updateCorridorDisplay('del-udr');
+  }
+
+  initExpeditionMap();
 });
