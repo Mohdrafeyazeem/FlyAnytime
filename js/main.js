@@ -174,7 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       currentInquiryTitle = btn.getAttribute('data-package') || 'Bespoke India Journey';
       if (modalPackageTitle) modalPackageTitle.textContent = currentInquiryTitle;
-      planModal?.classList.remove('hidden');
+      if (planModal) {
+        planModal.scrollTop = 0;
+        planModal.classList.remove('hidden');
+      }
       document.body.style.overflow = 'hidden';
     });
   });
@@ -403,7 +406,10 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     }
 
-    voucherModal.classList.remove('hidden');
+    if (voucherModal) {
+      voucherModal.scrollTop = 0;
+      voucherModal.classList.remove('hidden');
+    }
     document.body.style.overflow = 'hidden';
   }
 

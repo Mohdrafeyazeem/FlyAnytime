@@ -257,9 +257,9 @@
   </section>
 
   <!-- INTERACTIVE 3D TRIP BOOKING & SEARCH CONSOLE -->
-  <section class="relative z-20 -mt-6 sm:-mt-10 px-4 sm:px-6" id="planner">
+  <section class="relative z-20 -mt-6 sm:-mt-10 px-4 sm:px-6 pt-2" id="planner">
     <div class="max-w-7xl mx-auto">
-      <div class="clay-card rounded-3xl p-5 sm:p-8 bg-surface-container-lowest border border-outline-variant/30">
+      <div class="clay-card-static rounded-3xl p-5 sm:p-8 bg-surface-container-lowest border border-outline-variant/30">
         
         <!-- Tab Switcher -->
         <div class="flex items-center gap-2 pb-5 border-b border-outline-variant/20 overflow-x-auto no-scrollbar">
@@ -383,7 +383,7 @@
       </div>
 
       <!-- 3D Dimensional Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
 
         <!-- CARD 1: Royal Rajputana Odyssey -->
         <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="rajasthan">
@@ -422,18 +422,21 @@
                 Jaipur, Udaipur, Jodhpur with private Mehrangarh sundowner and Thar desert glamping.
               </p>
             </div>
-            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-tertiary">
-                <span class="material-symbols-outlined text-base" title="Flights Included">flight_class</span>
-                <span class="material-symbols-outlined text-base" title="5-Star Palace Stay">apartment</span>
-                <span class="material-symbols-outlined text-base" title="Private Concierge">support_agent</span>
-                <span class="material-symbols-outlined text-base" title="Royal Dining">restaurant</span>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-tertiary">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-base" title="Flights Included">flight_class</span>
+                  <span class="material-symbols-outlined text-base" title="5-Star Palace Stay">apartment</span>
+                  <span class="material-symbols-outlined text-base" title="Private Concierge">support_agent</span>
+                  <span class="material-symbols-outlined text-base" title="Royal Dining">restaurant</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-full">All-Inclusive</span>
               </div>
               <div class="flex items-center gap-2">
-                <button class="open-voucher-modal px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors" data-title="Royal Rajputana Odyssey" data-route="Delhi • Udaipur • Jaipur" data-aviation="Pilatus PC-24 Light Jet" data-duration="7 Days / 6 Nights" data-price="₹4,85,000 / couple">
+                <button class="open-voucher-modal flex-1 py-2 px-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 cursor-pointer transition-colors border border-outline-variant/20" data-title="Royal Rajputana Odyssey" data-route="Delhi • Udaipur • Jaipur" data-aviation="Pilatus PC-24 Light Jet" data-duration="7 Days / 6 Nights" data-price="₹4,85,000 / couple">
                   <span class="material-symbols-outlined text-sm">receipt_long</span> Itinerary
                 </button>
-                <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Royal Rajputana Odyssey">
+                <button class="open-plan-modal flex-1 primary-btn-3d py-2 px-2.5 rounded-xl text-on-primary text-xs font-bold flex items-center justify-center gap-1 cursor-pointer" data-package="Royal Rajputana Odyssey">
                   Customize <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
               </div>
@@ -478,18 +481,21 @@
                 Kochi, misty Munnar tea hills, and overnight private luxury houseboat cruise in Alleppey.
               </p>
             </div>
-            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-tertiary">
-                <span class="material-symbols-outlined text-base">flight_class</span>
-                <span class="material-symbols-outlined text-base">sailing</span>
-                <span class="material-symbols-outlined text-base">spa</span>
-                <span class="material-symbols-outlined text-base">restaurant</span>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-tertiary">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-base" title="Flights Included">flight_class</span>
+                  <span class="material-symbols-outlined text-base" title="Houseboat Cruise">sailing</span>
+                  <span class="material-symbols-outlined text-base" title="Ayurvedic Spa">spa</span>
+                  <span class="material-symbols-outlined text-base" title="Royal Dining">restaurant</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-full">All-Inclusive</span>
               </div>
               <div class="flex items-center gap-2">
-                <button class="open-voucher-modal px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors" data-title="Kerala Backwaters & Mist" data-route="Kochi • Munnar • Alleppey" data-aviation="Airbus Executive Charter" data-duration="5 Days / 4 Nights" data-price="₹1,65,000 / couple">
+                <button class="open-voucher-modal flex-1 py-2 px-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 cursor-pointer transition-colors border border-outline-variant/20" data-title="Kerala Backwaters & Mist" data-route="Kochi • Munnar • Alleppey" data-aviation="Airbus Executive Charter" data-duration="5 Days / 4 Nights" data-price="₹1,65,000 / couple">
                   <span class="material-symbols-outlined text-sm">receipt_long</span> Itinerary
                 </button>
-                <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Kerala Backwaters & Mist">
+                <button class="open-plan-modal flex-1 primary-btn-3d py-2 px-2.5 rounded-xl text-on-primary text-xs font-bold flex items-center justify-center gap-1 cursor-pointer" data-package="Kerala Backwaters & Mist">
                   Customize <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
               </div>
@@ -534,18 +540,21 @@
                 Front-row VIP Ganga Aarti on private Bajra boat, dawn rituals, and Sarnath monastic tour.
               </p>
             </div>
-            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-tertiary">
-                <span class="material-symbols-outlined text-base">flight_class</span>
-                <span class="material-symbols-outlined text-base">temple_hindu</span>
-                <span class="material-symbols-outlined text-base">directions_boat</span>
-                <span class="material-symbols-outlined text-base">restaurant</span>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-tertiary">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-base" title="Flights Included">flight_class</span>
+                  <span class="material-symbols-outlined text-base" title="Temple Excursion">temple_hindu</span>
+                  <span class="material-symbols-outlined text-base" title="Private Bajra Boat">directions_boat</span>
+                  <span class="material-symbols-outlined text-base" title="Royal Dining">restaurant</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-full">All-Inclusive</span>
               </div>
               <div class="flex items-center gap-2">
-                <button class="open-voucher-modal px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors" data-title="Spiritual Varanasi & Prayagraj" data-route="Delhi • Varanasi • Prayagraj" data-aviation="Phenom 300 Jet" data-duration="4 Days / 3 Nights" data-price="₹1,25,000 / couple">
+                <button class="open-voucher-modal flex-1 py-2 px-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 cursor-pointer transition-colors border border-outline-variant/20" data-title="Spiritual Varanasi & Prayagraj" data-route="Delhi • Varanasi • Prayagraj" data-aviation="Phenom 300 Jet" data-duration="4 Days / 3 Nights" data-price="₹1,25,000 / couple">
                   <span class="material-symbols-outlined text-sm">receipt_long</span> Itinerary
                 </button>
-                <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Spiritual Varanasi & Prayagraj">
+                <button class="open-plan-modal flex-1 primary-btn-3d py-2 px-2.5 rounded-xl text-on-primary text-xs font-bold flex items-center justify-center gap-1 cursor-pointer" data-package="Spiritual Varanasi & Prayagraj">
                   Customize <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
               </div>
@@ -590,18 +599,21 @@
                 Leh, Nubra Valley sand dunes with double-humped camels, and sunrise at Pangong Lake.
               </p>
             </div>
-            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
-              <div class="flex items-center gap-2 text-tertiary">
-                <span class="material-symbols-outlined text-base">flight_class</span>
-                <span class="material-symbols-outlined text-base">cabin</span>
-                <span class="material-symbols-outlined text-base">minor_crash</span>
-                <span class="material-symbols-outlined text-base">medical_services</span>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20 flex flex-col gap-3">
+              <div class="flex items-center justify-between text-tertiary">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-base" title="Flights Included">flight_class</span>
+                  <span class="material-symbols-outlined text-base" title="Oxygen Luxury Camps">cabin</span>
+                  <span class="material-symbols-outlined text-base" title="4x4 Expeditions">minor_crash</span>
+                  <span class="material-symbols-outlined text-base" title="High Altitude Medical">medical_services</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-full">All-Inclusive</span>
               </div>
               <div class="flex items-center gap-2">
-                <button class="open-voucher-modal px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors" data-title="Himalayan Serenity Ladakh" data-route="Delhi • Leh • Nubra • Pangong" data-aviation="Pilatus PC-24 High-Altitude" data-duration="6 Days / 5 Nights" data-price="₹2,40,000 / couple">
+                <button class="open-voucher-modal flex-1 py-2 px-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1 cursor-pointer transition-colors border border-outline-variant/20" data-title="Himalayan Serenity Ladakh" data-route="Delhi • Leh • Nubra • Pangong" data-aviation="Pilatus PC-24 High-Altitude" data-duration="6 Days / 5 Nights" data-price="₹2,40,000 / couple">
                   <span class="material-symbols-outlined text-sm">receipt_long</span> Itinerary
                 </button>
-                <button class="open-plan-modal primary-btn-3d px-3.5 py-1.5 rounded-full text-on-primary text-xs font-bold flex items-center gap-1 cursor-pointer" data-package="Himalayan Serenity Ladakh">
+                <button class="open-plan-modal flex-1 primary-btn-3d py-2 px-2.5 rounded-xl text-on-primary text-xs font-bold flex items-center justify-center gap-1 cursor-pointer" data-package="Himalayan Serenity Ladakh">
                   Customize <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
               </div>

@@ -60,7 +60,7 @@ body.page-entering {
 
 body.page-ready {
   opacity: 1;
-  transform: translateY(0);
+  transform: none !important;
 }
 
 body.page-exiting {
@@ -167,6 +167,18 @@ img {
 
 .clay-card:hover .responsive-img-cover {
   transform: scale(1.04);
+}
+
+/* 3D Tactile Claymorphic Static Containers (Consoles & Workbenches that don't jump on hover) */
+.clay-card-static {
+  background: var(--color-surface-white);
+  box-shadow: 
+    0 16px 32px -8px rgba(13, 34, 64, 0.08), 
+    0 6px 12px -4px rgba(255, 122, 0, 0.06), 
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.95), 
+    inset 0 -3px 6px 0 rgba(211, 84, 0, 0.04);
+  border: 1px solid rgba(224, 192, 175, 0.35);
+  position: relative;
 }
 
 /* Frosted Glass Elements */
@@ -279,6 +291,36 @@ img {
 }
 
 /* Modal Pan-Device Adaptive Sizing & Smooth Touch Scrolling */
+#planTripModal,
+#itineraryVoucherModal {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow-y: auto !important;
+  padding: 1rem !important;
+  box-sizing: border-box !important;
+}
+
+#planTripModal.hidden,
+#itineraryVoucherModal.hidden {
+  display: none !important;
+}
+
+.modal-dialog-responsive,
+.modal-dialog-responsive-lg {
+  margin: auto !important;
+  position: relative !important;
+}
+
 .modal-dialog-responsive {
   width: 100%;
   max-width: min(92vw, 32rem);
