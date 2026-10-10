@@ -5,7 +5,7 @@ Write-Host "`n================================================================="
 Write-Host "   FLY ANYTIME - PAN-DEVICE RESPONSIVENESS & MEDIA SUITE        " -ForegroundColor Cyan
 Write-Host "=================================================================" -ForegroundColor Cyan
 
-$pages = @("index.html", "flights.html", "stays.html", "trains.html", "destinations.html")
+$pages = @("index.html", "flights.html", "stays.html", "trains.html", "destinations.html", "trip-detail.html")
 $allPassed = $true
 
 # 1. Audit Stylesheet Tokens & Media Rules

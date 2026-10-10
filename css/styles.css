@@ -365,12 +365,12 @@ img {
 
 /* Mobile Navigation Bottom Dock & Modal */
 .mobile-nav-bar {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 1023px) {
   .mobile-nav-bar {
-    display: flex;
+    display: flex !important;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -476,6 +476,34 @@ img {
   opacity: 1;
 }
 .drawer-open #portfolioDrawerPanel {
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   DESKTOP & MOBILE UNIFIED MEGA MENU SLIDE-OVER DRAWER
+   ========================================================================== */
+#megaMenuBackdrop {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#megaMenuPanel {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mega-menu-closed {
+  pointer-events: none;
+}
+.mega-menu-closed #megaMenuBackdrop {
+  opacity: 0;
+}
+.mega-menu-closed #megaMenuPanel {
+  transform: translateX(100%);
+}
+.mega-menu-open {
+  pointer-events: auto;
+}
+.mega-menu-open #megaMenuBackdrop {
+  opacity: 1;
+}
+.mega-menu-open #megaMenuPanel {
   transform: translateX(0);
 }
 .badge-pulse {

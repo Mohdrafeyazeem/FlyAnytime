@@ -899,6 +899,261 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCircuitBuilder();
   });
 
+  // 12. Mega Menu Slide-Over Controller
+  const megaMenuToggle = document.getElementById('megaMenuToggle');
+  const megaMenuDrawer = document.getElementById('megaMenuDrawer');
+  const closeMegaMenu = document.getElementById('closeMegaMenu');
+  const megaMenuBackdrop = document.getElementById('megaMenuBackdrop');
+
+  function openMegaMenu() {
+    if (!megaMenuDrawer) return;
+    megaMenuDrawer.classList.remove('mega-menu-closed');
+    megaMenuDrawer.classList.add('mega-menu-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideMegaMenu() {
+    if (!megaMenuDrawer) return;
+    megaMenuDrawer.classList.remove('mega-menu-open');
+    megaMenuDrawer.classList.add('mega-menu-closed');
+    document.body.style.overflow = '';
+  }
+
+  megaMenuToggle?.addEventListener('click', openMegaMenu);
+  closeMegaMenu?.addEventListener('click', hideMegaMenu);
+  megaMenuBackdrop?.addEventListener('click', hideMegaMenu);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && megaMenuDrawer?.classList.contains('mega-menu-open')) {
+      hideMegaMenu();
+    }
+  });
+
+  // 13. Dynamic Trip Details Page Controller (trip-detail.html)
+  const TRIP_DATABASE = {
+    rajasthan: {
+      id: 'rajasthan',
+      title: 'Royal Rajputana Odyssey',
+      category: 'Signature Royal Circuit',
+      rating: '4.96 (1,240 Reviews)',
+      aviationShort: 'Private Jet Synced',
+      route: 'Delhi • Jaipur • Udaipur • Jodhpur • Jaisalmer',
+      heroSubtitle: 'Amber Fort, Lake Pichola Royal Enclave & Thar Desert',
+      duration: '7 Days / 6 Nights',
+      pricePerPerson: '₹48,999',
+      priceFull: '₹4,85,000',
+      aviation: 'Pilatus PC-24 Super Light Jet',
+      stayCategory: '5-Star Royal Heritage Suites (Taj Rambagh & Taj Lake Palace)',
+      transitCategory: 'Private Mercedes-Benz Chauffeur Fleet',
+      fullDescription: 'Immerse yourself in royal Rajputana splendor. Traverse Jaipur\'s blushing pink arcades, board private sunset lake cruises in Udaipur, and savor candlelit Mehrangarh Fort ramparts. Every transfer is orchestrated seamlessly via private chartered aviation and vetted luxury palace suites.',
+      heroImg: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlFq5P4zo_qdISRDmlMuIOWiPcKhe_zJAHU-UTu38etbR935nD1tEbAjVBl_S5Fhq_3UfC0-FXmarQfKBRmKmKbR26BrZhCv4SoHug3NCwoMs-uAblm7BLAZvSwOUaPPLA6OxNwWeQ9Fn2Jne-wBCSEYuSRWVJaXQuU6VXJOwnKBckKdZu6q7Oj90ZU9-Xz_iZxOtY6621fsyihlKJHTcFpj4TSYYA3KR5rwx5o3eQji2IiFT_dIus-g',
+      itinerary: [
+        { day: 'Day 1 • Imperial Arrival', corridor: 'Delhi ➔ Jaipur', title: 'VIP Airport Reception & City Palace Private Chambers', desc: 'Meet & greet at VIP General Aviation terminal in Delhi. 45-minute scenic charter hop to Jaipur. Private check-in at Rambagh Palace with royal vermilion blessing and champagne high tea in the peacock gardens.' },
+        { day: 'Day 2 • Fortresses & Heritage', corridor: 'Jaipur Enclave', title: 'Sunrise Amber Fort Safari & Royal Gem Curations', desc: 'Early morning private jeep ascent to Amber Fort before public opening hours. Private jeweler studio viewing with royal gemologists, followed by sunset cocktails on Nahargarh Fort ramparts.' },
+        { day: 'Day 3 • Romantic Waters', corridor: 'Jaipur ➔ Udaipur', title: 'Private Flight to Lake Pichola & Taj Lake Palace Sanctuary', desc: 'Direct morning flight to Udaipur Maharana Pratap Airport. Private luxury boat transfer to Taj Lake Palace floating on Lake Pichola. Evening royal sunset cruise with live Mewari sitar maestros.' },
+        { day: 'Day 4 • Blue City Royalty', corridor: 'Udaipur ➔ Jodhpur', title: 'Mehrangarh Private Access & Umaid Bhawan Gala Dinner', desc: 'Short private hop over the Aravalli hills to Jodhpur. VIP curator-guided walkthrough of Mehrangarh Fort\'s royal armory and howdah collection. Five-course Marwari banquet at Umaid Bhawan Palace.' },
+        { day: 'Day 5 • Golden Dunes', corridor: 'Jodhpur ➔ Jaisalmer', title: 'Thar Desert Mirage & Suján The Serai Luxury Oasis', desc: 'Scenic flight across the Thar dunes into Jaisalmer. Check into Suján The Serai luxury oasis tent. Private starlit desert dinner with Manganiyar musicians.' },
+        { day: 'Day 6 • Desert Citadel', corridor: 'Jaisalmer Enclave', title: 'Golden Living Fort Exploration & Royal Havelis', desc: 'Morning private guided walk through Jaisalmer Golden Fort, Patwon Ki Haveli, and sand dune camel sunset with chilled vintage champagne.' },
+        { day: 'Day 7 • Royal Farewell', corridor: 'Jaisalmer ➔ Delhi', title: 'Executive Return Flight & VIP Departure', desc: 'Private chauffeur transfer to Jaisalmer airstrip. Direct return charter flight to Delhi with onboard gourmet catering.' }
+      ]
+    },
+    kerala: {
+      id: 'kerala',
+      title: 'Kerala Backwaters & Mist',
+      category: 'Emerald Coast & Highlands',
+      rating: '4.92 (980 Reviews)',
+      aviationShort: 'Executive Aircraft Synced',
+      route: 'Kochi • Munnar • Alleppey • Kumarakom',
+      heroSubtitle: 'Colonial Spice Ports, Misty Tea Hills & Private Houseboats',
+      duration: '5 Days / 4 Nights',
+      pricePerPerson: '₹32,500',
+      priceFull: '₹1,65,000',
+      aviation: 'Airbus Executive Helicopter & King Air 350',
+      stayCategory: 'Kumarakom Lake Resort & Luxury A/C Kettuvallam',
+      transitCategory: 'Private Chauffeur SUV Fleet & Electric Catamaran',
+      fullDescription: 'Drift across serene emerald lagoons, wake up to fragrant cardamom plantations in the high Western Ghats, and unwind aboard a bespoke teakwood houseboat with your personal master chef and butler.',
+      heroImg: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAhQmbjpA9UQ6F1lMZMTg2GuxwINHGiApo4MFw4GwMYG5dN1RZageoIK3Uye9_ShKwx_59uuNpRaizLrmAQUcXys0yYn6yzLJsia5plKdupVt2rWByixoWDKpYPcBurht-Mhhsdp2ucuSmNbSUZdycsp1AZGZS02Gr3WHU3ZkIn-4aWIjLlK3wQz7tHHthfGVoI-uQr6xqtLTlXPE32d0ubHb1Xn8Im0gHUap0TCnUSaRKVZZDo9t3tmw',
+      itinerary: [
+        { day: 'Day 1 • Malabar Coastal Landing', corridor: 'Arrival ➔ Kochi', title: 'Historic Fort Kochi & Mattancherry Spice Warehouse Walk', desc: 'Touchdown at Cochin International Airport. Private escort to Brunton Boatyard. Sunset viewing of Chinese fishing nets with fresh coconut toddy mocktails.' },
+        { day: 'Day 2 • Western Ghats Ascent', corridor: 'Kochi ➔ Munnar', title: 'Helicopter Transfer to Misty Munnar Tea Plantations', desc: 'Panoramic helicopter ascent over emerald waterfalls to Munnar. Private tea sommelier tasting and botanical walk among virgin cloud forests.' },
+        { day: 'Day 3 • Emerald Waters', corridor: 'Munnar ➔ Alleppey', title: 'Boarding the Private Royal Kettuvallam Houseboat', desc: 'Descent to Alleppey backwaters. Board your hand-crafted wooden houseboat featuring air-conditioned suites and sun decks. Fresh Karimeen fish prepared by private onboard chef.' },
+        { day: 'Day 4 • Lake Sanctuary', corridor: 'Alleppey ➔ Kumarakom', title: 'Kumarakom Bird Sanctuary & Ayurvedic Rejuvenation Spa', desc: 'Glide across Vembanad Lake into Kumarakom Lake Resort. Traditional 90-minute Abhyanga herbal rejuvenation massage followed by candlelit water villa dining.' },
+        { day: 'Day 5 • Coastal Departure', corridor: 'Kumarakom ➔ Kochi', title: 'Morning Village Canoe Trail & Airport Chauffeur', desc: 'Dawn sunrise canoe ride through tranquil lotus canals. Private vehicle transfer to Kochi International Airport for departure flight.' }
+      ]
+    },
+    varanasi: {
+      id: 'varanasi',
+      title: 'Spiritual Varanasi & Prayagraj',
+      category: 'Ancient Timeless Heritage',
+      rating: '4.98 (850 Reviews)',
+      aviationShort: 'Phenom 300 Jet Synced',
+      route: 'Delhi • Varanasi • Prayagraj Triveni Sangam',
+      heroSubtitle: 'Illuminated Ganga Ghats, Private Bajra Boat & Vedic Chants',
+      duration: '4 Days / 3 Nights',
+      pricePerPerson: '₹21,999',
+      priceFull: '₹1,25,000',
+      aviation: 'Phenom 300 Super Light Jet',
+      stayCategory: 'BrijRama Palace (Direct Ghat Access)',
+      transitCategory: 'Private River Bajras & Chauffeur Fleet',
+      fullDescription: 'Witness the soul of India along sacred riverbanks. Experience VIP reserved seating at the world-famous evening Ganga Aarti, dawn boat rituals along ancient ghats, Sarnath deer park meditation, and a holy dip at the confluence of the Triveni Sangam.',
+      heroImg: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAziqfiyy1THfuBNY89GGJWtTKp2mzAjRoREIN7LKX98Du8HYrAd6PLlMPR_1E7Rc2XOs_aFQ7xRH7h_uA3tgdvB45EuJ5df2qfo1bqDNXGHBRhREyOXZh6uCtj9li74yhpnvsyx5RPUxONV1IzwqPMFFoVPO0XXRliobY0e0aF0NPPoPW64UzfxF5MCVuVOiL2-hEZsalWsz4IU276dr1CGIrDsurLpoX3K1LAJcliPVcL1EOlxXCnrQ',
+      itinerary: [
+        { day: 'Day 1 • The City of Light', corridor: 'Delhi ➔ Varanasi', title: 'Charter Landing & BrijRama Palace Royal Boat Check-in', desc: 'Private 1-hour charter from Delhi to Varanasi. Royal wooden bajra transfer across the Ganges straight to the private ghat steps of the 210-year-old BrijRama Palace.' },
+        { day: 'Day 2 • Sacred Confluence & Aarti', corridor: 'Varanasi Enclave', title: 'Private VIP Ganga Aarti Boat & Kashi Vishwanath Darshan', desc: 'Morning priority VIP darshan at the renovated Kashi Vishwanath corridor. At dusk, board a private two-deck Bajra boat moored front-row at Dashashwamedh Ghat for the sublime Ganga Aarti.' },
+        { day: 'Day 3 • Awakening & Monastic Peace', corridor: 'Varanasi ➔ Sarnath', title: 'Dawn Subah-e-Banaras Boat Ride & Sarnath Deer Park', desc: 'Sublime dawn rowing past Assi Ghat as morning ragas resonate. Afternoon excursion to Sarnath where Lord Buddha gave his first sermon, including the ancient Dhamek Stupa.' },
+        { day: 'Day 4 • Sacred Sangam & Return', corridor: 'Prayagraj ➔ Return', title: 'Triveni Sangam Boat Excursion & Return Charter', desc: 'Morning chauffeured trip to Prayagraj to view the sacred confluence of the Ganga, Yamuna, and mystical Saraswati. Return charter departure from Prayagraj/Varanasi.' }
+      ]
+    },
+    ladakh: {
+      id: 'ladakh',
+      title: 'Himalayan Serenity in Ladakh',
+      category: 'High Altitude Wilderness',
+      rating: '4.95 (620 Reviews)',
+      aviationShort: 'High-Altitude Certified Jet',
+      route: 'Delhi • Leh • Nubra Valley • Pangong Tso',
+      heroSubtitle: 'Pangong Turquoise Waters, High Passes & Oxygen Glamping',
+      duration: '6 Days / 5 Nights',
+      pricePerPerson: '₹44,000',
+      priceFull: '₹2,40,000',
+      aviation: 'Pilatus PC-24 High-Altitude Certified',
+      stayCategory: 'The Grand Dragon & Luxury Chamba Camp Thiksey',
+      transitCategory: 'Customized Toyota Fortuner 4x4 Fleet',
+      fullDescription: 'Touch the skies across jagged snow peaks, ancient Buddhist cliff monasteries, wind-swept sand dunes of the Nubra Valley, and the mirror-like turquoise expanse of Pangong Tso with round-the-clock oxygen support and luxury camps.',
+      heroImg: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2A2w7bsXHeJXTDxvJNspV02fM-FtuXIMZ_TIHHgQgcCaCwdSKEMxTZhOeCScg0s0gVwStDcNDN5BvK0ztpoz_GitHvmo59Sc5IYnFnGgg4vbIU86a5wkFKeiwfVXBCCijVWZwnyFQeGUAPxCWUKM--TJsDZEO0KEjCoHQfHs6yAOQSX1bUHmAQ6dTIwtDE2cXxX4nL-s4qj1rp7PFe6WvMLhOvRYWzsALIHYwrC_loWNeaw73Pv8azg',
+      itinerary: [
+        { day: 'Day 1 • Arrival on the Roof of the World', corridor: 'Delhi ➔ Leh (3,500m)', title: 'Dramatic Himalayan Landing & Acclimatization Rest', desc: 'Breathtaking high-altitude charter landing at Kushok Bakula Rimpochee Airport. VIP check-in at The Grand Dragon with doctor-assisted acclimatization protocol and warm herbal butter tea.' },
+        { day: 'Day 2 • Monasteries & Royal Heritage', corridor: 'Leh Enclave', title: 'Thiksey Morning Chanting & Leh Royal Palace', desc: 'Attend sunrise monk chanting at Thiksey Monastery, reminiscent of the Potala Palace. Afternoon private walk through the Old Town heritage alleys of Leh.' },
+        { day: 'Day 3 • Over the Khardung La Pass', corridor: 'Leh ➔ Nubra Valley', title: 'World\'s Highest Motorable Pass & Hunder Sand Dunes', desc: 'Ascend over the famous Khardung La pass (5,359m). Arrive in Nubra Valley for a sunset double-humped Bactrian camel ride across the white sands.' },
+        { day: 'Day 4 • Diskit & Valley of Flowers', corridor: 'Nubra Enclave', title: 'Giant Maitreya Buddha & Luxury Camp Bonfire', desc: 'Visit the 106-foot statue of Maitreya Buddha at Diskit Monastery. Evening barbecue and stargazing under the clearest Himalayan skies.' },
+        { day: 'Day 5 • The Infinite Blue', corridor: 'Nubra ➔ Pangong Tso', title: 'Shyok River Route to Pristine Pangong Lake', desc: 'Scenic off-road drive along the Shyok River to Pangong Tso (4,350m). Settle into heated luxury lakeside tents and watch the water shift from turquoise to indigo.' },
+        { day: 'Day 6 • High Pass Return & Fly Out', corridor: 'Pangong ➔ Leh ➔ Delhi', title: 'Chang La Descent & Return Executive Charter', desc: 'Morning photography on Pangong lake shore. Scenic drive back over Chang La Pass to Leh airport for your charter flight back to Delhi.' }
+      ]
+    }
+  };
+
+  function initTripDetailPage() {
+    const mainTitleEl = document.getElementById('tripMainTitle');
+    if (!mainTitleEl) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const tripKey = (urlParams.get('trip') || 'rajasthan').toLowerCase();
+    const trip = TRIP_DATABASE[tripKey] || TRIP_DATABASE.rajasthan;
+
+    // Populate Hero & Badges
+    const breadcrumbEl = document.getElementById('breadcrumbCurrent');
+    if (breadcrumbEl) breadcrumbEl.textContent = trip.title;
+
+    const catBadge = document.getElementById('tripCategoryBadge');
+    if (catBadge) catBadge.textContent = trip.category;
+
+    const ratingEl = document.getElementById('tripRating');
+    if (ratingEl) ratingEl.textContent = trip.rating;
+
+    const avShortEl = document.getElementById('tripAviationShort');
+    if (avShortEl) avShortEl.textContent = trip.aviationShort;
+
+    mainTitleEl.textContent = trip.title;
+    document.title = `${trip.title} | Fly Anytime Bespoke Expeditions`;
+
+    const corridorEl = document.getElementById('tripRouteCorridor');
+    if (corridorEl) {
+      corridorEl.innerHTML = `<span class="material-symbols-outlined text-primary text-base">route</span><span>Corridor: ${trip.route}</span>`;
+    }
+
+    const heroImgEl = document.getElementById('tripHeroImg');
+    if (heroImgEl) {
+      heroImgEl.src = trip.heroImg;
+      heroImgEl.alt = trip.title;
+    }
+
+    const heroSubEl = document.getElementById('tripHeroSubtitle');
+    if (heroSubEl) heroSubEl.textContent = trip.heroSubtitle;
+
+    const durBadge = document.getElementById('tripDurationBadge');
+    if (durBadge) durBadge.textContent = trip.duration;
+
+    // Specs
+    const avModel = document.getElementById('tripAviationModel');
+    if (avModel) avModel.textContent = trip.aviation;
+
+    const stayCat = document.getElementById('tripStayCategory');
+    if (stayCat) stayCat.textContent = trip.stayCategory;
+
+    const transitCat = document.getElementById('tripTransitCategory');
+    if (transitCat) transitCat.textContent = trip.transitCategory;
+
+    const fullDesc = document.getElementById('tripFullDescription');
+    if (fullDesc) fullDesc.textContent = trip.fullDescription;
+
+    const tariffDisplay = document.getElementById('tripTariffDisplay');
+    if (tariffDisplay) tariffDisplay.textContent = trip.priceFull;
+
+    // Itinerary Timeline
+    const timelineContainer = document.getElementById('itineraryDaysContainer');
+    if (timelineContainer && trip.itinerary) {
+      timelineContainer.innerHTML = trip.itinerary.map(item => `
+        <div class="border border-outline-variant/30 rounded-2xl p-5 bg-surface-bright shadow-xs">
+          <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+            <span class="text-xs font-black text-primary uppercase tracking-wider">${item.day}</span>
+            <span class="text-[11px] font-bold text-tertiary">${item.corridor}</span>
+          </div>
+          <h4 class="text-base font-bold text-on-surface mt-3">${item.title}</h4>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">${item.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    // Direct WhatsApp Button
+    const waBtn = document.getElementById('tripWhatsAppDirectBtn');
+    if (waBtn) {
+      waBtn.addEventListener('click', () => {
+        const text = `*Fly Anytime — Expedition Inquiry: ${trip.title}* ✈️👑\n\n` +
+          `• *Route:* ${trip.route}\n` +
+          `• *Duration:* ${trip.duration}\n` +
+          `• *Tariff Guidance:* ${trip.priceFull}\n\n` +
+          `Please connect me with our dedicated concierge to reserve this journey.`;
+        window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, '_blank');
+      });
+    }
+
+    // Direct Form Submission
+    const inquiryForm = document.getElementById('tripDetailInquiryForm');
+    if (inquiryForm) {
+      inquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        saveInquiry({
+          package: trip.title,
+          guestName: inquiryForm.querySelector('input[placeholder*="Maharaja"]')?.value || 'Royal Guest',
+          phone: inquiryForm.querySelector('input[type="tel"]')?.value || '+91 9876543210',
+          dates: inquiryForm.querySelector('input[placeholder*="Nov"]')?.value || 'Flexible',
+          partySize: inquiryForm.querySelector('input[value*="Adults"]')?.value || '2 Adults',
+          timestamp: new Date().toISOString()
+        });
+        showToast(`Inquiry for "${trip.title}" confirmed! Royal Concierge assigned.`);
+      });
+    }
+
+    // Wire Customize and Itinerary buttons on trip-detail.html
+    const detailCustomizeBtn = document.querySelector('.open-plan-modal[data-package]');
+    if (detailCustomizeBtn) {
+      detailCustomizeBtn.setAttribute('data-package', trip.title);
+    }
+  }
+
+  initTripDetailPage();
+
+  // 14. Curated Package Card Navigation Fallback
+  document.querySelectorAll('.package-item-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't intercept clicks on buttons or inside buttons
+      if (e.target.closest('button') || e.target.closest('a')) return;
+      const category = card.getAttribute('data-category');
+      if (category) {
+        window.location.href = `trip-detail.html?trip=${category}`;
+      }
+    });
+  });
+
   // Initial render of circuit builder
   renderCircuitBuilder();
 });

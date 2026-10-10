@@ -6,6 +6,7 @@
   <meta name="view-transition" content="same-origin">
   <title>Fly Anytime | Incredible India Trip Organizer & Bespoke Flight Experiences</title>
   <meta name="description" content="India's bespoke luxury travel atelier. Private flight charters, handpicked royal palace stays, luxury trains and 24/7 dedicated concierge orchestration.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="theme-color" content="#8f1d1d">
   <link rel="manifest" href="manifest.json">
   
@@ -90,9 +91,7 @@
       
       <!-- Brand Logo -->
       <a class="flex items-center gap-3 group" href="index.html">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary shadow-md shadow-primary/20 transform transition-transform group-hover:scale-105">
-          <span class="material-symbols-outlined text-2xl rotate-45">flight</span>
-        </div>
+        <img src="favicon.svg" alt="Fly Anytime Royal Emblem" class="w-11 h-11 rounded-xl shadow-md shadow-primary/20 transform transition-transform group-hover:scale-105 object-cover">
         <div class="flex flex-col">
           <span class="text-lg font-extrabold text-primary tracking-tight flex items-center gap-1.5">
             Fly Anytime
@@ -133,9 +132,10 @@
           <span>Plan My Trip</span>
         </button>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" aria-label="Open mobile navigation">
-          <span class="material-symbols-outlined text-2xl">menu</span>
+        <!-- Desktop & Mobile Unified Mega Menu Toggle Button -->
+        <button id="megaMenuToggle" class="p-2 sm:px-3 sm:py-2 rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 border border-outline-variant/30 cursor-pointer transition-all active:scale-95 group shadow-xs" aria-label="Open directory menu">
+          <span class="material-symbols-outlined text-2xl group-hover:text-primary transition-colors">menu</span>
+          <span class="hidden md:inline text-xs font-extrabold uppercase tracking-wider group-hover:text-primary transition-colors">Menu</span>
         </button>
       </div>
     </div>
@@ -184,6 +184,81 @@
       </button>
     </div>
   </aside>
+
+  <!-- UNIFIED DESKTOP & MOBILE MEGA MENU SLIDE-OVER DRAWER -->
+  <div id="megaMenuDrawer" class="fixed inset-0 z-50 mega-menu-closed">
+    <div id="megaMenuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+    <aside id="megaMenuPanel" class="absolute right-0 top-0 bottom-0 w-full sm:max-w-md bg-surface-bright shadow-2xl flex flex-col z-10 border-l border-outline-variant/30">
+      
+      <!-- Drawer Top Bar -->
+      <div class="p-6 border-b border-outline-variant/20 flex items-center justify-between bg-surface-container-low/50">
+        <div class="flex items-center gap-3">
+          <img src="favicon.svg" alt="Fly Anytime" class="w-10 h-10 rounded-xl shadow-md object-cover">
+          <div>
+            <h3 class="text-base font-black text-on-surface">Fly Anytime Directory</h3>
+            <p class="text-[11px] text-tertiary">All Curated Services & Fleet Portals</p>
+          </div>
+        </div>
+        <button id="closeMegaMenu" class="p-2 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer" aria-label="Close menu">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+
+      <!-- Navigation Links Directory -->
+      <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-primary">Private Aviation</span>
+          <div class="flex flex-col gap-2 mt-2">
+            <a href="flights.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Private Jet & Helicopter Charter</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="flights.html#multiCityCircuitSection" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Interactive Multi-City Circuit Builder</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-secondary">Heritage Enclaves</span>
+          <div class="flex flex-col gap-2 mt-2">
+            <a href="stays.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Living Palaces & Royal Residencies</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="trains.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Maharajas' Express & Luxury Trains</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="destinations.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Royal Enclave Destination Guides</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-tertiary">Quick Expeditions</span>
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <a href="trip-detail.html?trip=rajasthan" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Royal Rajputana</a>
+            <a href="trip-detail.html?trip=kerala" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Kerala Backwaters</a>
+            <a href="trip-detail.html?trip=varanasi" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Varanasi & Sarnath</a>
+            <a href="trip-detail.html?trip=ladakh" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Ladakh Serenity</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawer Bottom Action -->
+      <div class="p-6 border-t border-outline-variant/20 bg-surface-container/40 flex flex-col gap-3">
+        <a href="https://wa.me/919876543210?text=Hello%20Fly%20Anytime%20Royal%20Concierge" target="_blank" class="w-full py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95 duration-150">
+          <span class="material-symbols-outlined text-base">chat</span>
+          <span>WhatsApp Royal Concierge</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
 
   <!-- HERO SECTION -->
   <section class="relative pt-10 sm:pt-16 pb-20 overflow-hidden">
@@ -387,7 +462,7 @@
 
         <!-- CARD 1: Royal Rajputana Odyssey -->
         <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="rajasthan">
-          <div class="card-media-wrap">
+          <a href="trip-detail.html?trip=rajasthan" class="card-media-wrap block relative cursor-pointer group-hover:opacity-95 transition-opacity" title="View Royal Rajputana Odyssey Details">
             <img class="responsive-img-cover" 
                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlFq5P4zo_qdISRDmlMuIOWiPcKhe_zJAHU-UTu38etbR935nD1tEbAjVBl_S5Fhq_3UfC0-FXmarQfKBRmKmKbR26BrZhCv4SoHug3NCwoMs-uAblm7BLAZvSwOUaPPLA6OxNwWeQ9Fn2Jne-wBCSEYuSRWVJaXQuU6VXJOwnKBckKdZu6q7Oj90ZU9-Xz_iZxOtY6621fsyihlKJHTcFpj4TSYYA3KR5rwx5o3eQji2IiFT_dIus-g" 
                  alt="Royal amber fortress and palace in Jaipur Rajasthan at sunset">
@@ -402,7 +477,7 @@
               <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Palace Stays</span>
               <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Glamping</span>
             </div>
-          </div>
+          </a>
           <div class="p-5 flex flex-col flex-grow justify-between">
             <div>
               <div class="flex items-center justify-between text-tertiary text-xs mb-1">
@@ -415,9 +490,11 @@
                   Flights Incl.
                 </span>
               </div>
-              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
-                Royal Rajputana Odyssey
-              </h3>
+              <a href="trip-detail.html?trip=rajasthan" class="block group/title">
+                <h3 class="text-base font-bold text-on-surface group-hover/title:text-primary transition-colors">
+                  Royal Rajputana Odyssey
+                </h3>
+              </a>
               <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Jaipur, Udaipur, Jodhpur with private Mehrangarh sundowner and Thar desert glamping.
               </p>
@@ -446,7 +523,7 @@
 
         <!-- CARD 2: Kerala Backwaters & Mist -->
         <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="kerala">
-          <div class="card-media-wrap">
+          <a href="trip-detail.html?trip=kerala" class="card-media-wrap block relative cursor-pointer group-hover:opacity-95 transition-opacity" title="View Kerala Backwaters & Mist Details">
             <img class="responsive-img-cover" 
                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhQmbjpA9UQ6F1lMZMTg2GuxwINHGiApo4MFw4GwMYG5dN1RZageoIK3Uye9_ShKwx_59uuNpRaizLrmAQUcXys0yYn6yzLJsia5plKdupVt2rWByixoWDKpYPcBurht-Mhhsdp2ucuSmNbSUZdycsp1AZGZS02Gr3WHU3ZkIn-4aWIjLlK3wQz7tHHthfGVoI-uQr6xqtLTlXPE32d0ubHb1Xn8Im0gHUap0TCnUSaRKVZZDo9t3tmw" 
                  alt="Traditional luxury wooden houseboat on serene Kerala emerald backwaters">
@@ -461,7 +538,7 @@
               <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Houseboat</span>
               <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Tea Estates</span>
             </div>
-          </div>
+          </a>
           <div class="p-5 flex flex-col flex-grow justify-between">
             <div>
               <div class="flex items-center justify-between text-tertiary text-xs mb-1">
@@ -474,9 +551,11 @@
                   Flights Incl.
                 </span>
               </div>
-              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
-                Kerala Backwaters & Mist
-              </h3>
+              <a href="trip-detail.html?trip=kerala" class="block group/title">
+                <h3 class="text-base font-bold text-on-surface group-hover/title:text-primary transition-colors">
+                  Kerala Backwaters & Mist
+                </h3>
+              </a>
               <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Kochi, misty Munnar tea hills, and overnight private luxury houseboat cruise in Alleppey.
               </p>
@@ -504,8 +583,8 @@
         </div>
 
         <!-- CARD 3: Spiritual Varanasi & Prayagraj -->
-        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="spiritual">
-          <div class="card-media-wrap">
+        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="varanasi">
+          <a href="trip-detail.html?trip=varanasi" class="card-media-wrap block relative cursor-pointer group-hover:opacity-95 transition-opacity" title="View Spiritual Varanasi & Prayagraj Details">
             <img class="responsive-img-cover" 
                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAziqfiyy1THfuBNY89GGJWtTKp2mzAjRoREIN7LKX98Du8HYrAd6PLlMPR_1E7Rc2XOs_aFQ7xRH7h_uA3tgdvB45EuJ5df2qfo1bqDNXGHBRhREyOXZh6uCtj9li74yhpnvsyx5RPUxONV1IzwqPMFFoVPO0XXRliobY0e0aF0NPPoPW64UzfxF5MCVuVOiL2-hEZsalWsz4IU276dr1CGIrDsurLpoX3K1LAJcliPVcL1EOlxXCnrQ" 
                  alt="Evening Ganga Aarti ceremony at the illuminated ghats of Varanasi">
@@ -520,7 +599,7 @@
               <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Private Aarti Boat</span>
               <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Spiritual</span>
             </div>
-          </div>
+          </a>
           <div class="p-5 flex flex-col flex-grow justify-between">
             <div>
               <div class="flex items-center justify-between text-tertiary text-xs mb-1">
@@ -533,9 +612,11 @@
                   Flights Incl.
                 </span>
               </div>
-              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
-                Spiritual Varanasi & Prayagraj
-              </h3>
+              <a href="trip-detail.html?trip=varanasi" class="block group/title">
+                <h3 class="text-base font-bold text-on-surface group-hover/title:text-primary transition-colors">
+                  Spiritual Varanasi & Prayagraj
+                </h3>
+              </a>
               <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Front-row VIP Ganga Aarti on private Bajra boat, dawn rituals, and Sarnath monastic tour.
               </p>
@@ -563,8 +644,8 @@
         </div>
 
         <!-- CARD 4: Himalayan Serenity in Ladakh -->
-        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="himalayas">
-          <div class="card-media-wrap">
+        <div class="package-item-card clay-card rounded-2xl overflow-hidden flex flex-col group border border-outline-variant/30" data-category="ladakh">
+          <a href="trip-detail.html?trip=ladakh" class="card-media-wrap block relative cursor-pointer group-hover:opacity-95 transition-opacity" title="View Himalayan Serenity Ladakh Details">
             <img class="responsive-img-cover" 
                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2A2w7bsXHeJXTDxvJNspV02fM-FtuXIMZ_TIHHgQgcCaCwdSKEMxTZhOeCScg0s0gVwStDcNDN5BvK0ztpoz_GitHvmo59Sc5IYnFnGgg4vbIU86a5wkFKeiwfVXBCCijVWZwnyFQeGUAPxCWUKM--TJsDZEO0KEjCoHQfHs6yAOQSX1bUHmAQ6dTIwtDE2cXxX4nL-s4qj1rp7PFe6WvMLhOvRYWzsALIHYwrC_loWNeaw73Pv8azg" 
                  alt="Crystal blue waters of Pangong Tso lake in Ladakh against snow-capped peaks">
@@ -579,7 +660,7 @@
               <span class="bg-primary/90 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">Oxygen Camps</span>
               <span class="bg-surface-container-lowest/90 text-on-surface text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-xs">4x4 Luxury</span>
             </div>
-          </div>
+          </a>
           <div class="p-5 flex flex-col flex-grow justify-between">
             <div>
               <div class="flex items-center justify-between text-tertiary text-xs mb-1">
@@ -592,9 +673,11 @@
                   Flights Incl.
                 </span>
               </div>
-              <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">
-                Himalayan Serenity Ladakh
-              </h3>
+              <a href="trip-detail.html?trip=ladakh" class="block group/title">
+                <h3 class="text-base font-bold text-on-surface group-hover/title:text-primary transition-colors">
+                  Himalayan Serenity Ladakh
+                </h3>
+              </a>
               <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
                 Leh, Nubra Valley sand dunes with double-humped camels, and sunrise at Pangong Lake.
               </p>
@@ -1233,7 +1316,7 @@
   </footer>
 
   <!-- MOBILE BOTTOM DOCKED NAVIGATION BAR (For Phone Users) -->
-  <div class="mobile-nav-bar py-2.5 px-4 flex items-center justify-around">
+  <div class="mobile-nav-bar lg:hidden py-2.5 px-4 flex items-center justify-around">
     <a href="index.html" class="flex flex-col items-center gap-1 text-primary">
       <span class="material-symbols-outlined text-xl">explore</span>
       <span class="text-[10px] font-bold">Explore</span>

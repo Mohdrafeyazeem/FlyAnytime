@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Expedition Detail | Fly Anytime Bespoke India</title>
+  <meta name="description" content="Explore full day-by-day itineraries, private aviation specifications, palace suites, and dedicated concierge details for Fly Anytime bespoke Indian journeys.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#994700">
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#994700',
+            'primary-container': '#ff7a00',
+            'primary-fixed': '#ffdbc8',
+            'on-primary': '#ffffff',
+            secondary: '#a23f00',
+            'secondary-fixed': '#ffdbcb',
+            tertiary: '#4c5f80',
+            background: '#fbf9f6',
+            surface: '#fbf9f6',
+            'surface-bright': '#ffffff',
+            'surface-container-low': '#f5f3f0',
+            'surface-container': '#efeeeb',
+            'surface-container-high': '#eae8e5',
+            'surface-container-lowest': '#ffffff',
+            'on-surface': '#1b1c1a',
+            'on-surface-variant': '#584235',
+            'outline-variant': '#e0c0af'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+  <!-- TOP PROGRESS BAR -->
+  <div id="pageTransitionBar"></div>
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 glass-nav shadow-sm">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a class="flex items-center gap-3 group" href="index.html">
+        <img src="favicon.svg" alt="Fly Anytime Royal Emblem" class="w-11 h-11 rounded-xl shadow-md shadow-primary/20 transform transition-transform group-hover:scale-105 object-cover">
+        <div class="flex flex-col">
+          <span class="text-lg font-black text-primary tracking-tight flex items-center gap-1.5">
+            Fly Anytime
+            <span class="w-2 h-2 rounded-full bg-secondary-container animate-ping inline-block"></span>
+          </span>
+          <span class="text-[10px] text-tertiary tracking-widest font-bold uppercase">Bespoke India Journeys</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden xl:flex items-center gap-7 text-sm font-bold">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">Curated Circuits</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="flights.html">Private Charters</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="stays.html">Heritage Palaces</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="trains.html">Luxury Trains</a>
+      </nav>
+
+      <!-- Trailing Action Cluster -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Royal Portfolio Trigger -->
+        <button class="open-portfolio-drawer relative flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-xs font-bold transition-all cursor-pointer" title="Royal Portfolio">
+          <span class="material-symbols-outlined text-base text-primary">folder_special</span>
+          <span class="hidden md:inline">Portfolio</span>
+          <span class="portfolio-badge-count hidden items-center justify-center min-w-5 h-5 px-1 rounded-full bg-primary text-[10px] font-extrabold text-white">0</span>
+        </button>
+
+        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface-variant text-xs font-semibold">
+          <span class="material-symbols-outlined text-sm text-primary">currency_rupee</span>
+          <span>INR</span>
+        </div>
+        
+        <button class="open-plan-modal primary-btn-3d text-on-primary text-xs sm:text-sm px-5 py-2.5 rounded-full flex items-center gap-2 font-bold cursor-pointer" data-package="Bespoke Expedition Consultation">
+          <span class="material-symbols-outlined text-base">travel_explore</span>
+          <span>Plan My Trip</span>
+        </button>
+
+        <!-- Unified Mega Menu Hamburger -->
+        <button id="megaMenuToggle" class="p-2 sm:px-3 sm:py-2 rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 border border-outline-variant/30 cursor-pointer transition-all active:scale-95 group shadow-xs" aria-label="Open directory menu">
+          <span class="material-symbols-outlined text-2xl group-hover:text-primary transition-colors">menu</span>
+          <span class="hidden md:inline text-xs font-extrabold uppercase tracking-wider group-hover:text-primary transition-colors">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB NAVIGATION -->
+  <div class="bg-surface-container-low/60 border-b border-outline-variant/20 py-3 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 text-xs font-semibold text-tertiary">
+      <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+      <span>/</span>
+      <a href="index.html#packages" class="hover:text-primary transition-colors">Curated Expeditions</a>
+      <span>/</span>
+      <span id="breadcrumbCurrent" class="text-primary font-bold">Royal Rajputana Odyssey</span>
+    </div>
+  </div>
+
+  <!-- EXPEDITION HERO SECTION -->
+  <section class="py-8 sm:py-12 px-4 sm:px-6 relative">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Title & Badges Bar -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div>
+          <div class="flex flex-wrap items-center gap-2.5 mb-3">
+            <span id="tripCategoryBadge" class="px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-extrabold uppercase tracking-wider">
+              Signature Royal Circuit
+            </span>
+            <span class="flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container text-xs font-bold text-on-surface">
+              <span class="material-symbols-outlined text-sm text-primary">star</span>
+              <span id="tripRating">4.96 (1,240 Reviews)</span>
+            </span>
+            <span class="px-3 py-1 rounded-full bg-secondary-fixed/50 text-secondary text-xs font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">flight</span>
+              <span id="tripAviationShort">Private Jet Synced</span>
+            </span>
+          </div>
+
+          <h1 id="tripMainTitle" class="text-3xl sm:text-4xl lg:text-5xl font-black text-on-background tracking-tight">
+            Royal Rajputana Odyssey
+          </h1>
+          <p id="tripRouteCorridor" class="text-sm sm:text-base text-tertiary mt-2 font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-base">route</span>
+            <span>Corridor: Delhi • Jaipur • Udaipur • Jodhpur • Jaisalmer</span>
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="open-voucher-modal px-4 py-2.5 rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center gap-2 border border-outline-variant/30 cursor-pointer shadow-xs">
+            <span class="material-symbols-outlined text-base">receipt_long</span>
+            <span>Download Itinerary Voucher</span>
+          </button>
+          <button class="open-plan-modal primary-btn-3d px-6 py-2.5 rounded-2xl text-on-primary text-xs sm:text-sm font-bold flex items-center gap-2 cursor-pointer shadow-md">
+            <span class="material-symbols-outlined text-base">edit_calendar</span>
+            <span>Customize This Trip</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Gallery Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Main Feature Image (16:10 Fluid Responsive) -->
+        <div class="lg:col-span-8">
+          <div class="card-media-wrap rounded-3xl overflow-hidden shadow-xl border border-outline-variant/30 relative">
+            <img id="tripHeroImg" class="responsive-img-cover" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlFq5P4zo_qdISRDmlMuIOWiPcKhe_zJAHU-UTu38etbR935nD1tEbAjVBl_S5Fhq_3UfC0-FXmarQfKBRmKmKbR26BrZhCv4SoHug3NCwoMs-uAblm7BLAZvSwOUaPPLA6OxNwWeQ9Fn2Jne-wBCSEYuSRWVJaXQuU6VXJOwnKBckKdZu6q7Oj90ZU9-Xz_iZxOtY6621fsyihlKJHTcFpj4TSYYA3KR5rwx5o3eQji2IiFT_dIus-g" 
+                 alt="Heritage Fort & Palace at sunset">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white flex items-end justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">Bespoke Destination</span>
+                <p id="tripHeroSubtitle" class="text-xl font-bold mt-1">Amber Fort & Lake Pichola Royal Enclave</p>
+              </div>
+              <span id="tripDurationBadge" class="px-3 py-1 rounded-full bg-primary text-white text-xs font-bold shadow-md">
+                7 Days / 6 Nights
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Facts Pod -->
+        <div class="lg:col-span-4 flex flex-col gap-4">
+          <div class="clay-card-static p-6 rounded-3xl border border-outline-variant/30 flex flex-col gap-4">
+            <h3 class="text-sm font-extrabold uppercase tracking-wider text-tertiary">Expedition Specifications</h3>
+            
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-surface-container">
+              <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">flight</span>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold text-tertiary uppercase">Aviation Category</p>
+                <p id="tripAviationModel" class="text-xs font-bold text-on-surface">Pilatus PC-24 Super Light Jet</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-surface-container">
+              <div class="w-10 h-10 rounded-xl bg-secondary text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">apartment</span>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold text-tertiary uppercase">Palace Accommodation</p>
+                <p id="tripStayCategory" class="text-xs font-bold text-on-surface">5-Star Royal Heritage Suites (Taj/Oberoi)</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-surface-container">
+              <div class="w-10 h-10 rounded-xl bg-tertiary text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">directions_car</span>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold text-tertiary uppercase">Surface Transit</p>
+                <p id="tripTransitCategory" class="text-xs font-bold text-on-surface">Private Mercedes-Benz Chauffeur Fleet</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-surface-container">
+              <div class="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">support_agent</span>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold text-tertiary uppercase">Dedicated Concierge</p>
+                <p class="text-xs font-bold text-on-surface">24/7 Royal Trip Director On-Ground</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN EXPEDITION DETAILS & ITINERARY ACCORDION -->
+  <section class="py-12 px-4 sm:px-6 bg-surface-container-low/40">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Left Column: Detailed Description & Day-by-Day Timeline -->
+      <div class="lg:col-span-8 flex flex-col gap-10">
+        
+        <!-- Overview Card -->
+        <div class="clay-card-static p-6 sm:p-8 rounded-3xl border border-outline-variant/30">
+          <h2 class="text-2xl font-black text-on-surface mb-4">Expedition Essence</h2>
+          <p id="tripFullDescription" class="text-sm sm:text-base text-on-surface-variant leading-relaxed">
+            Immerse yourself in royal Rajputana splendor. Traverse Jaipur's blushing pink arcades, board private sunset lake cruises in Udaipur, and savor candlelit Mehrangarh Fort ramparts. Every transfer is orchestrated seamlessly via private chartered aviation and vetted luxury palace suites.
+          </p>
+          
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-outline-variant/20 text-center">
+            <div class="p-3 rounded-2xl bg-surface-container">
+              <span class="text-lg font-black text-primary block">100%</span>
+              <span class="text-[11px] font-semibold text-tertiary">Customizable</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-surface-container">
+              <span class="text-lg font-black text-primary block">Private</span>
+              <span class="text-[11px] font-semibold text-tertiary">Charter Flights</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-surface-container">
+              <span class="text-lg font-black text-primary block">VIP Fastrack</span>
+              <span class="text-[11px] font-semibold text-tertiary">Monument Access</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-surface-container">
+              <span class="text-lg font-black text-primary block">Pure Veg/Jain</span>
+              <span class="text-[11px] font-semibold text-tertiary">Dining Available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day-by-Day Timeline Accordion -->
+        <div class="clay-card-static p-6 sm:p-8 rounded-3xl border border-outline-variant/30">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <span class="text-xs font-bold text-primary uppercase tracking-wider">Day-by-Day Choreography</span>
+              <h2 class="text-2xl font-black text-on-surface mt-1">Detailed Itinerary Timeline</h2>
+            </div>
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-primary-fixed text-primary">Full Escort</span>
+          </div>
+
+          <div id="itineraryDaysContainer" class="flex flex-col gap-4">
+            <!-- Dynamically populated or rendered -->
+            <div class="border border-outline-variant/30 rounded-2xl p-5 bg-surface-bright">
+              <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+                <span class="text-xs font-black text-primary uppercase tracking-wider">Day 1 • Imperial Arrival</span>
+                <span class="text-[11px] font-bold text-tertiary">Delhi ➔ Jaipur</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface mt-3">VIP Airport Reception & City Palace Private Chambers</h4>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Meet & greet at VIP General Aviation terminal in Delhi. 45-minute scenic charter hop to Jaipur. Private check-in at Rambagh Palace with royal vermilion blessing and champagne high tea in the peacock gardens.
+              </p>
+            </div>
+
+            <div class="border border-outline-variant/30 rounded-2xl p-5 bg-surface-bright">
+              <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+                <span class="text-xs font-black text-primary uppercase tracking-wider">Day 2 • Fortresses & Heritage</span>
+                <span class="text-[11px] font-bold text-tertiary">Jaipur Enclave</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface mt-3">Sunrise Amber Fort Safari & Royal Gem Curations</h4>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Early morning private jeep ascent to Amber Fort before public opening hours. Private jeweler studio viewing with royal gemologists, followed by sunset cocktails on Nahargarh Fort ramparts.
+              </p>
+            </div>
+
+            <div class="border border-outline-variant/30 rounded-2xl p-5 bg-surface-bright">
+              <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+                <span class="text-xs font-black text-primary uppercase tracking-wider">Day 3 • Romantic Waters</span>
+                <span class="text-[11px] font-bold text-tertiary">Jaipur ➔ Udaipur</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface mt-3">Private Flight to Lake Pichola & Taj Lake Palace Sanctuary</h4>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Direct morning flight to Udaipur Maharana Pratap Airport. Private luxury boat transfer to Taj Lake Palace floating on Lake Pichola. Evening royal sunset cruise with live Mewari sitar maestros.
+              </p>
+            </div>
+
+            <div class="border border-outline-variant/30 rounded-2xl p-5 bg-surface-bright">
+              <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+                <span class="text-xs font-black text-primary uppercase tracking-wider">Day 4 • Blue City Royalty</span>
+                <span class="text-[11px] font-bold text-tertiary">Udaipur ➔ Jodhpur</span>
+              </div>
+              <h4 class="text-base font-bold text-on-surface mt-3">Mehrangarh Private Access & Umaid Bhawan Gala Dinner</h4>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Short private hop over the Aravalli hills to Jodhpur. VIP curator-guided walkthrough of Mehrangarh Fort's royal armory and howdah collection. Five-course Marwari banquet at Umaid Bhawan Palace.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Sticky Pricing & Concierge Booking Card -->
+      <div class="lg:col-span-4">
+        <div class="sticky top-28 flex flex-col gap-6">
+          
+          <div class="clay-card-static p-6 sm:p-7 rounded-3xl border border-outline-variant/30 shadow-2xl">
+            <div class="flex items-baseline justify-between pb-4 border-b border-outline-variant/20">
+              <div>
+                <span class="text-[10px] font-bold text-tertiary uppercase">All-Inclusive Guidance</span>
+                <p id="tripTariffDisplay" class="text-2xl sm:text-3xl font-black text-primary">₹4,85,000</p>
+                <span class="text-[11px] text-tertiary">Per couple • All Flights & Stays Incl.</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-green-100 text-green-800 text-[10px] font-extrabold uppercase">Instant Booking</span>
+            </div>
+
+            <!-- Booking Inquiries Form -->
+            <form id="tripDetailInquiryForm" class="flex flex-col gap-3.5 pt-5">
+              <div>
+                <label class="text-[11px] font-bold text-tertiary uppercase">Guest Name</label>
+                <div class="inset-clay-input p-3 rounded-xl mt-1">
+                  <input required class="bg-transparent border-0 p-0 text-xs font-bold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="Maharaja Vikramaditya">
+                </div>
+              </div>
+
+              <div>
+                <label class="text-[11px] font-bold text-tertiary uppercase">WhatsApp / Contact Phone</label>
+                <div class="inset-clay-input p-3 rounded-xl mt-1">
+                  <input required type="tel" class="bg-transparent border-0 p-0 text-xs font-bold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="+91 98765 43210">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[11px] font-bold text-tertiary uppercase">Travel Dates</label>
+                  <div class="inset-clay-input p-2.5 rounded-xl mt-1">
+                    <input class="bg-transparent border-0 p-0 text-xs font-bold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="Nov 2025">
+                  </div>
+                </div>
+                <div>
+                  <label class="text-[11px] font-bold text-tertiary uppercase">Party Size</label>
+                  <div class="inset-clay-input p-2.5 rounded-xl mt-1">
+                    <input class="bg-transparent border-0 p-0 text-xs font-bold text-on-surface focus:ring-0 w-full outline-hidden" value="2 Adults">
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="primary-btn-3d w-full py-3.5 rounded-2xl text-on-primary font-bold text-sm shadow-md cursor-pointer mt-2 flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-base">check_circle</span>
+                <span>Confirm Royal Inquiry</span>
+              </button>
+
+              <button type="button" id="tripWhatsAppDirectBtn" class="w-full py-3 px-4 rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs shadow-md cursor-pointer flex items-center justify-center gap-2 transition-transform active:scale-95 duration-150">
+                <span class="material-symbols-outlined text-base">chat</span>
+                <span>Chat with Royal Concierge</span>
+              </button>
+            </form>
+
+            <div class="mt-5 pt-4 border-t border-outline-variant/20 flex items-center justify-center gap-4 text-tertiary text-xs">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm text-green-600">verified</span>
+                Verified Price
+              </span>
+              <span>•</span>
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm text-primary">shield</span>
+                DGCA & IATA Synced
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SHARED FOOTER -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 pt-16 pb-24 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-outline-variant/20">
+        
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-white font-bold shadow-xs">
+              <span class="material-symbols-outlined text-xl rotate-45">flight</span>
+            </div>
+            <span class="text-lg font-black text-primary">Fly Anytime</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            India's foremost bespoke trip organizer and luxury flight orchestrator. Crafting unforgettable memories across palatial fortresses and pristine peaks.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-tertiary mb-3">Expedition Portals</h4>
+          <ul class="flex flex-col gap-2 text-xs font-semibold text-on-surface-variant">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Curated Circuits</a></li>
+            <li><a href="flights.html" class="hover:text-primary transition-colors">Private Flights & Fleet</a></li>
+            <li><a href="stays.html" class="hover:text-primary transition-colors">Living Heritage Palaces</a></li>
+            <li><a href="trains.html" class="hover:text-primary transition-colors">Sovereign Rail Journeys</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-tertiary mb-3">Concierge Care</h4>
+          <ul class="flex flex-col gap-2 text-xs font-semibold text-on-surface-variant">
+            <li><a href="flights.html#multiCityCircuitSection" class="hover:text-primary transition-colors">Multi-City Circuit Builder</a></li>
+            <li><a href="#" class="open-portfolio-drawer hover:text-primary transition-colors">Royal Portfolio & Review</a></li>
+            <li><a href="https://wa.me/919876543210" target="_blank" class="hover:text-primary transition-colors">24/7 WhatsApp Concierge</a></li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-surface-container flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-bold text-tertiary uppercase">Direct Royal Hotline</span>
+            <p class="text-lg font-black text-primary mt-1">1800-419-FLYNOW</p>
+            <p class="text-[11px] text-on-surface-variant mt-0.5">concierge@flyanytime.in</p>
+          </div>
+          <span class="mt-4 text-[10px] font-bold text-primary bg-primary-fixed/50 px-2 py-0.5 rounded-full self-start">
+            Average Response: 4 Mins
+          </span>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant">
+        <p>© 2025 Fly Anytime India Private Limited. All rights reserved.</p>
+        <div class="flex items-center gap-4 font-semibold">
+          <a href="#" class="hover:text-primary">Privacy</a>
+          <a href="#" class="hover:text-primary">DGCA Compliance</a>
+          <a href="#" class="hover:text-primary">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAVIGATION BAR (Strictly Hidden on Desktop with lg:hidden) -->
+  <div class="mobile-nav-bar lg:hidden py-2.5 px-4 flex items-center justify-around">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-primary">
+      <span class="material-symbols-outlined text-xl">explore</span>
+      <span class="text-[10px] font-bold">Explore</span>
+    </a>
+    <a href="flights.html" class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+      <span class="material-symbols-outlined text-xl">flight_takeoff</span>
+      <span class="text-[10px] font-semibold">Flights</span>
+    </a>
+    <a href="stays.html" class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+      <span class="material-symbols-outlined text-xl">fort</span>
+      <span class="text-[10px] font-semibold">Stays</span>
+    </a>
+    <a href="trains.html" class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary">
+      <span class="material-symbols-outlined text-xl">train</span>
+      <span class="text-[10px] font-semibold">Trains</span>
+    </a>
+    <button class="open-portfolio-drawer relative flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary cursor-pointer">
+      <span class="material-symbols-outlined text-xl">folder_special</span>
+      <span class="text-[10px] font-semibold">Portfolio</span>
+    </button>
+  </div>
+
+  <!-- UNIFIED DESKTOP & MOBILE MEGA MENU SLIDE-OVER DRAWER -->
+  <div id="megaMenuDrawer" class="fixed inset-0 z-50 mega-menu-closed">
+    <div id="megaMenuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+    <aside id="megaMenuPanel" class="absolute right-0 top-0 bottom-0 w-full sm:max-w-md bg-surface-bright shadow-2xl flex flex-col z-10 border-l border-outline-variant/30">
+      
+      <!-- Drawer Top Bar -->
+      <div class="p-6 border-b border-outline-variant/20 flex items-center justify-between bg-surface-container-low/50">
+        <div class="flex items-center gap-3">
+          <img src="favicon.svg" alt="Fly Anytime" class="w-10 h-10 rounded-xl shadow-md object-cover">
+          <div>
+            <h3 class="text-base font-black text-on-surface">Fly Anytime Directory</h3>
+            <p class="text-[11px] text-tertiary">All Curated Services & Fleet Portals</p>
+          </div>
+        </div>
+        <button id="closeMegaMenu" class="p-2 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+
+      <!-- Navigation Links Directory -->
+      <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-primary">Private Aviation</span>
+          <div class="flex flex-col gap-2 mt-2">
+            <a href="flights.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Private Jet & Helicopter Charter</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="flights.html#multiCityCircuitSection" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Interactive Multi-City Circuit Builder</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-secondary">Heritage Enclaves</span>
+          <div class="flex flex-col gap-2 mt-2">
+            <a href="stays.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Living Palaces & Royal Residencies</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="trains.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Maharajas' Express & Luxury Trains</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+            <a href="destinations.html" class="p-3 rounded-xl hover:bg-surface-container text-xs font-bold text-on-surface flex items-center justify-between transition-colors">
+              <span>Royal Enclave Destination Guides</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-tertiary">Quick Expeditions</span>
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <a href="trip-detail.html?trip=rajasthan" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Royal Rajputana</a>
+            <a href="trip-detail.html?trip=kerala" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Kerala Backwaters</a>
+            <a href="trip-detail.html?trip=varanasi" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Varanasi & Sarnath</a>
+            <a href="trip-detail.html?trip=ladakh" class="p-2.5 rounded-xl bg-surface-container text-[11px] font-bold text-on-surface hover:text-primary">Ladakh Serenity</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawer Bottom Action -->
+      <div class="p-6 border-t border-outline-variant/20 bg-surface-container/40 flex flex-col gap-3">
+        <a href="https://wa.me/919876543210?text=Hello%20Fly%20Anytime%20Royal%20Concierge" target="_blank" class="w-full py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95 duration-150">
+          <span class="material-symbols-outlined text-base">chat</span>
+          <span>WhatsApp Royal Concierge</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ROYAL PORTFOLIO SLIDE-OVER DRAWER -->
+  <div id="portfolioDrawer" class="fixed inset-0 z-50 drawer-closed">
+    <div id="portfolioDrawerBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
+    <aside id="portfolioDrawerPanel" class="absolute right-0 top-0 bottom-0 w-full sm:max-w-md bg-surface-bright shadow-2xl flex flex-col z-10 border-l border-outline-variant/30">
+      
+      <div class="p-6 border-b border-outline-variant/20 flex items-center justify-between bg-surface-container-low/50">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">folder_special</span>
+          </div>
+          <div>
+            <h3 class="text-base font-black text-on-surface">Royal Portfolio</h3>
+            <p class="text-[11px] text-tertiary">Saved Journeys & Inquiries</p>
+          </div>
+        </div>
+        <button id="closePortfolioDrawer" class="p-2 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+
+      <div class="p-4 border-b border-outline-variant/20 flex gap-2 bg-surface">
+        <button id="tabInquiriesBtn" class="flex-1 py-2 px-3 rounded-xl bg-primary text-on-primary text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-sm">support_agent</span>
+          <span>Inquiries</span>
+        </button>
+        <button id="tabSavedBtn" class="flex-1 py-2 px-3 rounded-xl bg-surface-container text-on-surface-variant text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-sm">bookmark</span>
+          <span>Saved Trips</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
+        <div id="inquiriesView" class="flex flex-col gap-3">
+          <div class="flex items-center justify-between px-1">
+            <span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">Active Inquiries</span>
+            <button id="clearAllInquiriesBtn" class="text-[11px] text-tertiary hover:text-red-600 transition-colors cursor-pointer">Clear History</button>
+          </div>
+          <div id="inquiriesListContainer" class="flex flex-col gap-3"></div>
+        </div>
+
+        <div id="savedView" class="hidden flex flex-col gap-3">
+          <div class="flex items-center justify-between px-1">
+            <span class="text-[11px] font-bold text-tertiary uppercase tracking-wider">Bookmarked Journeys</span>
+          </div>
+          <div id="savedTripsContainer" class="flex flex-col gap-2"></div>
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-outline-variant/20 bg-surface-container/30 flex flex-col gap-2">
+        <a href="https://wa.me/919876543210?text=Hello%20Fly%20Anytime%20Royal%20Concierge" target="_blank" class="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-transform active:scale-95 duration-150">
+          <span class="material-symbols-outlined text-base">chat</span>
+          <span>Live WhatsApp Royal Concierge</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- INTERACTIVE TRIP PLANNING MODAL -->
+  <div id="planTripModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="modal-dialog-responsive clay-card bg-surface-bright rounded-3xl p-5 sm:p-8 border border-outline-variant/40 shadow-2xl relative my-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-full">Concierge Consultation</span>
+          <h3 id="modalPackageTitle" class="text-xl font-bold text-on-surface mt-1">Bespoke India Journey</h3>
+        </div>
+        <button id="closePlanModal" class="p-1 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+
+      <div id="modalSuccessAlert" class="hidden my-4 p-4 rounded-2xl bg-green-100 border border-green-300 text-green-900 text-sm font-semibold flex items-center gap-2">
+        <span class="material-symbols-outlined text-green-600">check_circle</span>
+        Consultation confirmed! Our royal travel orchestrator will connect via WhatsApp/Call within 15 minutes.
+      </div>
+
+      <form id="planTripForm" class="flex flex-col gap-4 pt-4">
+        <div>
+          <label class="text-[11px] font-bold text-tertiary uppercase">Full Name</label>
+          <div class="inset-clay-input p-3 rounded-xl mt-1">
+            <input required class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="e.g. Maharaja Vikramaditya">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-[11px] font-bold text-tertiary uppercase">Phone (with WhatsApp)</label>
+            <div class="inset-clay-input p-3 rounded-xl mt-1">
+              <input required type="tel" class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="+91 98765 43210">
+            </div>
+          </div>
+          <div>
+            <label class="text-[11px] font-bold text-tertiary uppercase">Preferred Travel Month</label>
+            <div class="inset-clay-input p-3 rounded-xl mt-1">
+              <input class="bg-transparent border-0 p-0 text-sm font-semibold text-on-surface focus:ring-0 w-full outline-hidden" placeholder="e.g. October 2025">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-[11px] font-bold text-tertiary uppercase">Special Curations & Preferences</label>
+          <div class="inset-clay-input p-3 rounded-xl mt-1">
+            <textarea rows="2" class="bg-transparent border-0 p-0 text-xs font-medium text-on-surface focus:ring-0 w-full outline-hidden" placeholder="e.g. Dietary preferences, private jet transfer from Udaipur to Varanasi"></textarea>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <button type="submit" class="primary-btn-3d flex-1 py-3.5 rounded-2xl text-on-primary font-bold text-sm shadow-md cursor-pointer flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-sm">send</span>
+            Submit Request
+          </button>
+          <button type="button" id="modalWhatsAppBtn" class="flex-1 py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm shadow-md cursor-pointer flex items-center justify-center gap-2 transition-transform active:scale-95 duration-150">
+            <span class="material-symbols-outlined text-sm">chat</span>
+            WhatsApp Concierge
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- LUXURY DIGITAL ITINERARY & BROCHURE MODAL -->
+  <div id="itineraryVoucherModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 hidden overflow-y-auto">
+    <div class="modal-dialog-responsive-lg itinerary-printable-voucher clay-card bg-surface-bright rounded-3xl p-5 sm:p-8 border border-outline-variant/40 shadow-2xl relative my-auto">
+      
+      <!-- Voucher Top Bar -->
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30 print-header">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-black">
+            <span class="material-symbols-outlined text-2xl rotate-45">flight</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-extrabold uppercase tracking-widest text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-full print-badge">Official Royal Itinerary</span>
+              <span id="voucherRef" class="text-[10px] font-mono text-tertiary">REF: FA-ROYAL-8821</span>
+            </div>
+            <h3 id="voucherTitle" class="text-xl sm:text-2xl font-black text-on-surface mt-0.5">Royal Rajputana Odyssey</h3>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 no-print">
+          <button id="printVoucherBtn" class="primary-btn-3d text-xs font-bold px-4 py-2 rounded-xl text-on-primary flex items-center gap-1.5 cursor-pointer shadow-sm">
+            <span class="material-symbols-outlined text-base">print</span>
+            <span>Print / PDF</span>
+          </button>
+          <button id="closeVoucherModal" class="p-1.5 rounded-xl hover:bg-surface-container text-on-surface-variant cursor-pointer">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Voucher Metadata Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-4 border-b border-outline-variant/20 text-xs print-section">
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Route Corridor</span>
+          <span id="voucherRoute" class="font-bold text-on-surface">Delhi • Udaipur • Jaipur</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Aviation Class</span>
+          <span id="voucherAviation" class="font-bold text-on-surface">Pilatus PC-24 Super Jet</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Duration</span>
+          <span id="voucherDuration" class="font-bold text-on-surface">7 Days / 6 Nights</span>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container">
+          <span class="text-[10px] font-bold text-tertiary uppercase block">Tariff Guidance</span>
+          <span id="voucherPrice" class="font-bold text-primary font-mono">₹4,85,000 / couple</span>
+        </div>
+      </div>
+
+      <!-- Voucher Inclusions List -->
+      <div class="py-4 border-b border-outline-variant/20 print-section">
+        <h4 class="text-xs font-bold text-tertiary uppercase tracking-wider mb-2">Exclusive Royal Privileges Included</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-on-surface-variant">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+            <span>Private General Aviation VIP lounge transfers</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+            <span>Grand Royal Heritage Suite bookings (Taj/Oberoi)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+            <span>24/7 Dedicated Indian Concierge Escort</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+            <span>Private Chauffeur Mercedes / Innova Crysta</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voucher Bottom CTAs -->
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 no-print">
+        <p class="text-[11px] text-tertiary">Official Fly Anytime Quotation • Subject to tail availability</p>
+        <button id="voucherWhatsAppBtn" class="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-transform active:scale-95 duration-150">
+          <span class="material-symbols-outlined text-base">chat</span>
+          <span>Claim via WhatsApp Concierge</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

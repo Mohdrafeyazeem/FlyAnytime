@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9F43"/>
+      <stop offset="50%" stop-color="#FF7A00"/>
+      <stop offset="100%" stop-color="#994700"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14213d"/>
+      <stop offset="100%" stop-color="#0a1128"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Background Rounded Shield -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)"/>
+  <rect width="60" height="60" x="2" y="2" rx="14" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.4"/>
+  
+  <!-- Stylized Royal Jet Wings Emblem -->
+  <g filter="url(#glow)">
+    <!-- Crown Finial -->
+    <path d="M26 18 L32 14 L38 18 L35 22 L29 22 Z" fill="url(#goldGrad)"/>
+    <!-- Swept Jet Wings -->
+    <path d="M32 20 L35 34 L52 42 L52 46 L34 40 L34 50 L39 53 L39 55 L32 53 L25 55 L25 53 L30 50 L30 40 L12 46 L12 42 L29 34 Z" fill="url(#goldGrad)"/>
+  </g>
+</svg>
